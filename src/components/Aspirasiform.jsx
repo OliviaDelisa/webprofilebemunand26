@@ -75,7 +75,7 @@ export default function AspirasiForm() {
   const [kategoriList, setKategoriList] = useState([]);
 
 useEffect(() => {
-  fetch(`${API_BASE}/kategori`)
+  fetch(`${API_BASE}/aspirasi/kategori`)
     .then((res) => res.json())
     .then((data) => setKategoriList(data))
     .catch(() => setKategoriList([])); // gagal fetch tetap tampilkan dropdown kosong, bukan crash
