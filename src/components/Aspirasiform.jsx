@@ -10,6 +10,9 @@ const PURPLE      = "#55193A";
 const PURPLE_SOFT = "#7A2A56";
 const GOLD        = "#D8833B";
 
+// Batas jumlah foto — samakan dengan upload.array("foto", 5) di backend
+const MAX_FOTO = 5;
+
 // Sesuaikan dengan data yang sebenarnya dipakai backend
 const KATEGORI_LIST = ["Akademik", "Fasilitas", "Kemahasiswaan", "Kesejahteraan", "Lainnya"];
 const FAKULTAS_LIST = [
@@ -27,8 +30,12 @@ const fieldClass =
 
 export default function AspirasiForm() {
   const [form, setForm]       = useState(initialForm);
-  const [foto, setFoto]       = useState(null);
-  const [preview, setPreview] = useState(null);
+
+  // foto sekarang array of File, preview array of object URL
+  const [fotos, setFotos]       = useState([]);
+  const [previews, setPreviews] = useState([]);
+  const [fotoErr, setFotoErr]   = useState("");
+
   const [loading, setLoading] = useState(false);
   const [status, setStatus]   = useState(null); // "success" | "error" | null
   const [errMsg, setErrMsg]   = useState("");
@@ -36,12 +43,33 @@ export default function AspirasiForm() {
   const update = (key, val) => setForm((f) => ({ ...f, [key]: val }));
 
   const handleFoto = (e) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    setFoto(file);
-    setPreview(URL.createObjectURL(file));
+    const files = Array.from(e.target.files || []);
+    if (!files.length) return;
+
+    setFotoErr("");
+
+    // Gabung dengan foto yang sudah dipilih sebelumnya, batasi maksimal MAX_FOTO
+    const combined = [...fotos, ...files];
+    if (combined.length > MAX_FOTO) {
+      setFotoErr(`Maksimal ${MAX_FOTO} foto. ${combined.length - MAX_FOTO} foto terakhir tidak ditambahkan.`);
+    }
+    const finalFiles = combined.slice(0, MAX_FOTO);
+
+    setFotos(finalFiles);
+    setPreviews(finalFiles.map((f) => URL.createObjectURL(f)));
+
+    // reset value input supaya user bisa pilih file yang sama lagi kalau dihapus lalu ditambah ulang
+    e.target.value = "";
   };
-  const removeFoto = () => { setFoto(null); setPreview(null); };
+
+  const removeFoto = (index) => {
+    setFotos((prev) => prev.filter((_, i) => i !== index));
+    setPreviews((prev) => {
+      URL.revokeObjectURL(prev[index]);
+      return prev.filter((_, i) => i !== index);
+    });
+    setFotoErr("");
+  };
 
   const isValid = form.fakultas && form.nama_kategori && form.isi.trim().length >= 10;
 
@@ -56,14 +84,19 @@ export default function AspirasiForm() {
       fd.append("fakultas", form.fakultas);
       fd.append("nama_kategori", form.nama_kategori);
       fd.append("isi", form.isi);
-      if (foto) fd.append("foto", foto);
+
+      // Semua foto di-append dengan key yang sama, sesuai upload.array("foto") di backend
+      fotos.forEach((file) => fd.append("foto", file));
 
       const res = await fetch(`${API_BASE}/aspirasi`, { method: "POST", body: fd });
       if (!res.ok) throw new Error("Gagal mengirim aspirasi. Coba lagi ya.");
 
       setStatus("success");
       setForm(initialForm);
-      removeFoto();
+      previews.forEach((p) => URL.revokeObjectURL(p));
+      setFotos([]);
+      setPreviews([]);
+      setFotoErr("");
     } catch (err) {
       setStatus("error");
       setErrMsg(err.message || "Terjadi kesalahan.");
@@ -201,26 +234,42 @@ export default function AspirasiForm() {
             <p className="text-[11px] text-gray-300 mt-1.5 text-right">{form.isi.length} karakter</p>
           </div>
 
-          {/* Foto */}
+          {/* Foto — sekarang mendukung banyak foto (maks MAX_FOTO) */}
           <div>
-            <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1.5">Foto (opsional)</label>
-            {preview ? (
-              <div className="relative w-20 h-20">
-                <img src={preview} alt="Preview" className="w-full h-full object-cover rounded-xl border border-gray-100" />
-                <button
-                  type="button"
-                  onClick={removeFoto}
-                  className="absolute -top-2 -right-2 bg-white shadow border border-gray-200 rounded-full w-5 h-5 flex items-center justify-center text-[11px] text-gray-400 hover:text-red-500 transition"
-                >
-                  ×
-                </button>
-              </div>
-            ) : (
-              <label className="flex items-center gap-2 border border-dashed border-gray-200 rounded-xl px-4 py-3 cursor-pointer hover:border-[#55193A]/30 transition text-xs text-gray-400 w-fit">
-                <input type="file" accept="image/*" onChange={handleFoto} className="hidden" />
-                <PlusIcon /> Unggah gambar
+            <div className="flex items-center justify-between mb-1.5">
+              <label className="text-xs font-semibold text-gray-400 uppercase tracking-wider">
+                Foto (opsional)
               </label>
-            )}
+              {fotos.length > 0 && (
+                <span className="text-[11px] text-gray-300">{fotos.length}/{MAX_FOTO}</span>
+              )}
+            </div>
+
+            <div className="flex flex-wrap gap-2.5">
+              {previews.map((src, i) => (
+                <div key={src} className="relative w-20 h-20">
+                  <img src={src} alt={`Preview ${i + 1}`} className="w-full h-full object-cover rounded-xl border border-gray-100" />
+                  <button
+                    type="button"
+                    onClick={() => removeFoto(i)}
+                    className="absolute -top-2 -right-2 bg-white shadow border border-gray-200 rounded-full w-5 h-5 flex items-center justify-center text-[11px] text-gray-400 hover:text-red-500 transition"
+                  >
+                    ×
+                  </button>
+                </div>
+              ))}
+
+              {fotos.length < MAX_FOTO && (
+                <label className="flex flex-col items-center justify-center gap-1 border border-dashed border-gray-200 rounded-xl w-20 h-20 cursor-pointer hover:border-[#55193A]/30 transition text-gray-400">
+                  <input type="file" accept="image/*" multiple onChange={handleFoto} className="hidden" />
+                  <PlusIcon />
+                  <span className="text-[10px]">Tambah</span>
+                </label>
+              )}
+            </div>
+
+            {fotoErr && <p className="text-[11px] text-red-500 mt-1.5">{fotoErr}</p>}
+            <p className="text-[11px] text-gray-300 mt-1.5">Bisa unggah lebih dari satu foto, maksimal {MAX_FOTO}.</p>
           </div>
 
           {/* Submit */}
