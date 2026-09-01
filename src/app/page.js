@@ -1,65 +1,346 @@
-import Image from "next/image";
+"use client";
+import { useEffect, useRef } from "react";
 
 export default function Home() {
+  const heroTextRef = useRef(null);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    const els = document.querySelectorAll(".animate-on-scroll");
+    els.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <>
+      <style>{`
+        .animate-on-scroll {
+          opacity: 0;
+          transform: translateY(40px);
+          transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .animate-on-scroll.visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        .animate-on-scroll.delay-1 { transition-delay: 0.1s; }
+        .animate-on-scroll.delay-2 { transition-delay: 0.25s; }
+        .animate-on-scroll.delay-3 { transition-delay: 0.4s; }
+        .animate-on-scroll.delay-4 { transition-delay: 0.55s; }
+
+        .slide-left {
+          opacity: 0;
+          transform: translateX(-60px);
+          transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .slide-left.visible {
+          opacity: 1;
+          transform: translateX(0);
+        }
+
+        .slide-right {
+          opacity: 0;
+          transform: translateX(60px);
+          transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .slide-right.visible {
+          opacity: 1;
+          transform: translateX(0);
+        }
+
+        /* ── MOBILE OVERRIDES ── */
+        @media (max-width: 768px) {
+          .bem-title {
+            font-size: clamp(2.8rem, 14vw, 4.5rem) !important;
+            text-align: center !important;
+          }
+          .diagonal-section {
+            height: auto !important;
+            min-height: 380px !important;
+            padding-bottom: 60px !important;
+          }
+          .diagonal-inner {
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            text-align: center !important;
+            padding: 40px 24px 60px !important;
+            gap: 28px !important;
+          }
+          .bem-wrapper {
+            transform: rotate(0deg) !important;
+            text-align: center !important;
+          }
+          .selamat-text {
+            font-size: 0.72rem !important;
+            letter-spacing: 2px !important;
+            text-align: center !important;
+          }
+          .kabinet-label {
+            text-align: center !important;
+          }
+          .kabinet-section {
+            padding: 60px 20px !important;
+          }
+          .kabinet-section h2 {
+            font-size: 1.8rem !important;
+          }
+        }
+      `}</style>
+
+      <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+
+        {/* ── HERO VIDEO SECTION ── */}
+        <section
+          style={{
+            position: "relative",
+            width: "100%",
+            height: "100vh",
+            overflow: "hidden",
+          }}
+        >
+          {/* VIDEO */}
+          <video
+            autoPlay loop muted playsInline
+            style={{
+              position: "absolute",
+              top: "50%", left: "50%",
+              transform: "translate(-50%, -50%)",
+              width: "100%", height: "100%",
+              objectFit: "cover",
+              zIndex: 1,
+            }}
+          >
+            <source src="/logo-video.mp4" type="video/mp4" />
+          </video>
+
+          {/* OVERLAY */}
+          <div style={{
+            position: "absolute", inset: 0,
+            background: "rgba(0,0,0,0.50)",
+            zIndex: 2,
+          }} />
+
+          {/* WAVE BOTTOM — menyatu ke section diagonal di bawah */}
+          <div style={{
+            position: "absolute", bottom: -2, left: 0,
+            width: "100%", zIndex: 4, lineHeight: 0,
+          }}>
+            <svg
+              viewBox="0 0 1440 140"
+              preserveAspectRatio="none"
+              style={{ display: "block", width: "100%", height: "140px" }}
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              <defs>
+                <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%"   stopColor="#3b0f26" />
+                  <stop offset="50%"  stopColor="#55193A" />
+                  <stop offset="100%" stopColor="#7a2550" />
+                </linearGradient>
+              </defs>
+              {/* layer belakang — sedikit transparan, kasih kesan kedalaman */}
+              <path
+                d="M0,60 C200,20 400,100 720,60 C1040,20 1240,90 1440,50 L1440,140 L0,140 Z"
+                fill="url(#waveGrad)"
+                opacity="0.45"
+              />
+              {/* layer depan — solid, warna sama dengan background section bawah */}
+              <path
+                d="M0,85 C180,50 400,115 720,80 C1040,45 1260,105 1440,75 L1440,140 L0,140 Z"
+                fill="url(#waveGrad)"
+              />
+            </svg>
+          </div>
+        </section>
+
+        {/* ── DIAGONAL SECTION ── */}
+        <section
+          className="diagonal-section"
+          style={{
+            position: "relative",
+            width: "100%",
+            height: "520px",
+            overflow: "hidden",
+            background: "linear-gradient(135deg, #3b0f26 0%, #55193A 45%, #7a2550 100%)",
+          }}
+        >
+          {/* Diagonal slash oranye */}
+          <div style={{
+            position: "absolute", bottom: 0, left: 0,
+            width: "100%", zIndex: 2,
+          }}>
+            <svg
+              viewBox="0 0 1440 200"
+              preserveAspectRatio="none"
+              style={{ display: "block", width: "100%", height: "200px" }}
             >
-              Learning
-            </a>{" "}
-            center.
+              <polygon
+                points="0,200 1440,200 1440,60 0,160"
+                fill="#D8833B"
+                opacity="0.12"
+              />
+              <line
+                x1="0" y1="160" x2="1440" y2="60"
+                stroke="#D8833B" strokeWidth="2.5"
+              />
+              <line
+                x1="0" y1="172" x2="1440" y2="72"
+                stroke="#D8833B" strokeWidth="0.8"
+                opacity="0.4"
+              />
+            </svg>
+          </div>
+
+          {/* Lingkaran dekorasi */}
+          <div style={{
+            position: "absolute", top: "-80px", left: "-80px",
+            width: "320px", height: "320px",
+            borderRadius: "50%",
+            border: "1px solid rgba(216,131,59,0.18)",
+            zIndex: 1,
+          }} />
+          <div style={{
+            position: "absolute", top: "-40px", left: "-40px",
+            width: "220px", height: "220px",
+            borderRadius: "50%",
+            border: "1px solid rgba(216,131,59,0.1)",
+            zIndex: 1,
+          }} />
+
+          {/* KONTEN */}
+          <div
+            className="diagonal-inner"
+            style={{
+              position: "relative", zIndex: 3,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              height: "100%",
+              padding: "0 5% 60px",
+              flexWrap: "wrap",
+              gap: "16px",
+            }}
+          >
+
+            {/* KIRI */}
+            <div
+              className="animate-on-scroll slide-left delay-1"
+              style={{ color: "rgba(255,255,255,0.80)" }}
+            >
+              <p
+                className="selamat-text"
+                style={{
+                  fontSize: "0.85rem",
+                  letterSpacing: "4px",
+                  textTransform: "uppercase",
+                  margin: "0 0 12px",
+                }}
+              >
+                Selamat Datang di Laman Resmi,
+              </p>
+              <p
+                className="kabinet-label"
+                style={{
+                  fontSize: "1rem",
+                  color: "#D8833B",
+                  letterSpacing: "2px",
+                  margin: 0,
+                  fontWeight: 700,
+                }}
+              >
+                Kabinet Rakit Makna
+              </p>
+            </div>
+
+            {/* KANAN — BEM KM UNAND 2026 */}
+            <div
+              className="animate-on-scroll slide-right delay-2 bem-wrapper"
+              style={{
+                textAlign: "right",
+                transform: "rotate(-5deg)",
+                transformOrigin: "right bottom",
+                marginBottom: "20px",
+              }}
+            >
+              <div
+                className="bem-title"
+                style={{
+                  fontSize: "clamp(3.5rem, 7vw, 6.5rem)",
+                  fontWeight: 900,
+                  lineHeight: 0.88,
+                  color: "#ffffff",
+                  letterSpacing: "-1px",
+                  fontFamily: "'Arial Black', 'Arial Bold', Arial, sans-serif",
+                  textTransform: "uppercase",
+                  textShadow: "0 6px 30px rgba(0,0,0,0.5)",
+                }}
+              >
+                BEM KM
+                <br />
+                UNAND
+                <br />
+                <span style={{
+                  color: "#D8833B",
+                  textShadow: "0 4px 20px rgba(216,131,59,0.45)",
+                }}>
+                  2026
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        {/* ── SECTION KABINET ── */}
+        <section
+          className="kabinet-section"
+          style={{
+            background: "#ffffff",
+            padding: "100px 24px",
+            textAlign: "center",
+          }}
+        >
+          <h2
+            className="animate-on-scroll delay-1"
+            style={{
+              fontSize: "2.5rem",
+              fontWeight: 800,
+              marginBottom: "20px",
+              color: "#55193A",
+            }}
+          >
+            Kabinet Rakit Makna
+          </h2>
+
+          <p
+            className="animate-on-scroll delay-2"
+            style={{
+              maxWidth: "800px",
+              margin: "0 auto",
+              fontSize: "1.1rem",
+              lineHeight: 1.8,
+              color: "#555",
+            }}
+          >
+            Bersama merakit makna dalam setiap langkah pengabdian, kolaborasi,
+            dan inovasi demi menciptakan lingkungan kampus yang progresif,
+            inklusif, dan berdampak bagi seluruh mahasiswa Universitas Andalas.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+        </section>
+
+      </div>
+    </>
   );
 }
