@@ -54,22 +54,22 @@ export default function Header() {
   useEffect(() => { setMenuOpen(false); setMTentang(false); }, [pathname]);
 
   const isTentangActive = pathname.startsWith("/tentang");
+  const isHome = pathname === "/";
+  const isTransparent = isHome && !scrolled;
 
-  // ← saat transparan (belum scroll), teks putih. saat scrolled, teks gelap
-  const navTextClass = scrolled
-    ? "text-gray-600 hover:text-[#55193A] hover:bg-[#55193A]/5"
-    : "text-white/90 hover:text-white hover:bg-white/10";
+  // Header hanya transparan di Home; halaman lain selalu terlihat jelas
+  const navTextClass = isTransparent
+    ? "text-white/90 hover:text-white hover:bg-white/10"
+    : "text-gray-600 hover:text-[#55193A] hover:bg-[#55193A]/5";
 
-  const navActiveClass = scrolled
-    ? "text-[#55193A]"
-    : "text-white";
+  const navActiveClass = isTransparent ? "text-white" : "text-[#55193A]";
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-white/97 backdrop-blur-md shadow-md"
-          : "bg-transparent"  // ← transparan saat di atas
+        isTransparent
+          ? "bg-transparent"
+          : "bg-white/97 backdrop-blur-md shadow-md"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
@@ -84,14 +84,20 @@ export default function Header() {
             />
           </div>
           <div className="leading-tight hidden sm:block">
-            <p className={`text-sm font-black tracking-wide uppercase transition-colors duration-500 ${
-              scrolled ? "" : "!text-white"
-            }`} style={scrolled ? { color: PURPLE } : {}}>
+            <p
+              className={`text-sm font-black tracking-wide uppercase transition-colors duration-500 ${
+                isTransparent ? "!text-white" : ""
+              }`}
+              style={!isTransparent ? { color: PURPLE } : {}}
+            >
               KABINET RAKIT MAKNA
             </p>
-            <p className={`text-[10px] font-semibold uppercase tracking-widest transition-colors duration-500 ${
-              scrolled ? "" : "!text-white/80"
-            }`} style={scrolled ? { color: GOLD } : {}}>
+            <p
+              className={`text-[10px] font-semibold uppercase tracking-widest transition-colors duration-500 ${
+                isTransparent ? "!text-white/80" : ""
+              }`}
+              style={!isTransparent ? { color: GOLD } : {}}
+            >
               BEM KM Universitas Andalas
             </p>
           </div>
@@ -194,13 +200,13 @@ export default function Header() {
           aria-label="Toggle menu"
         >
           <span className={`block w-5 h-0.5 transition-all duration-300 ${
-            scrolled ? "bg-gray-700" : "bg-white"
+            isTransparent ? "bg-white" : "bg-gray-700"
           } ${menuOpen ? "rotate-45 translate-y-1.5" : ""}`} />
           <span className={`block w-5 h-0.5 my-1 transition-all duration-300 ${
-            scrolled ? "bg-gray-700" : "bg-white"
+            isTransparent ? "bg-white" : "bg-gray-700"
           } ${menuOpen ? "opacity-0" : ""}`} />
           <span className={`block w-5 h-0.5 transition-all duration-300 ${
-            scrolled ? "bg-gray-700" : "bg-white"
+            isTransparent ? "bg-white" : "bg-gray-700"
           } ${menuOpen ? "-rotate-45 -translate-y-1.5" : ""}`} />
         </button>
       </div>
