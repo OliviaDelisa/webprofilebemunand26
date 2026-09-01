@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+
 
 // ── Ganti sesuai domain backend Express yang sudah dihosting ──
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "https://api-admin-bem.example.com/api";
@@ -14,7 +15,7 @@ const GOLD        = "#D8833B";
 const MAX_FOTO = 5;
 
 // Sesuaikan dengan data yang sebenarnya dipakai backend
-const KATEGORI_LIST = ["Akademik", "Fasilitas", "Kemahasiswaan", "Kesejahteraan", "Lainnya"];
+
 const FAKULTAS_LIST = [
   "Fakultas Kedokteran", "Fakultas Hukum", "Fakultas Ekonomi dan Bisnis",
   "Fakultas Pertanian", "Fakultas Peternakan", "Fakultas Ilmu Budaya",
@@ -70,6 +71,15 @@ export default function AspirasiForm() {
     });
     setFotoErr("");
   };
+
+  const [kategoriList, setKategoriList] = useState([]);
+
+useEffect(() => {
+  fetch(`${API_BASE}/kategori`)
+    .then((res) => res.json())
+    .then((data) => setKategoriList(data))
+    .catch(() => setKategoriList([])); // gagal fetch tetap tampilkan dropdown kosong, bukan crash
+}, []);
 
   const isValid = form.fakultas && form.nama_kategori && form.isi.trim().length >= 10;
 
@@ -215,9 +225,9 @@ export default function AspirasiForm() {
             <div>
               <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1.5">Kategori</label>
               <select value={form.nama_kategori} onChange={(e) => update("nama_kategori", e.target.value)} className={`${fieldClass} cursor-pointer`}>
-                <option value="">Pilih kategori</option>
-                {KATEGORI_LIST.map((k) => <option key={k} value={k}>{k}</option>)}
-              </select>
+  <option value="">Pilih kategori</option>
+  {kategoriList.map((k) => <option key={k.id} value={k.nama_kategori}>{k.nama_kategori}</option>)}
+</select>
             </div>
           </div>
 
