@@ -77,7 +77,7 @@ export default function Footer() {
             <div className="flex items-center gap-3 mb-5">
               <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center overflow-hidden flex-shrink-0">
                 <img
-                  src="/images/logo.png"
+                  src="/images/Logo.png"
                   alt="Logo"
                   className="w-full h-full object-contain"
                   onError={(e) => {

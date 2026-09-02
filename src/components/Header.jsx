@@ -79,7 +79,7 @@ export default function Header() {
         <Link href="/" className="flex items-center gap-3 flex-shrink-0 group">
           <div className="w-12 h-12 rounded-full flex items-center justify-center overflow-hidden bg-white/20">
             <img
-              src="/images/logo.png"
+              src="/images/Logo.png"
               alt="Logo BEM KM Universitas Andalas"
               className="w-full h-full object-contain"
             />
