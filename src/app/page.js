@@ -1,9 +1,24 @@
 "use client";
-import { useEffect, useRef } from "react";
+
+import { useEffect, useState } from "react";
+
+const marqueeItems = [
+  "BEM KM UNAND",
+  "Rakit Makna",
+  "Kebersamaan",
+  "Inovasi",
+  "Pengabdian",
+  "Semangat Mahasiswa",
+];
 
 export default function Home() {
-  const heroTextRef = useRef(null);
-  const sectionRef = useRef(null);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -14,13 +29,15 @@ export default function Home() {
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.1 }
     );
 
-    const els = document.querySelectorAll(".animate-on-scroll");
-    els.forEach((el) => observer.observe(el));
+    const elements = document.querySelectorAll(".animate-on-scroll, .slide-left, .slide-right");
+    elements.forEach((el) => observer.observe(el));
 
-    return () => observer.disconnect();
+    return () => {
+      elements.forEach((el) => observer.unobserve(el));
+    };
   }, []);
 
   return (
@@ -60,7 +77,17 @@ export default function Home() {
           transform: translateX(0);
         }
 
-        /* ── MOBILE OVERRIDES ── */
+        .marquee-track {
+          display: flex;
+          width: max-content;
+          animation: marqueeScroll 22s linear infinite;
+        }
+
+        @keyframes marqueeScroll {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+
         @media (max-width: 768px) {
           .bem-title {
             font-size: clamp(2.8rem, 14vw, 4.5rem) !important;
@@ -101,8 +128,6 @@ export default function Home() {
       `}</style>
 
       <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
-
-        {/* ── HERO VIDEO SECTION ── */}
         <section
           style={{
             position: "relative",
@@ -111,14 +136,18 @@ export default function Home() {
             overflow: "hidden",
           }}
         >
-          {/* VIDEO */}
           <video
-            autoPlay loop muted playsInline
+            autoPlay
+            loop
+            muted
+            playsInline
             style={{
               position: "absolute",
-              top: "50%", left: "50%",
+              top: "50%",
+              left: "50%",
               transform: "translate(-50%, -50%)",
-              width: "100%", height: "100%",
+              width: "100%",
+              height: "100%",
               objectFit: "cover",
               zIndex: 1,
             }}
@@ -126,18 +155,25 @@ export default function Home() {
             <source src="/logo-video.mp4" type="video/mp4" />
           </video>
 
-          {/* OVERLAY */}
-          <div style={{
-            position: "absolute", inset: 0,
-            background: "rgba(0,0,0,0.50)",
-            zIndex: 2,
-          }} />
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              background: "rgba(0,0,0,0.50)",
+              zIndex: 2,
+            }}
+          />
 
-          {/* WAVE BOTTOM — menyatu ke section diagonal di bawah */}
-          <div style={{
-            position: "absolute", bottom: -2, left: 0,
-            width: "100%", zIndex: 4, lineHeight: 0,
-          }}>
+          <div
+            style={{
+              position: "absolute",
+              bottom: -2,
+              left: 0,
+              width: "100%",
+              zIndex: 4,
+              lineHeight: 0,
+            }}
+          >
             <svg
               viewBox="0 0 1440 140"
               preserveAspectRatio="none"
@@ -145,18 +181,16 @@ export default function Home() {
             >
               <defs>
                 <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%"   stopColor="#3b0f26" />
-                  <stop offset="50%"  stopColor="#55193A" />
+                  <stop offset="0%" stopColor="#3b0f26" />
+                  <stop offset="50%" stopColor="#55193A" />
                   <stop offset="100%" stopColor="#7a2550" />
                 </linearGradient>
               </defs>
-              {/* layer belakang — sedikit transparan, kasih kesan kedalaman */}
               <path
                 d="M0,60 C200,20 400,100 720,60 C1040,20 1240,90 1440,50 L1440,140 L0,140 Z"
                 fill="url(#waveGrad)"
                 opacity="0.45"
               />
-              {/* layer depan — solid, warna sama dengan background section bawah */}
               <path
                 d="M0,85 C180,50 400,115 720,80 C1040,45 1260,105 1440,75 L1440,140 L0,140 Z"
                 fill="url(#waveGrad)"
@@ -165,7 +199,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── DIAGONAL SECTION ── */}
         <section
           className="diagonal-section"
           style={{
@@ -176,54 +209,56 @@ export default function Home() {
             background: "linear-gradient(135deg, #3b0f26 0%, #55193A 45%, #7a2550 100%)",
           }}
         >
-          {/* Diagonal slash oranye */}
-          <div style={{
-            position: "absolute", bottom: 0, left: 0,
-            width: "100%", zIndex: 2,
-          }}>
+          <div
+            style={{
+              position: "absolute",
+              bottom: 0,
+              left: 0,
+              width: "100%",
+              zIndex: 2,
+            }}
+          >
             <svg
               viewBox="0 0 1440 200"
               preserveAspectRatio="none"
               style={{ display: "block", width: "100%", height: "200px" }}
             >
-              <polygon
-                points="0,200 1440,200 1440,60 0,160"
-                fill="#D8833B"
-                opacity="0.12"
-              />
-              <line
-                x1="0" y1="160" x2="1440" y2="60"
-                stroke="#D8833B" strokeWidth="2.5"
-              />
-              <line
-                x1="0" y1="172" x2="1440" y2="72"
-                stroke="#D8833B" strokeWidth="0.8"
-                opacity="0.4"
-              />
+              <polygon points="0,200 1440,200 1440,60 0,160" fill="#D8833B" opacity="0.12" />
+              <line x1="0" y1="160" x2="1440" y2="60" stroke="#D8833B" strokeWidth="2.5" />
+              <line x1="0" y1="172" x2="1440" y2="72" stroke="#D8833B" strokeWidth="0.8" opacity="0.4" />
             </svg>
           </div>
 
-          {/* Lingkaran dekorasi */}
-          <div style={{
-            position: "absolute", top: "-80px", left: "-80px",
-            width: "320px", height: "320px",
-            borderRadius: "50%",
-            border: "1px solid rgba(216,131,59,0.18)",
-            zIndex: 1,
-          }} />
-          <div style={{
-            position: "absolute", top: "-40px", left: "-40px",
-            width: "220px", height: "220px",
-            borderRadius: "50%",
-            border: "1px solid rgba(216,131,59,0.1)",
-            zIndex: 1,
-          }} />
+          <div
+            style={{
+              position: "absolute",
+              top: "-80px",
+              left: "-80px",
+              width: "320px",
+              height: "320px",
+              borderRadius: "50%",
+              border: "1px solid rgba(216,131,59,0.18)",
+              zIndex: 1,
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              top: "-40px",
+              left: "-40px",
+              width: "220px",
+              height: "220px",
+              borderRadius: "50%",
+              border: "1px solid rgba(216,131,59,0.1)",
+              zIndex: 1,
+            }}
+          />
 
-          {/* KONTEN */}
           <div
             className="diagonal-inner"
             style={{
-              position: "relative", zIndex: 3,
+              position: "relative",
+              zIndex: 3,
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
@@ -233,12 +268,7 @@ export default function Home() {
               gap: "16px",
             }}
           >
-
-            {/* KIRI */}
-            <div
-              className="animate-on-scroll slide-left delay-1"
-              style={{ color: "rgba(255,255,255,0.80)" }}
-            >
+            <div className="animate-on-scroll slide-left delay-1" style={{ color: "rgba(255,255,255,0.80)" }}>
               <p
                 className="selamat-text"
                 style={{
@@ -264,7 +294,6 @@ export default function Home() {
               </p>
             </div>
 
-            {/* KANAN — BEM KM UNAND 2026 */}
             <div
               className="animate-on-scroll slide-right delay-2 bem-wrapper"
               style={{
@@ -291,19 +320,19 @@ export default function Home() {
                 <br />
                 UNAND
                 <br />
-                <span style={{
-                  color: "#D8833B",
-                  textShadow: "0 4px 20px rgba(216,131,59,0.45)",
-                }}>
+                <span
+                  style={{
+                    color: "#D8833B",
+                    textShadow: "0 4px 20px rgba(216,131,59,0.45)",
+                  }}
+                >
                   2026
                 </span>
               </div>
             </div>
-
           </div>
         </section>
 
-        {/* ── SECTION KABINET ── */}
         <section
           className="kabinet-section"
           style={{
@@ -334,9 +363,9 @@ export default function Home() {
               color: "#555",
             }}
           >
-            Bersama merakit makna dalam setiap langkah pengabdian, kolaborasi,
-            dan inovasi demi menciptakan lingkungan kampus yang progresif,
-            inklusif, dan berdampak bagi seluruh mahasiswa Universitas Andalas.
+            Bersama merakit makna dalam setiap langkah pengabdian, kolaborasi, dan inovasi demi
+            menciptakan lingkungan kampus yang progresif, inklusif, dan berdampak bagi seluruh
+            mahasiswa Universitas Andalas.
           </p>
         </section>
 

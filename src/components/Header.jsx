@@ -15,14 +15,15 @@ const tentangItems = [
 ];
 
 const navLinks = [
-  { href: "/",          label: "Home",      dropdown: null         },
-  { href: "/tentang",   label: "Tentang",   dropdown: tentangItems },
-  { href: "/aspirasi",  label: "Aspirasi",  dropdown: null         },
-  { href: "/artikel",   label: "Artikel",   dropdown: null         },
-  { href: "/event",     label: "Event",     dropdown: null         },
-  { href: "/statistik", label: "Statistik", dropdown: null         },
-  { href: "/galery",    label: "Galery",    dropdown: null         },
-  { href: "/kontak",    label: "Kontak",    dropdown: null         },
+  { href: "/",          label: "Home",                    dropdown: null         },
+  { href: "/tentang",   label: "Tentang",                 dropdown: tentangItems },
+  { href: "/aspirasi",  label: "Aspirasi",                dropdown: null         },
+  { href: "/artikel",   label: "Artikel",                 dropdown: null         },
+  { href: "/event",     label: "Event",                   dropdown: null         },
+  { href: "/pengumuman", label: "Pengumuman",             dropdown: null         },
+  { href: "/statistik", label: "Statistik",               dropdown: null         },
+  { href: "/gallery",   label: "Galeri",                  dropdown: null         },
+  { href: "/kontak",    label: "Kontak",                  dropdown: null         },
 ];
 
 const PURPLE = "#55193A";
