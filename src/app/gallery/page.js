@@ -4,6 +4,18 @@ import { useEffect, useState } from "react";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "https://bemkmunand.site/api";
 
+// Origin backend (tanpa "/api"), dipakai buat prefix path gambar seperti "/uploads/xxx.webp"
+const BACKEND_ORIGIN = API_BASE.replace(/\/api\/?$/, "");
+
+// Gabungin path gambar relatif dari database dengan origin backend.
+// Kalau sudah full URL (http...) atau file lokal Next.js (/images/...), biarkan apa adanya.
+const resolveImageUrl = (path) => {
+  if (!path) return "/images/placeholder.jpg";
+  if (/^https?:\/\//i.test(path)) return path;
+  if (path.startsWith("/images/")) return path;
+  return `${BACKEND_ORIGIN}${path.startsWith("/") ? "" : "/"}${path}`;
+};
+
 const safeArray = (value) => {
   if (Array.isArray(value)) return value.filter(Boolean);
   if (typeof value === "string") {
@@ -54,11 +66,52 @@ const extractRows = (payload) => {
   return [];
 };
 
+// ── Kartu galeri: full-bleed image + auto-slideshow kalau lebih dari 1 foto ──
+function GalleryCard({ item, onClick }) {
+  const images = item.images && item.images.length ? item.images : [item.cover_image].filter(Boolean);
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    if (images.length <= 1) return undefined;
+    const id = setInterval(() => {
+      setIndex((prev) => (prev + 1) % images.length);
+    }, 3200);
+    return () => clearInterval(id);
+  }, [images.length]);
+
+  const displayImages = images.length > 0 ? images : ["/images/placeholder.jpg"];
+
+  return (
+    <div className="gallery-item" onClick={() => onClick(item)}>
+      {displayImages.map((src, i) => (
+        <img
+          key={`${src}-${i}`}
+          src={resolveImageUrl(src)}
+          alt={item.title}
+          className={`gallery-item-image ${i === index ? "active" : ""}`}
+        />
+      ))}
+
+      {displayImages.length > 1 && (
+        <div className="gallery-item-counter">
+          {String(index + 1).padStart(2, "0")}/{String(displayImages.length).padStart(2, "0")}
+        </div>
+      )}
+
+      <div className="gallery-item-overlay">
+        <h4 className="gallery-item-title">{item.title}</h4>
+        <p className="gallery-item-desc">{item.description}</p>
+      </div>
+    </div>
+  );
+}
+
 export default function GalleryPage() {
   const [content, setContent] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
+  const [modalIndex, setModalIndex] = useState(0);
 
   useEffect(() => {
     let active = true;
@@ -124,73 +177,112 @@ export default function GalleryPage() {
     };
   }, []);
 
+  const openModal = (item) => {
+    setSelectedImage(item);
+    setModalIndex(0);
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null);
+    setModalIndex(0);
+  };
+
+  const modalImages = selectedImage
+    ? selectedImage.images && selectedImage.images.length
+      ? selectedImage.images
+      : [selectedImage.cover_image].filter(Boolean)
+    : [];
+
+  const goPrev = (e) => {
+    e.stopPropagation();
+    setModalIndex((i) => (i - 1 + modalImages.length) % modalImages.length);
+  };
+
+  const goNext = (e) => {
+    e.stopPropagation();
+    setModalIndex((i) => (i + 1) % modalImages.length);
+  };
+
   return (
     <div style={{ background: "#fff", paddingTop: "88px" }}>
       <style>{`
         .gallery-grid {
-          display: flex;
-          gap: 16px;
-          overflow-x: auto;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 18px;
           padding: 24px 24px;
           max-width: 1400px;
           margin: 0 auto;
-          scroll-behavior: smooth;
-        }
-
-        .gallery-grid::-webkit-scrollbar {
-          height: 6px;
-        }
-
-        .gallery-grid::-webkit-scrollbar-track {
-          background: rgba(85, 25, 58, 0.08);
-          border-radius: 10px;
-        }
-
-        .gallery-grid::-webkit-scrollbar-thumb {
-          background: #D8833B;
-          border-radius: 10px;
         }
 
         .gallery-item {
-          cursor: pointer;
-          border-radius: 12px;
+          position: relative;
+          aspect-ratio: 4 / 3;
+          border-radius: 16px;
           overflow: hidden;
-          box-shadow: 0 12px 32px rgba(85, 25, 58, 0.08);
+          cursor: pointer;
+          background: #1a1a1a;
+          box-shadow: 0 12px 32px rgba(85, 25, 58, 0.12);
           border: 1px solid rgba(85, 25, 58, 0.08);
-          background: #fff;
-          transition: all 0.3s ease;
-          flex: 0 0 240px;
-          min-width: 240px;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .gallery-item:hover {
-          transform: translateY(-6px);
-          box-shadow: 0 20px 50px rgba(85, 25, 58, 0.15);
+          transform: translateY(-4px);
+          box-shadow: 0 18px 44px rgba(85, 25, 58, 0.2);
         }
 
-        .gallery-item img {
+        .gallery-item-image {
+          position: absolute;
+          inset: 0;
           width: 100%;
-          height: 200px;
+          height: 100%;
           object-fit: cover;
-          display: block;
+          opacity: 0;
+          transition: opacity 1s ease;
         }
 
-        .gallery-item-content {
-          padding: 14px;
+        .gallery-item-image.active {
+          opacity: 1;
         }
 
-        .gallery-item h4 {
-          margin: 0 0 6px;
-          color: #55193A;
-          font-size: 0.95rem;
+        .gallery-item-counter {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          background: rgba(85, 25, 58, 0.85);
+          color: #fff;
+          font-size: 0.62rem;
           font-weight: 700;
+          padding: 4px 9px;
+          border-radius: 999px;
+          letter-spacing: 0.03em;
+          z-index: 2;
         }
 
-        .gallery-item p {
+        .gallery-item-overlay {
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          padding: 30px 14px 14px;
+          background: linear-gradient(180deg, transparent 0%, rgba(30, 8, 20, 0.35) 40%, rgba(30, 8, 20, 0.92) 100%);
+          color: #fff;
+          z-index: 1;
+        }
+
+        .gallery-item-title {
+          margin: 0 0 4px;
+          font-size: 0.92rem;
+          font-weight: 700;
+          line-height: 1.25;
+        }
+
+        .gallery-item-desc {
           margin: 0;
-          color: #666;
-          font-size: 0.85rem;
-          line-height: 1.4;
+          font-size: 0.76rem;
+          opacity: 0.88;
+          line-height: 1.35;
           display: -webkit-box;
           -webkit-line-clamp: 2;
           -webkit-box-orient: vertical;
@@ -218,7 +310,7 @@ export default function GalleryPage() {
           position: relative;
           max-width: 800px;
           width: 100%;
-          background: #fff;
+          background: #000;
           border-radius: 12px;
           overflow: hidden;
           animation: slideUp 0.3s ease;
@@ -229,15 +321,22 @@ export default function GalleryPage() {
           to { transform: translateY(0); opacity: 1; }
         }
 
+        .modal-image-wrap {
+          position: relative;
+          background: #000;
+        }
+
         .modal-image {
           width: 100%;
           max-height: 60vh;
-          object-fit: cover;
+          object-fit: contain;
           display: block;
+          margin: 0 auto;
         }
 
         .modal-body {
-          padding: 24px;
+          padding: 14px 20px 18px;
+          background: rgba(20, 6, 14, 0.9);
         }
 
         .modal-close {
@@ -263,18 +362,61 @@ export default function GalleryPage() {
           background: rgba(0, 0, 0, 0.9);
         }
 
-        @media (max-width: 768px) {
+        .modal-nav-btn {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          background: rgba(0, 0, 0, 0.55);
+          border: none;
+          color: #fff;
+          width: 42px;
+          height: 42px;
+          border-radius: 50%;
+          font-size: 1.5rem;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 5;
+          transition: background 0.2s ease;
+        }
+
+        .modal-nav-btn:hover {
+          background: rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-nav-btn.prev {
+          left: 12px;
+        }
+
+        .modal-nav-btn.next {
+          right: 12px;
+        }
+
+        .modal-counter {
+          position: absolute;
+          top: 14px;
+          left: 14px;
+          background: rgba(85, 25, 58, 0.85);
+          color: #fff;
+          font-size: 0.72rem;
+          font-weight: 700;
+          padding: 5px 11px;
+          border-radius: 999px;
+          z-index: 5;
+        }
+
+        @media (max-width: 900px) {
           .gallery-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+
+        @media (max-width: 560px) {
+          .gallery-grid {
+            grid-template-columns: 1fr;
             padding: 24px 16px;
-          }
-
-          .gallery-item {
-            flex: 0 0 180px;
-            min-width: 180px;
-          }
-
-          .gallery-item img {
-            height: 160px;
+            gap: 14px;
           }
 
           .modal-body {
@@ -314,7 +456,7 @@ export default function GalleryPage() {
         </h1>
       </div>
 
-      {/* Gallery Scroll */}
+      {/* Gallery Grid */}
       <div style={{ background: "#fff", padding: "24px 0" }}>
         {loading ? (
           <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "40px 24px", textAlign: "center" }}>
@@ -339,20 +481,7 @@ export default function GalleryPage() {
         ) : content.length > 0 ? (
           <div className="gallery-grid">
             {content.map((item) => (
-              <div
-                key={item.id || item.title}
-                className="gallery-item"
-                onClick={() => setSelectedImage(item)}
-              >
-                <img
-                  src={item.cover_image || item.images?.[0] || "/images/placeholder.jpg"}
-                  alt={item.title}
-                />
-                <div className="gallery-item-content">
-                  <h4>{item.title}</h4>
-                  <p>{item.description}</p>
-                </div>
-              </div>
+              <GalleryCard key={item.id || item.title} item={item} onClick={openModal} />
             ))}
           </div>
         ) : (
@@ -364,28 +493,40 @@ export default function GalleryPage() {
 
       {/* Modal */}
       {selectedImage && (
-        <div
-          className="modal-overlay"
-          onClick={() => setSelectedImage(null)}
-        >
-          <div
-            className="modal-content"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              className="modal-close"
-              onClick={() => setSelectedImage(null)}
-            >
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={closeModal}>
               ✕
             </button>
-            <img
-              className="modal-image"
-              src={selectedImage.cover_image || selectedImage.images?.[0] || "/images/placeholder.jpg"}
-              alt={selectedImage.title}
-            />
+
+            <div className="modal-image-wrap">
+              {modalImages.length > 1 && (
+                <div className="modal-counter">
+                  {modalIndex + 1}/{modalImages.length}
+                </div>
+              )}
+
+              <img
+                className="modal-image"
+                src={resolveImageUrl(modalImages[modalIndex])}
+                alt={selectedImage.title}
+              />
+
+              {modalImages.length > 1 && (
+                <>
+                  <button className="modal-nav-btn prev" onClick={goPrev} aria-label="Foto sebelumnya">
+                    ‹
+                  </button>
+                  <button className="modal-nav-btn next" onClick={goNext} aria-label="Foto berikutnya">
+                    ›
+                  </button>
+                </>
+              )}
+            </div>
+
             <div className="modal-body">
-              <h2 style={{ margin: "0 0 10px", color: "#55193A", fontSize: "1.3rem" }}>{selectedImage.title}</h2>
-              <p style={{ margin: 0, color: "#666", lineHeight: 1.6, fontSize: "0.95rem" }}>{selectedImage.description}</p>
+              <h2 style={{ margin: "0 0 6px", color: "#fff", fontSize: "1.1rem", fontWeight: 700 }}>{selectedImage.title}</h2>
+              <p style={{ margin: 0, color: "rgba(255,255,255,0.75)", lineHeight: 1.5, fontSize: "0.88rem" }}>{selectedImage.description}</p>
             </div>
           </div>
         </div>

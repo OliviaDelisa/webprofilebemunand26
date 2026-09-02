@@ -4,6 +4,16 @@ import { useEffect, useState } from "react";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "https://bemkmunand.site/api";
 
+// Origin backend (tanpa "/api"), dipakai buat prefix path gambar seperti "/uploads/xxx.webp"
+const BACKEND_ORIGIN = API_BASE.replace(/\/api\/?$/, "");
+
+const resolveImageUrl = (path) => {
+  if (!path) return "/images/placeholder.jpg";
+  if (/^https?:\/\//i.test(path)) return path;
+  if (path.startsWith("/images/")) return path;
+  return `${BACKEND_ORIGIN}${path.startsWith("/") ? "" : "/"}${path}`;
+};
+
 const safeArray = (value) => {
   if (Array.isArray(value)) return value.filter(Boolean);
   if (typeof value === "string") {
@@ -60,10 +70,48 @@ const formatTime = (value) => {
   }).format(date);
 };
 
+// Icon jam minimalis (outline), pengganti emoji 🕐
+const ClockIcon = ({ size = 12, color = "currentColor" }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke={color}
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <circle cx="12" cy="12" r="9" />
+    <polyline points="12 7 12 12 15 14" />
+  </svg>
+);
+
+// Icon kalender minimalis (outline), dipakai di samping tanggal
+const CalendarIcon = ({ size = 12, color = "currentColor" }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke={color}
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <rect x="3" y="4" width="18" height="18" rx="2" />
+    <line x1="16" y1="2" x2="16" y2="6" />
+    <line x1="8" y1="2" x2="8" y2="6" />
+    <line x1="3" y1="10" x2="21" y2="10" />
+  </svg>
+);
+
 export default function EventPage() {
   const [content, setContent] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [selectedItem, setSelectedItem] = useState(null);
+  const [modalIndex, setModalIndex] = useState(0);
 
   useEffect(() => {
     let active = true;
@@ -131,17 +179,10 @@ export default function EventPage() {
     .filter((item) => item.content_type === "event")
     .sort((a, b) => new Date(a.event_start || a.created_at || 0) - new Date(b.event_start || b.created_at || 0));
 
-  const [selectedEvent, setSelectedEvent] = useState(sortedEventItems[0] || null);
   const [calendarMonth, setCalendarMonth] = useState(() => {
     const reference = sortedEventItems[0]?.event_start ? new Date(sortedEventItems[0].event_start) : new Date();
     return new Date(reference.getFullYear(), reference.getMonth(), 1);
   });
-
-  useEffect(() => {
-    if (sortedEventItems.length > 0 && !sortedEventItems.some((item) => item.id === selectedEvent?.id)) {
-      setSelectedEvent(sortedEventItems[0]);
-    }
-  }, [sortedEventItems, selectedEvent]);
 
   const monthLabel = new Intl.DateTimeFormat("id-ID", {
     month: "long",
@@ -165,6 +206,32 @@ export default function EventPage() {
     return { dayNumber, isCurrentMonth, date, matchingEvent };
   });
 
+  const openModal = (item) => {
+    setSelectedItem(item);
+    setModalIndex(0);
+  };
+
+  const closeModal = () => {
+    setSelectedItem(null);
+    setModalIndex(0);
+  };
+
+  const modalImages = selectedItem
+    ? selectedItem.images && selectedItem.images.length
+      ? selectedItem.images
+      : [selectedItem.cover_image].filter(Boolean)
+    : [];
+
+  const goPrev = (e) => {
+    e.stopPropagation();
+    setModalIndex((i) => (i - 1 + modalImages.length) % modalImages.length);
+  };
+
+  const goNext = (e) => {
+    e.stopPropagation();
+    setModalIndex((i) => (i + 1) % modalImages.length);
+  };
+
   return (
     <div style={{ background: "#fff", paddingTop: "88px" }}>
       <style>{`
@@ -177,15 +244,6 @@ export default function EventPage() {
           text-align: center;
           padding: 24px 24px 8px;
           background: #fff;
-        }
-
-        .event-header-label {
-          margin: 0;
-          letter-spacing: 0.12em;
-          text-transform: uppercase;
-          color: #D8833B;
-          font-weight: 700;
-          font-size: 0.65rem;
         }
 
         .calendar-wrap {
@@ -301,9 +359,15 @@ export default function EventPage() {
         .day-tag {
           font-size: 0.56rem;
           background: rgba(255,255,255,0.18);
-          border-radius: 999px;
-          padding: 3px 6px;
-          letter-spacing: 0.04em;
+          border-radius: 8px;
+          padding: 3px 5px;
+          letter-spacing: 0.01em;
+          text-align: center;
+          max-width: 100%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          line-height: 1.3;
         }
 
         .calendar-copy {
@@ -344,71 +408,20 @@ export default function EventPage() {
           padding: 28px 24px 12px;
         }
 
-        .event-title-label {
-          margin: 0;
-          letter-spacing: 0.12em;
-          text-transform: uppercase;
-          color: #D8833B;
-          font-weight: 700;
-          font-size: 0.65rem;
-        }
-
         .event-bem-title {
-          margin: "8px 0 0";
+          margin: 8px 0 0;
           color: #55193A;
           font-size: 1.4rem;
           font-weight: 800;
         }
 
-        .event-detail {
-          max-width: 1200px;
-          margin: 4px auto 0;
-          background: #fff;
-          border: 1px solid rgba(85, 25, 58, 0.08);
-          border-radius: 12px;
-          padding: 20px;
-          box-shadow: 0 12px 32px rgba(85, 25, 58, 0.04);
-        }
-
-        .event-detail-top {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: 16px;
-          margin-bottom: 12px;
-          flex-wrap: wrap;
-        }
-
-        .event-detail-title {
-          margin: 0;
-          color: #55193A;
-          font-size: 1.2rem;
-          font-weight: 800;
-        }
-
-        .event-detail-date {
-          color: #7a2a56;
-          font-size: 0.8rem;
-          font-weight: 700;
-          background: rgba(216, 131, 59, 0.12);
-          border-radius: 999px;
-          padding: 7px 12px;
-        }
-
-        .event-detail-description {
-          margin: 0;
-          color: #555;
-          line-height: 1.8;
-          font-size: 0.95rem;
-        }
-
         .event-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-          gap: 20px;
-          max-width: 1200px;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 18px;
+          max-width: 1400px;
           margin: 0 auto;
-          padding: 24px 0 40px;
+          padding: 24px 24px 40px;
         }
 
         .event-card {
@@ -428,7 +441,7 @@ export default function EventPage() {
 
         .card-header {
           position: relative;
-          height: 180px;
+          aspect-ratio: 4 / 3;
           background: linear-gradient(135deg, #55193A 0%, #D8833B 100%);
           overflow: hidden;
         }
@@ -454,9 +467,10 @@ export default function EventPage() {
         }
 
         .card-body {
-          padding: 18px;
+          padding: 16px;
         }
 
+        /* --- Tampilan tanggal & jam: lebih minimalis/formal --- */
         .card-date {
           display: flex;
           align-items: center;
@@ -467,14 +481,14 @@ export default function EventPage() {
         }
 
         .card-date-box {
-          background: linear-gradient(135deg, #D8833B 0%, #f5a846 100%);
+          background: #55193A;
           color: #fff;
-          padding: 7px 9px;
-          border-radius: 8px;
+          padding: 6px 10px;
+          border-radius: 6px;
           text-align: center;
-          font-weight: 800;
-          font-size: 0.8rem;
-          min-width: 48px;
+          font-weight: 700;
+          font-size: 0.85rem;
+          min-width: 40px;
           line-height: 1.1;
         }
 
@@ -485,10 +499,21 @@ export default function EventPage() {
           line-height: 1.4;
         }
 
+        .card-date-meta {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+        }
+
+        .card-date-meta svg {
+          flex-shrink: 0;
+          opacity: 0.7;
+        }
+
         .card-title {
           margin: 0 0 8px;
           color: #55193A;
-          font-size: 1.1rem;
+          font-size: 1rem;
           font-weight: 700;
           line-height: 1.3;
         }
@@ -496,12 +521,13 @@ export default function EventPage() {
         .card-description {
           margin: 0;
           color: #666;
-          font-size: 0.9rem;
+          font-size: 0.85rem;
           line-height: 1.5;
           display: -webkit-box;
           -webkit-line-clamp: 2;
           -webkit-box-orient: vertical;
           overflow: hidden;
+          white-space: pre-line; /* fix: enter/paragraf baru tetap kebaca, tidak nyambung */
         }
 
         .empty-state {
@@ -516,9 +542,163 @@ export default function EventPage() {
           opacity: 0.5;
         }
 
+        .modal-overlay {
+          position: fixed;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.85);
+          display: flex;
+          align-items: flex-start;
+          justify-content: center;
+          z-index: 2000;
+          padding: 40px 24px;
+          overflow-y: auto;
+          animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+
+        .modal-content {
+          position: relative;
+          max-width: 800px;
+          width: 100%;
+          max-height: calc(100vh - 80px);
+          background: #fff;
+          border-radius: 12px;
+          overflow-y: auto;
+          overflow-x: hidden;
+          animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+          from { transform: translateY(40px); opacity: 0; }
+          to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-image-wrap {
+          position: relative;
+          background: #000;
+        }
+
+        .modal-image {
+          width: 100%;
+          max-height: 60vh;
+          object-fit: contain;
+          display: block;
+          margin: 0 auto;
+        }
+
+        .modal-body {
+          padding: 18px 24px 24px;
+          background: #fff;
+        }
+
+        .modal-close {
+          position: absolute;
+          top: 16px;
+          right: 16px;
+          background: rgba(0, 0, 0, 0.7);
+          border: none;
+          color: #fff;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          font-size: 1.3rem;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.3s ease;
+          z-index: 2001;
+        }
+
+        .modal-close:hover {
+          background: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-nav-btn {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          background: rgba(0, 0, 0, 0.55);
+          border: none;
+          color: #fff;
+          width: 42px;
+          height: 42px;
+          border-radius: 50%;
+          font-size: 1.5rem;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 5;
+          transition: background 0.2s ease;
+        }
+
+        .modal-nav-btn:hover {
+          background: rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-nav-btn.prev {
+          left: 12px;
+        }
+
+        .modal-nav-btn.next {
+          right: 12px;
+        }
+
+        .modal-counter {
+          position: absolute;
+          top: 14px;
+          left: 14px;
+          background: rgba(85, 25, 58, 0.85);
+          color: #fff;
+          font-size: 0.72rem;
+          font-weight: 700;
+          padding: 5px 11px;
+          border-radius: 999px;
+          z-index: 5;
+        }
+
+        .modal-date-badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          background: rgba(85, 25, 58, 0.08);
+          color: #55193A;
+          font-size: 0.72rem;
+          font-weight: 700;
+          padding: 4px 10px;
+          border-radius: 999px;
+          margin-bottom: 10px;
+        }
+
+        .modal-description {
+          margin: 0;
+          color: #444;
+          line-height: 1.7;
+          font-size: 0.92rem;
+          white-space: pre-line; /* fix: sama, biar paragraf baru kebaca di modal */
+        }
+
+        .modal-title {
+          margin: 0 0 8px;
+          color: #55193A;
+          font-size: 1.2rem;
+          font-weight: 800;
+        }
+
         @media (max-width: 980px) {
           .calendar-wrap {
             grid-template-columns: 1fr;
+          }
+        }
+
+        @media (max-width: 900px) {
+          .event-grid {
+            grid-template-columns: repeat(2, 1fr);
           }
         }
 
@@ -526,10 +706,13 @@ export default function EventPage() {
           .day-cell {
             min-height: 72px;
           }
+        }
 
+        @media (max-width: 560px) {
           .event-grid {
             grid-template-columns: 1fr;
             padding: 24px 16px 40px;
+            gap: 14px;
           }
 
           .card-body {
@@ -539,13 +722,15 @@ export default function EventPage() {
           .card-title {
             font-size: 1rem;
           }
+
+          .modal-body {
+            padding: 14px 16px 16px;
+          }
         }
       `}</style>
 
       <div className="event-shell">
-        <div className="event-header">
-          
-        </div>
+        <div className="event-header"></div>
 
         <div className="calendar-wrap">
           <div className="calendar-panel">
@@ -585,16 +770,22 @@ export default function EventPage() {
                   return <div key={`empty-${index}`} className="day-cell empty" />;
                 }
 
+                const eventLabel = cell.matchingEvent
+                  ? cell.matchingEvent.title.length > 12
+                    ? `${cell.matchingEvent.title.slice(0, 12)}…`
+                    : cell.matchingEvent.title
+                  : "";
+
                 return (
                   <button
                     key={cell.date.toISOString()}
                     type="button"
                     className={`day-cell ${cell.matchingEvent ? "has-event" : ""}`}
-                    onClick={() => cell.matchingEvent && setSelectedEvent(cell.matchingEvent)}
+                    onClick={() => cell.matchingEvent && openModal(cell.matchingEvent)}
                     aria-label={cell.matchingEvent ? `Lihat event ${cell.matchingEvent.title}` : `Tanggal ${cell.dayNumber}`}
                   >
                     <span className="day-number">{cell.dayNumber}</span>
-                    {cell.matchingEvent && <span className="day-tag"></span>}
+                    {cell.matchingEvent && <span className="day-tag">{eventLabel}</span>}
                   </button>
                 );
               })}
@@ -604,7 +795,6 @@ export default function EventPage() {
           <div className="calendar-copy">
             <p className="calendar-copy-label">Kalender Kegiatan</p>
             <h3>BEM KM UNAND</h3>
-            
           </div>
         </div>
 
@@ -612,24 +802,12 @@ export default function EventPage() {
           <h2 className="event-bem-title">EVENT BEM KM UNAND</h2>
         </div>
 
-        {selectedEvent && (
-          <div className="event-detail">
-            <div className="event-detail-top">
-              <h3 className="event-detail-title">{selectedEvent.title}</h3>
-              {selectedEvent.event_start && (
-                <span className="event-detail-date">{formatDate(selectedEvent.event_start)}</span>
-              )}
-            </div>
-            <p className="event-detail-description">{selectedEvent.description}</p>
+        {loading ? (
+          <div style={{ textAlign: "center", padding: "40px 24px" }}>
+            <div style={{ color: "#55193A", fontWeight: 600 }}>Memuat data...</div>
           </div>
-        )}
-
-        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          {loading ? (
-            <div style={{ textAlign: "center", padding: "40px 24px" }}>
-              <div style={{ color: "#55193A", fontWeight: 600 }}>Memuat data...</div>
-            </div>
-          ) : error ? (
+        ) : error ? (
+          <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "0 24px" }}>
             <div
               style={{
                 color: "#7a2a56",
@@ -644,49 +822,113 @@ export default function EventPage() {
             >
               {error}
             </div>
-          ) : (
-            <div className="event-grid">
-              {sortedEventItems.length > 0 ? (
-                sortedEventItems.map((item) => (
-                  <div key={item.id || item.title} className="event-card" onClick={() => setSelectedEvent(item)}>
-                    <div className="card-header">
-                      <img
-                        src={item.cover_image || item.images?.[0] || "/images/placeholder.jpg"}
-                        alt={item.title}
-                      />
-                      <div className="card-badge">event</div>
-                    </div>
-
-                    <div className="card-body">
-                      {item.event_start && (
-                        <div className="card-date">
-                          <div className="card-date-box">
-                            {new Date(item.event_start).getDate()}
-                          </div>
-                          <div>
-                            <div className="card-date-text">{formatDate(item.event_start)}</div>
-                            {formatTime(item.event_start) && (
-                              <div className="card-date-text">🕐 {formatTime(item.event_start)}</div>
-                            )}
-                          </div>
-                        </div>
-                      )}
-
-                      <h3 className="card-title">{item.title}</h3>
-                      <p className="card-description">{item.description}</p>
-                    </div>
+          </div>
+        ) : (
+          <div className="event-grid">
+            {sortedEventItems.length > 0 ? (
+              sortedEventItems.map((item) => (
+                <div key={item.id || item.title} className="event-card" onClick={() => openModal(item)}>
+                  <div className="card-header">
+                    <img
+                      src={resolveImageUrl(item.cover_image || item.images?.[0])}
+                      alt={item.title}
+                    />
+                    <div className="card-badge">event</div>
                   </div>
-                ))
-              ) : (
-                <div className="empty-state" style={{ gridColumn: "1 / -1" }}>
-                  <div className="empty-state-icon">📭</div>
-                  <div>Belum ada event yang dipublikasikan.</div>
+
+                  <div className="card-body">
+                    {item.event_start && (
+                      <div className="card-date">
+                        <div className="card-date-box">
+                          {new Date(item.event_start).getDate()}
+                        </div>
+                        <div>
+                          <div className="card-date-text card-date-meta">
+                            <CalendarIcon size={11} />
+                            {formatDate(item.event_start)}
+                          </div>
+                          {formatTime(item.event_start) && (
+                            <div className="card-date-text card-date-meta">
+                              <ClockIcon size={11} />
+                              {formatTime(item.event_start)}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    )}
+
+                    <h3 className="card-title">{item.title}</h3>
+                    <p className="card-description">{item.description}</p>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <div className="empty-state" style={{ gridColumn: "1 / -1" }}>
+                <div className="empty-state-icon">📭</div>
+                <div>Belum ada event yang dipublikasikan.</div>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+
+      {/* Modal Detail */}
+      {selectedItem && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={closeModal}>
+              ✕
+            </button>
+
+            <div className="modal-image-wrap">
+              {modalImages.length > 1 && (
+                <div className="modal-counter">
+                  {modalIndex + 1}/{modalImages.length}
                 </div>
               )}
+
+              <img
+                className="modal-image"
+                src={resolveImageUrl(modalImages[modalIndex])}
+                alt={selectedItem.title}
+              />
+
+              {modalImages.length > 1 && (
+                <>
+                  <button className="modal-nav-btn prev" onClick={goPrev} aria-label="Foto sebelumnya">
+                    ‹
+                  </button>
+                  <button className="modal-nav-btn next" onClick={goNext} aria-label="Foto berikutnya">
+                    ›
+                  </button>
+                </>
+              )}
             </div>
-          )}
+
+            <div className="modal-body">
+              {selectedItem.event_start && (
+                <div className="modal-date-badge">
+                  <CalendarIcon size={11} color="#f5b467" />
+                  {formatDate(selectedItem.event_start)}
+                  {formatTime(selectedItem.event_start) && (
+                    <>
+                      <span style={{ opacity: 0.6 }}>•</span>
+                      <ClockIcon size={11} color="#f5b467" />
+                      {formatTime(selectedItem.event_start)}
+                    </>
+                  )}
+                </div>
+              )}
+              <h2 className="modal-title">
+                {selectedItem.title}
+              </h2>
+              <p className="modal-description">
+                {selectedItem.description}
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-export default function KontakPage() {
+export default function KontakPage({ embedded = false }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -12,7 +12,7 @@ export default function KontakPage() {
   if (!mounted) return null;
 
   return (
-    <div style={{ background: "#fff", paddingTop: "88px" }}>
+     <div style={{ background: "#fff", paddingTop: embedded ? "0px" : "88px" }}>
       <style>{`
         .kontak-shell {
           width: 100%;

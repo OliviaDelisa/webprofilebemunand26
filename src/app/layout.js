@@ -16,6 +16,9 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "BEM KM Universitas Andalas — Kabinet Rakit Makna",
   description: "Website resmi BEM KM Universitas Andalas Kabinet Rakit Makna",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({ children }) {

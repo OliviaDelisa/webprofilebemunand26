@@ -34,7 +34,7 @@ const initialForm = { nama: "", anonim: false, fakultas: "", nama_kategori: "", 
 const fieldClass =
   "w-full text-sm text-gray-700 bg-white/80 border border-gray-200 rounded-2xl px-4 py-3.5 outline-none transition-all duration-200 focus:border-[#55193A] focus:ring-4 focus:ring-[#55193A]/[0.08] placeholder:text-gray-300 shadow-sm";
 
-export default function AspirasiForm() {
+export default function AspirasiForm({ embedded = false }) {
   const [form, setForm] = useState(initialForm);
   const [fotos, setFotos] = useState([]);
   const [previews, setPreviews] = useState([]);
@@ -133,7 +133,7 @@ export default function AspirasiForm() {
   };
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top_left,_rgba(85,25,58,0.10),_transparent_30%),linear-gradient(135deg,#fff_0%,#fffafc_100%)] px-4 pb-20 pt-28 sm:px-6 lg:px-8">
+      <main className={`relative ${embedded ? "" : "min-h-screen"} overflow-hidden bg-[radial-gradient(circle_at_top_left,_rgba(85,25,58,0.10),_transparent_30%),linear-gradient(135deg,#fff_0%,#fffafc_100%)] px-4 pb-20 pt-28 sm:px-6 lg:px-8`}>
       <div className="absolute inset-0 opacity-60">
         <div className="absolute -left-20 top-16 h-64 w-64 rounded-full bg-[#55193A]/10 blur-3xl" />
         <div className="absolute right-0 top-0 h-80 w-80 rounded-full bg-[#D8833B]/10 blur-3xl" />
