@@ -70,75 +70,85 @@ const formatDateShort = (value) => {
 /* ------------------------------------------------------------------ */
 
 const visiText =
-  "Mewujudkan BEM KM Universitas Andalas sebagai wadah pergerakan mahasiswa yang progresif, inklusif, dan berdampak nyata bagi kampus, masyarakat, dan bangsa.";
+  "BEM KM UNAND yang Inklusif, Kolaboratif, dan Solutif dalam mewujudkan Perbaikan.";
 
 const misiList = [
-  "Membangun sinergi antar lembaga kemahasiswaan melalui komunikasi yang terbuka dan setara.",
-  "Menghadirkan program kerja yang berpihak pada kebutuhan mahasiswa dan masyarakat sekitar kampus.",
-  "Mendorong budaya kritis, kolaboratif, dan berintegritas dalam setiap gerak organisasi.",
-  "Memperkuat advokasi mahasiswa terhadap kebijakan kampus maupun isu-isu sosial di luar kampus.",
+  "Menciptakan iklim internal yang inklusif dan hangat bagi pengurus untuk mewujudkan progresifitas lembaga.",
+  "Menjadi garda terdepan dalam pergerakan serta pengawalan isu sosial, politik, dan lingkungan.",
+  "Mengoptimalkan pelayanan dan pengembangan diri mahasiswa yang relevan dengan perkembangan zaman.",
+  "Memberikan pengabdian yang bermakna dan berdaya.",
+  "Menjalin relasi produktif demi terwujudnya karya yang berkelanjutan.",
 ];
 
 const programUnggulan = [
   {
-    title: "Rakit Aspirasi",
-    desc: "Kanal penyaluran aspirasi mahasiswa yang ditindaklanjuti secara berkala dan transparan.",
+    title: "Ruang Bermakna",
+    desc: "Ruang diskusi terbuka bagi seluruh mahasiswa UNAND dengan menghadirkan para pakar dan praktisi sesuai dengan isu yang diangkat serta rumpun keilmuan yang ada di UNAND. Kegiatan ini dikemas melalui FGD yang membahas isu-isu aktual secara mendalam dan menghasilkan rekomendasi substantif.",
   },
   {
-    title: "Kelas Inovasi Mahasiswa",
-    desc: "Pelatihan rutin untuk menumbuhkan gagasan dan karya mahasiswa lintas jurusan.",
+    title: "Suara UNAND",
+    desc: "Inovasi BEM KM UNAND dalam menghadirkan sistem terintegrasi yang menyatukan layanan akademik, kemahasiswaan, fasilitas kampus, dan penyaluran aspirasi mahasiswa dalam satu platform digital terpadu, agar setiap suara, aduan, dan kebutuhan mahasiswa memiliki jalur penyelesaian yang jelas, cepat, dan transparan.",
   },
   {
-    title: "Pengabdian Rakit Makna",
-    desc: "Rangkaian kegiatan sosial dan pengabdian masyarakat di sekitar lingkungan kampus.",
+    title: "Connecting Dreams",
+    desc: "Wadah integratif untuk pengembangan potensi akademik dan non-akademik mahasiswa Universitas Andalas. Mahasiswa dapat mengakses pendampingan dan jejaring untuk program seperti PKM, P2MW, PPKO, Sekolah Mapres, dan sejenisnya.",
   },
   {
-    title: "Advokasi Kebijakan Kampus",
-    desc: "Pendampingan dan pengawalan isu-isu kebijakan yang berdampak langsung ke mahasiswa.",
+    title: "Pesta Rakyat UNAND",
+    desc: "Rangkaian kegiatan yang mewadahi serta mengembangkan minat dan bakat mahasiswa di bidang akademik, seni, maupun olahraga — platform kolaboratif antara fakultas, UKM, dan komunitas mahasiswa dalam menyalurkan ekspresi dan kreativitas.",
+  },
+  {
+    title: "UNAND Berdaya",
+    desc: "Program unggulan yang memperkuat peran mahasiswa UNAND sebagai motor penggerak pemberdayaan masyarakat dan penjaga keberlanjutan lingkungan kampus, mewadahi inisiatif seperti Ekspand, Famas, PPKO, Gerakan Green Campus, pengawalan isu sampah dan kawasan bebas asap rokok, hingga Kantin Sehat UNAND.",
   },
 ];
 
 const presma = {
-  name: "Nama Presma", // TODO: ganti dengan nama Presiden Mahasiswa
-  photo: "/images/presma.jpg", // TODO: ganti dengan foto asli
+  name: "Shabbarin Syakur",
+  role: "Fakultas Pertanian, Angkatan 2022",
+  photo: "/images/presma.png",
   message:
     "Selamat datang di rumah bersama Kabinet Rakit Makna. Mari kita rakit makna dari setiap langkah kecil menjadi gerakan besar yang membawa manfaat bagi seluruh mahasiswa Universitas Andalas.",
 };
 
 const wapresma = {
-  name: "Nama Wapresma", // TODO: ganti dengan nama Wakil Presiden Mahasiswa
-  photo: "/images/wapresma.jpg", // TODO: ganti dengan foto asli
+  name: "Muhammad Firdan",
+  role: "Fakultas MIPA, Angkatan 2022",
+  photo: "/images/wapresma.png",
   message:
     "Kabinet ini hadir untuk mendengar, merangkul, dan bergerak bersama. Setiap program yang kami rancang berangkat dari kebutuhan nyata mahasiswa di lapangan.",
 };
 
 // Kepresidenan ditampilkan sebagai kartu unggulan (paling atas & besar)
+// logo  -> dipakai di strip marquee ungu (logo kecil bulat)
+// photo -> dipakai di kartu (foto bersama anggota kementerian)
 const kepresidenan = {
   name: "Kepresidenan",
   abbr: "KEPRES",
   slug: "kepresidenan",
-  photo: "/images/kementerian/kepresidenan.jpg", // TODO: ganti foto
+  logo: "/images/kementerian/logo-kepresidenan.png",
+  photo: "/images/kementerian/foto-kepresidenan.jpg",
   desc: "Pusat koordinasi seluruh kementerian dan penggerak arah kebijakan kabinet.",
 };
 
-// 16 kementerian lain — TODO: sesuaikan foto & slug bila perlu
+// 16 kementerian lain — sesuaikan nama file logo & foto bersama
 const kementerianList = [
-  { name: "Sekretaris Kabinet", abbr: "SESKAB", slug: "sekretaris-kabinet", photo: "/images/kementerian/seskab.jpg" },
-  { name: "Dalam Negeri", abbr: "DAGRI", slug: "dalam-negeri", photo: "/images/kementerian/dagri.jpg" },
-  { name: "Luar Negeri", abbr: "LUNEG", slug: "luar-negeri", photo: "/images/kementerian/luneg.jpg" },
-  { name: "Keuangan", abbr: "KEUANGAN", slug: "keuangan", photo: "/images/kementerian/keuangan.jpg" },
-  { name: "Komunikasi dan Informasi", abbr: "KOMINFO", slug: "komunikasi-informasi", photo: "/images/kementerian/kominfo.jpg" },
-  { name: "Pengembangan Sumber Daya Mahasiswa", abbr: "PSDM", slug: "psdm", photo: "/images/kementerian/psdm.jpg" },
-  { name: "Kebijakan Daerah", abbr: "JAKDA", slug: "kebijakan-daerah", photo: "/images/kementerian/jakda.jpg" },
-  { name: "Kebijakan Nasional", abbr: "JAKNAS", slug: "kebijakan-nasional", photo: "/images/kementerian/jaknas.jpg" },
-  { name: "Kebijakan Kampus", abbr: "JAKKAM", slug: "kebijakan-kampus", photo: "/images/kementerian/jakkam.jpg" },
-  { name: "Riset dan Keilmuan", abbr: "RISKEN", slug: "riset-keilmuan", photo: "/images/kementerian/risken.jpg" },
-  { name: "Lingkungan Hidup", abbr: "LINGHUP", slug: "lingkungan-hidup", photo: "/images/kementerian/linghup.jpg" },
-  { name: "Sosial dan Masyarakat", abbr: "SOSMAS", slug: "sosial-masyarakat", photo: "/images/kementerian/sosmas.jpg" },
-  { name: "Advokasi Kesejahteraan Mahasiswa", abbr: "ADKESMA", slug: "advokasi-kesejahteraan-mahasiswa", photo: "/images/kementerian/adkesma.jpg" },
-  { name: "Pergerakan Perempuan", abbr: "PP", slug: "pergerakan-perempuan", photo: "/images/kementerian/pp.jpg" },
-  { name: "Mitra Event dan Bisnis", abbr: "MEB", slug: "mitra-event-bisnis", photo: "/images/kementerian/meb.jpg" },
-  { name: "Audit Internal", abbr: "AI", slug: "audit-internal", photo: "/images/kementerian/ai.jpg" },
+  { name: "Sekretaris Kabinet", abbr: "SESKAB", slug: "sekretaris-kabinet", logo: "/images/kementerian/logo-seskab.png", photo: "/images/kementerian/foto-seskab.jpg" },
+  { name: "Dalam Negeri", abbr: "DAGRI", slug: "dalam-negeri", logo: "/images/kementerian/logo-dagri.png", photo: "/images/kementerian/foto-dagri.jpg" },
+  { name: "Luar Negeri", abbr: "LUNEG", slug: "luar-negeri", logo: "/images/kementerian/logo-luneg.png", photo: "/images/kementerian/foto-luneg.jpg" },
+  { name: "Keuangan", abbr: "KEUANGAN", slug: "keuangan", logo: "/images/kementerian/logo-keuangan.png", photo: "/images/kementerian/foto-keuangan.jpg" },
+  { name: "Komunikasi dan Informasi", abbr: "KOMINFO", slug: "komunikasi-informasi", logo: "/images/kementerian/logo-kominfo.png", photo: "/images/kementerian/foto-kominfo.jpg" },
+  { name: "Pengembangan Sumber Daya Mahasiswa", abbr: "PSDM", slug: "psdm", logo: "/images/kementerian/logo-psdm.png", photo: "/images/kementerian/foto-psdm.jpg" },
+  { name: "Kebijakan Daerah", abbr: "JAKDA", slug: "kebijakan-daerah", logo: "/images/kementerian/logo-jakda.png", photo: "/images/kementerian/foto-jakda.jpg" },
+  { name: "Kebijakan Nasional", abbr: "JAKNAS", slug: "kebijakan-nasional", logo: "/images/kementerian/logo-jaknas.png", photo: "/images/kementerian/foto-jaknas.jpg" },
+  { name: "Kebijakan Kampus", abbr: "JAKKAM", slug: "kebijakan-kampus", logo: "/images/kementerian/logo-jakkam.png", photo: "/images/kementerian/foto-jakkam.jpg" },
+  { name: "Riset dan Keilmuan", abbr: "RISKEN", slug: "riset-keilmuan", logo: "/images/kementerian/logo-risken.png", photo: "/images/kementerian/foto-risken.jpg" },
+  { name: "Lingkungan Hidup", abbr: "LINGHUP", slug: "lingkungan-hidup", logo: "/images/kementerian/logo-linghup.png", photo: "/images/kementerian/foto-linghup.jpg" },
+  { name: "Sosial dan Masyarakat", abbr: "SOSMAS", slug: "sosial-masyarakat", logo: "/images/kementerian/logo-sosmas.png", photo: "/images/kementerian/foto-sosmas.jpg" },
+  { name: "Advokasi Kesejahteraan Mahasiswa", abbr: "ADKESMA", slug: "advokasi-kesejahteraan-mahasiswa", logo: "/images/kementerian/logo-adkesma.png", photo: "/images/kementerian/foto-adkesma.jpg" },
+  { name: "Pergerakan Perempuan", abbr: "PP", slug: "pergerakan-perempuan", logo: "/images/kementerian/logo-pp.png", photo: "/images/kementerian/foto-pp.jpg" },
+  { name: "Mitra Event dan Bisnis", abbr: "MEB", slug: "mitra-event-bisnis", logo: "/images/kementerian/logo-meb.png", photo: "/images/kementerian/foto-meb.jpg" },
+  { name: "Audit Internal", abbr: "AI", slug: "audit-internal", logo: "/images/kementerian/logo-ai.png", photo: "/images/kementerian/foto-ai.jpg" },
 ];
 
 const IconLocation = () => (
@@ -347,35 +357,50 @@ export default function Home() {
           padding: 20px 24px 100px;
         }
         .program-grid {
-          max-width: 1200px;
+          max-width: 1080px;
           margin: 0 auto;
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 20px;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 24px;
         }
         .program-card {
-          border: 1px solid rgba(85,25,58,0.1);
+          position: relative;
+          flex: 0 1 320px;
+          border: 1px solid rgba(85,25,58,0.08);
           border-radius: 14px;
-          padding: 28px 22px;
+          padding: 30px 24px 26px;
           background: #fff;
+          box-shadow: 0 10px 30px rgba(85,25,58,0.06);
+          transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .program-card::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 24px;
+          right: 24px;
+          height: 3px;
+          border-radius: 0 0 3px 3px;
+          background: linear-gradient(90deg, #55193A, #D8833B);
+        }
+        .program-card:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 20px 40px rgba(85,25,58,0.12);
         }
         .program-card h4 {
           color: #55193A;
           font-size: 1.05rem;
           font-weight: 700;
           margin: 0 0 10px;
+          text-align: center;
         }
         .program-card p {
           color: #666;
           font-size: 0.9rem;
           line-height: 1.6;
           margin: 0;
-        }
-        @media (max-width: 900px) {
-          .program-grid { grid-template-columns: 1fr 1fr; }
-        }
-        @media (max-width: 560px) {
-          .program-grid { grid-template-columns: 1fr; }
+          text-align: justify;
         }
 
         /* --- Presma / Wapresma --- */
@@ -397,16 +422,19 @@ export default function Home() {
           flex-direction: row-reverse;
         }
         .leader-photo {
-          flex: 0 0 320px;
-          aspect-ratio: 3 / 4;
-          border-radius: 16px;
+          flex: 0 0 420px;
+          aspect-ratio: 3 / 3.4;
+          border-radius: 20px;
           overflow: hidden;
-          background: linear-gradient(135deg, #55193A 0%, #D8833B 100%);
+          background: linear-gradient(160deg, #55193A 0%, #7a2a56 50%, #D8833B 100%);
+          box-shadow: 0 24px 50px rgba(85,25,58,0.2);
+          border: 1px solid rgba(85,25,58,0.08);
         }
         .leader-photo img {
           width: 100%;
           height: 100%;
           object-fit: cover;
+          object-position: center 60%;
         }
         .leader-role {
           color: #D8833B;
@@ -448,18 +476,22 @@ export default function Home() {
           gap: 8px;
         }
         .marquee-logo-circle {
-          width: 64px;
-          height: 64px;
-          border-radius: 50%;
-          overflow: hidden;
-          background: rgba(255,255,255,0.08);
-          border: 1px solid rgba(255,255,255,0.15);
-        }
-        .marquee-logo-circle img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+.marquee-logo-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
         .marquee-logo-label {
           color: rgba(255,255,255,0.85);
           font-size: 0.62rem;
@@ -534,34 +566,33 @@ export default function Home() {
           box-shadow: 0 16px 36px rgba(85,25,58,0.12);
         }
         .kementerian-card-photo {
-  position: relative;
-  aspect-ratio: 4 / 3;
-  background: linear-gradient(135deg, #55193A 0%, #D8833B 100%);
-  overflow: hidden;
-}
-.kementerian-card-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.45s ease;
-}
-.kementerian-card:hover .kementerian-card-photo img {
-  transform: scale(1.08);
-}
-.kementerian-card-abbr {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: rgba(255,255,255,0.92);
-  color: #55193A;
-  font-size: 0.62rem;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  padding: 4px 9px;
-  border-radius: 999px;
-  text-transform: uppercase;
-}
-        
+          position: relative;
+          aspect-ratio: 4 / 3;
+          background: linear-gradient(135deg, #55193A 0%, #D8833B 100%);
+          overflow: hidden;
+        }
+        .kementerian-card-photo img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.45s ease;
+        }
+        .kementerian-card:hover .kementerian-card-photo img {
+          transform: scale(1.08);
+        }
+        .kementerian-card-abbr {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          background: rgba(255,255,255,0.92);
+          color: #55193A;
+          font-size: 0.62rem;
+          font-weight: 800;
+          letter-spacing: 0.05em;
+          padding: 4px 9px;
+          border-radius: 999px;
+          text-transform: uppercase;
+        }
         .kementerian-card-name {
           padding: 12px 14px;
           color: #55193A;
@@ -866,6 +897,7 @@ export default function Home() {
             <div className="animate-on-scroll delay-2">
               <p className="leader-role">Presiden Mahasiswa</p>
               <h3 className="leader-name">{presma.name}</h3>
+              <p style={{ color: "#888", fontSize: "0.9rem", fontWeight: 600, margin: "-8px 0 12px" }}>{presma.role}</p>
               <p className="leader-message">{presma.message}</p>
             </div>
           </div>
@@ -880,6 +912,7 @@ export default function Home() {
             <div className="animate-on-scroll delay-2">
               <p className="leader-role">Wakil Presiden Mahasiswa</p>
               <h3 className="leader-name">{wapresma.name}</h3>
+              <p style={{ color: "#888", fontSize: "0.9rem", fontWeight: 600, margin: "-8px 0 12px" }}>{wapresma.role}</p>
               <p className="leader-message">{wapresma.message}</p>
             </div>
           </div>
@@ -897,7 +930,7 @@ export default function Home() {
             {marqueeLogos.map((k, i) => (
               <div className="marquee-logo-item" key={`${k.slug}-${i}`}>
                 <div className="marquee-logo-circle">
-                  <img src={resolveImageUrl(k.photo)} alt={k.name} />
+                  <img src={resolveImageUrl(k.logo)} alt={k.name} />
                 </div>
                 <span className="marquee-logo-label">{k.abbr}</span>
               </div>
@@ -921,20 +954,19 @@ export default function Home() {
 
           <div className="kementerian-grid">
             {kementerianList.map((k, i) => (
-  <Link
-    href={`/kementerian/${k.slug}`}
-    className="kementerian-card animate-on-scroll"
-    key={k.slug}
-    style={{ transitionDelay: `${(i % 8) * 0.07}s` }}
-  >
-    <div className="kementerian-card-photo">
-      <img src={resolveImageUrl(k.photo)} alt={k.name} />
-      <span className="kementerian-card-abbr">{k.abbr}</span>
-    </div>
-    <div className="kementerian-card-name">{k.name}</div>
-  </Link>
-))}
-            
+              <Link
+                href={`/kementerian/${k.slug}`}
+                className="kementerian-card animate-on-scroll"
+                key={k.slug}
+                style={{ transitionDelay: `${(i % 8) * 0.07}s` }}
+              >
+                <div className="kementerian-card-photo">
+                  <img src={resolveImageUrl(k.photo)} alt={k.name} />
+                  <span className="kementerian-card-abbr">{k.abbr}</span>
+                </div>
+                <div className="kementerian-card-name">{k.name}</div>
+              </Link>
+            ))}
           </div>
         </section>
 
