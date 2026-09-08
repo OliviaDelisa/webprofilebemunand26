@@ -133,7 +133,7 @@ const kepresidenan = {
 
 // 16 kementerian lain — sesuaikan nama file logo & foto bersama
 const kementerianList = [
-  { name: "Sekretaris Kabinet", abbr: "SESKAB", slug: "sekretaris-kabinet", logo: "/images/kementerian/logo-seskab.png", photo: "/images/kementerian/foto-seskab.jpg" },
+  { name: "Sekretaris Kabinet", abbr: "SEKKAB", slug: "sekretaris-kabinet", logo: "/images/kementerian/logo-sekkab.png", photo: "/images/kementerian/foto-sekkab.jpg" },
   { name: "Dalam Negeri", abbr: "DAGRI", slug: "dalam-negeri", logo: "/images/kementerian/logo-dagri.png", photo: "/images/kementerian/foto-dagri.jpg" },
   { name: "Luar Negeri", abbr: "LUNEG", slug: "luar-negeri", logo: "/images/kementerian/logo-luneg.png", photo: "/images/kementerian/foto-luneg.jpg" },
   { name: "Keuangan", abbr: "KEUANGAN", slug: "keuangan", logo: "/images/kementerian/logo-keuangan.png", photo: "/images/kementerian/foto-keuangan.jpg" },
@@ -141,7 +141,7 @@ const kementerianList = [
   { name: "Pengembangan Sumber Daya Mahasiswa", abbr: "PSDM", slug: "psdm", logo: "/images/kementerian/logo-psdm.png", photo: "/images/kementerian/foto-psdm.jpg" },
   { name: "Kebijakan Daerah", abbr: "JAKDA", slug: "kebijakan-daerah", logo: "/images/kementerian/logo-jakda.png", photo: "/images/kementerian/foto-jakda.jpg" },
   { name: "Kebijakan Nasional", abbr: "JAKNAS", slug: "kebijakan-nasional", logo: "/images/kementerian/logo-jaknas.png", photo: "/images/kementerian/foto-jaknas.jpg" },
-  { name: "Kebijakan Kampus", abbr: "JAKKAM", slug: "kebijakan-kampus", logo: "/images/kementerian/logo-jakkam.png", photo: "/images/kementerian/foto-jakkam.jpg" },
+  { name: "Kebijakan Kampus", abbr: "JAKPUS", slug: "kebijakan-kampus", logo: "/images/kementerian/logo-jakpus.png", photo: "/images/kementerian/foto-jakpus.jpg" },
   { name: "Riset dan Keilmuan", abbr: "RISKEN", slug: "riset-keilmuan", logo: "/images/kementerian/logo-risken.png", photo: "/images/kementerian/foto-risken.jpg" },
   { name: "Lingkungan Hidup", abbr: "LINGHUP", slug: "lingkungan-hidup", logo: "/images/kementerian/logo-linghup.png", photo: "/images/kementerian/foto-linghup.jpg" },
   { name: "Sosial dan Masyarakat", abbr: "SOSMAS", slug: "sosial-masyarakat", logo: "/images/kementerian/logo-sosmas.png", photo: "/images/kementerian/foto-sosmas.jpg" },
