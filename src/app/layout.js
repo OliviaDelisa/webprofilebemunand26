@@ -16,8 +16,17 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "BEM KM Universitas Andalas — Kabinet Rakit Makna",
   description: "Website resmi BEM KM Universitas Andalas Kabinet Rakit Makna",
+  keywords: ["BEM KM Unand", "BEM Universitas Andalas", "Kabinet Rakit Makna", "Organisasi Mahasiswa Unand"],
   icons: {
     icon: "/favicon.png",
+  },
+  openGraph: {
+    title: "BEM KM Universitas Andalas — Kabinet Rakit Makna",
+    description: "Website resmi BEM KM Universitas Andalas Kabinet Rakit Makna",
+    url: "https://bemkmunand.com",
+    siteName: "BEM KM Unand",
+    locale: "id_ID",
+    type: "website",
   },
 };
 
