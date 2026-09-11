@@ -133,14 +133,14 @@ export default function Footer() {
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                   <polyline points="22,6 12,13 2,6"/>
                 </svg>
-                <span>bem.km@unand.ac.id</span>
+                <span>unand.bemkm@gamil.com</span>
               </li>
               <li className="flex items-start gap-2.5 text-sm text-white/60">
                 <svg className="mt-0.5 flex-shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
                   <circle cx="12" cy="10" r="3"/>
                 </svg>
-                <span>Gedung PKM Lt. 1, Universitas Andalas, Padang</span>
+                <span>Gedung PKM Lt. 2, Universitas Andalas, Padang</span>
               </li>
             </ul>
           </div>

@@ -266,7 +266,7 @@ export default function KontakPage({ embedded = false }) {
                 <div>
                   <p className="kontak-info-label">Email</p>
                   <p className="kontak-info-value">
-                    <a href="mailto:bemkmunand@gmail.com">bemkmunand@gmail.com</a>
+                    <a href="mailto:unand.bemkm@gmail.com">unand.bemkm@gmail.com</a>
                   </p>
                 </div>
               </div>
