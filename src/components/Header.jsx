@@ -6,35 +6,36 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
 const tentangItems = [
-  { href: "/tentang/visi-misi",           label: "Visi & Misi"                },
-  { href: "/tentang/tujuan",              label: "Tujuan"                      },
-  { href: "/tentang/kata-sambutan",       label: "Kata Sambutan"               },
-  { href: "/tentang/kabinet-rakit-makna", label: "Kabinet Rakit Makna"         },
-  { href: "/tentang/program-unggulan",    label: "Program Unggulan"            },
-  { href: "/tentang/kementerian",         label: "Kementerian & Program Kerja" },
+  { href: "/tentang/visi-misi", label: "Visi & Misi" },
+  { href: "/tentang/tujuan", label: "Tujuan" },
+  { href: "/tentang/kata-sambutan", label: "Kata Sambutan" },
+  { href: "/tentang/kabinet-rakit-makna", label: "Kabinet Rakit Makna" },
+  { href: "/tentang/program-unggulan", label: "Program Unggulan" },
+  { href: "/tentang/kementerian", label: "Kementerian & Program Kerja" },
 ];
 
 const navLinks = [
-  { href: "/",          label: "Home",                    dropdown: null         },
-  { href: "/tentang",   label: "Tentang",                 dropdown: tentangItems },
-  { href: "/aspirasi",  label: "Aspirasi",                dropdown: null         },
-  { href: "/artikel",   label: "Artikel",                 dropdown: null         },
-  { href: "/event",     label: "Event",                   dropdown: null         },
-  { href: "/pengumuman", label: "Pengumuman",             dropdown: null         },
-  { href: "/statistik", label: "Statistik",               dropdown: null         },
-  { href: "/gallery",   label: "Galeri",                  dropdown: null         },
-  { href: "/kontak",    label: "Kontak",                  dropdown: null         },
+  { href: "/", label: "Home", dropdown: null },
+  { href: "/tentang", label: "Tentang", dropdown: tentangItems },
+  { href: "/aspirasi", label: "Aspirasi", dropdown: null },
+  { href: "/artikel", label: "Artikel", dropdown: null },
+  { href: "/event", label: "Event", dropdown: null },
+  { href: "/informasi", label: "Informasi", dropdown: null },
+  { href: "/survey", label: "Survey", dropdown: null },
+  { href: "/gallery", label: "Galeri", dropdown: null },
+  { href: "/kontak", label: "Kontak", dropdown: null },
 ];
 
 const PURPLE = "#55193A";
-const GOLD   = "#D8833B";
+const GOLD = "#D8833B";
+const ABSENSI_URL = "https://www.bemkmunand.site/";
 
 export default function Header() {
-  const pathname      = usePathname();
-  const [scrolled,    setScrolled]    = useState(false);
-  const [menuOpen,    setMenuOpen]    = useState(false);
+  const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [tentangOpen, setTentangOpen] = useState(false);
-  const [mTentang,    setMTentang]    = useState(false);
+  const [mTentang, setMTentang] = useState(false);
   const dropRef = useRef(null);
 
   useEffect(() => {
@@ -45,20 +46,23 @@ export default function Header() {
 
   useEffect(() => {
     const handler = (e) => {
-      if (dropRef.current && !dropRef.current.contains(e.target))
+      if (dropRef.current && !dropRef.current.contains(e.target)) {
         setTentangOpen(false);
+      }
     };
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
-  useEffect(() => { setMenuOpen(false); setMTentang(false); }, [pathname]);
+  useEffect(() => {
+    setMenuOpen(false);
+    setMTentang(false);
+  }, [pathname]);
 
   const isTentangActive = pathname.startsWith("/tentang");
   const isHome = pathname === "/";
   const isTransparent = isHome && !scrolled;
 
-  // Header hanya transparan di Home; halaman lain selalu terlihat jelas
   const navTextClass = isTransparent
     ? "text-white/90 hover:text-white hover:bg-white/10"
     : "text-gray-600 hover:text-[#55193A] hover:bg-[#55193A]/5";
@@ -68,14 +72,10 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isTransparent
-          ? "bg-transparent"
-          : "bg-white/97 backdrop-blur-md shadow-md"
+        isTransparent ? "bg-transparent" : "bg-white/97 backdrop-blur-md shadow-md"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
-
-        {/* ── Logo ── */}
         <Link href="/" className="flex items-center gap-3 flex-shrink-0 group">
           <div className="w-12 h-12 rounded-full flex items-center justify-center overflow-hidden bg-white/20">
             <img
@@ -104,115 +104,140 @@ export default function Header() {
           </div>
         </Link>
 
-        {/* ── Desktop Nav ── */}
-        <nav className="hidden lg:flex items-center gap-0.5">
-          {navLinks.map((link) => {
-            const active = link.dropdown ? isTentangActive : pathname === link.href;
+        <div className="hidden lg:flex items-center gap-2">
+          <nav className="flex items-center gap-0.5">
+            {navLinks.map((link) => {
+              const active = link.dropdown ? isTentangActive : pathname === link.href;
 
-            if (link.dropdown) {
-              return (
-                <div key={link.href} className="relative" ref={dropRef}>
-                  <button
-                    onClick={() => setTentangOpen((v) => !v)}
-                    className={`flex items-center gap-1 px-3 py-1.5 text-sm font-medium rounded-lg transition-colors ${
-                      active || tentangOpen ? navActiveClass : navTextClass
-                    }`}
-                  >
-                    {link.label}
-                    <svg
-                      width="12" height="12" viewBox="0 0 24 24" fill="none"
-                      stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"
-                      className={`transition-transform duration-200 ${tentangOpen ? "rotate-180" : ""}`}
+              if (link.dropdown) {
+                return (
+                  <div key={link.href} className="relative" ref={dropRef}>
+                    <button
+                      onClick={() => setTentangOpen((v) => !v)}
+                      className={`flex items-center gap-1 px-3 py-1.5 text-sm font-medium rounded-lg transition-colors ${
+                        active || tentangOpen ? navActiveClass : navTextClass
+                      }`}
                     >
-                      <polyline points="6 9 12 15 18 9"/>
-                    </svg>
-                    {active && !tentangOpen && (
-                      <motion.span
-                        layoutId="nav-indicator"
-                        className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full"
-                        style={{ background: scrolled ? PURPLE : "white" }}
-                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                      />
-                    )}
-                  </button>
-
-                  <AnimatePresence>
-                    {tentangOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 6, scale: 0.97 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 6, scale: 0.97 }}
-                        transition={{ duration: 0.18, ease: "easeOut" }}
-                        className="absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-xl border border-gray-100 py-2 overflow-hidden"
+                      {link.label}
+                      <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        className={`transition-transform duration-200 ${
+                          tentangOpen ? "rotate-180" : ""
+                        }`}
                       >
-                        {tentangItems.map((item, i) => (
-                          <motion.div
-                            key={item.href}
-                            initial={{ opacity: 0, x: -6 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: i * 0.04 }}
-                          >
-                            <Link
-                              href={item.href}
-                              onClick={() => setTentangOpen(false)}
-                              className={`flex items-center gap-2 px-4 py-2.5 text-sm transition-colors ${
-                                pathname === item.href
-                                  ? "text-[#55193A] bg-[#55193A]/5 font-medium"
-                                  : "text-gray-600 hover:text-[#55193A] hover:bg-[#55193A]/5"
-                              }`}
+                        <polyline points="6 9 12 15 18 9" />
+                      </svg>
+                      {active && !tentangOpen && (
+                        <motion.span
+                          layoutId="nav-indicator"
+                          className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full"
+                          style={{ background: scrolled ? PURPLE : "white" }}
+                          transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                        />
+                      )}
+                    </button>
+
+                    <AnimatePresence>
+                      {tentangOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 6, scale: 0.97 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 6, scale: 0.97 }}
+                          transition={{ duration: 0.18, ease: "easeOut" }}
+                          className="absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-xl border border-gray-100 py-2 overflow-hidden"
+                        >
+                          {tentangItems.map((item, i) => (
+                            <motion.div
+                              key={item.href}
+                              initial={{ opacity: 0, x: -6 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ delay: i * 0.04 }}
                             >
-                              {item.label}
-                            </Link>
-                          </motion.div>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
+                              <Link
+                                href={item.href}
+                                onClick={() => setTentangOpen(false)}
+                                className={`flex items-center gap-2 px-4 py-2.5 text-sm transition-colors ${
+                                  pathname === item.href
+                                    ? "text-[#55193A] bg-[#55193A]/5 font-medium"
+                                    : "text-gray-600 hover:text-[#55193A] hover:bg-[#55193A]/5"
+                                }`}
+                              >
+                                {item.label}
+                              </Link>
+                            </motion.div>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              }
+
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`relative px-3 py-1.5 text-sm font-medium rounded-lg transition-colors ${
+                    active ? navActiveClass : navTextClass
+                  }`}
+                >
+                  {link.label}
+                  {active && (
+                    <motion.span
+                      layoutId="nav-indicator"
+                      className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full"
+                      style={{ background: scrolled ? PURPLE : "white" }}
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    />
+                  )}
+                </Link>
               );
-            }
+            })}
+          </nav>
 
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`relative px-3 py-1.5 text-sm font-medium rounded-lg transition-colors ${
-                  active ? navActiveClass : navTextClass
-                }`}
-              >
-                {link.label}
-                {active && (
-                  <motion.span
-                    layoutId="nav-indicator"
-                    className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full"
-                    style={{ background: scrolled ? PURPLE : "white" }}
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  />
-                )}
-              </Link>
-            );
-          })}
-        </nav>
+          <a
+            href={ABSENSI_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`flex items-center gap-1.5 px-4 py-1.5 text-sm font-semibold rounded-lg transition-colors ${
+              isTransparent
+                ? "bg-white text-[#55193A] hover:bg-white/90"
+                : "bg-[#55193A] text-white hover:bg-[#55193A]/90"
+            }`}
+          >
+            Login
+          </a>
+        </div>
 
-        {/* ── Hamburger ── */}
         <button
           onClick={() => setMenuOpen((v) => !v)}
           className="lg:hidden p-2 rounded-lg hover:bg-white/10 transition-colors"
           aria-label="Toggle menu"
         >
-          <span className={`block w-5 h-0.5 transition-all duration-300 ${
-            isTransparent ? "bg-white" : "bg-gray-700"
-          } ${menuOpen ? "rotate-45 translate-y-1.5" : ""}`} />
-          <span className={`block w-5 h-0.5 my-1 transition-all duration-300 ${
-            isTransparent ? "bg-white" : "bg-gray-700"
-          } ${menuOpen ? "opacity-0" : ""}`} />
-          <span className={`block w-5 h-0.5 transition-all duration-300 ${
-            isTransparent ? "bg-white" : "bg-gray-700"
-          } ${menuOpen ? "-rotate-45 -translate-y-1.5" : ""}`} />
+          <span
+            className={`block w-5 h-0.5 transition-all duration-300 ${
+              isTransparent ? "bg-white" : "bg-gray-700"
+            } ${menuOpen ? "rotate-45 translate-y-1.5" : ""}`}
+          />
+          <span
+            className={`block w-5 h-0.5 my-1 transition-all duration-300 ${
+              isTransparent ? "bg-white" : "bg-gray-700"
+            } ${menuOpen ? "opacity-0" : ""}`}
+          />
+          <span
+            className={`block w-5 h-0.5 transition-all duration-300 ${
+              isTransparent ? "bg-white" : "bg-gray-700"
+            } ${menuOpen ? "-rotate-45 -translate-y-1.5" : ""}`}
+          />
         </button>
       </div>
 
-      {/* ── Mobile Menu ── */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -237,11 +262,18 @@ export default function Header() {
                       >
                         {link.label}
                         <svg
-                          width="12" height="12" viewBox="0 0 24 24" fill="none"
-                          stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"
-                          className={`transition-transform duration-200 ${mTentang ? "rotate-180" : ""}`}
+                          width="12"
+                          height="12"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.5"
+                          strokeLinecap="round"
+                          className={`transition-transform duration-200 ${
+                            mTentang ? "rotate-180" : ""
+                          }`}
                         >
-                          <polyline points="6 9 12 15 18 9"/>
+                          <polyline points="6 9 12 15 18 9" />
                         </svg>
                       </button>
                       <AnimatePresence>
@@ -292,6 +324,15 @@ export default function Header() {
                   </motion.div>
                 );
               })}
+
+              <a
+                href={ABSENSI_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 block text-center px-3 py-2.5 rounded-lg text-sm font-semibold bg-[#55193A] text-white hover:bg-[#55193A]/90 transition-colors"
+              >
+                Login
+              </a>
             </nav>
           </motion.div>
         )}

@@ -494,7 +494,7 @@ export default function AnnouncementPage() {
             fontWeight: 800,
           }}
         >
-          Pengumuman
+          Informasi
         </h1>
       </div>
 
@@ -557,7 +557,7 @@ export default function AnnouncementPage() {
                 ))
               ) : (
                 <div style={{ gridColumn: "1 / -1", textAlign: "center", padding: "60px 24px", color: "#999" }}>
-                  Belum ada pengumuman yang dipublikasikan.
+                  Belum ada informasi yang dipublikasikan.
                 </div>
               )}
             </div>

@@ -5,17 +5,6 @@ import Link from "next/link";
 const PURPLE = "#55193A";
 const GOLD   = "#D8833B";
 
-const footerNav = [
-  { href: "/",                                label: "Home"       },
-  { href: "/tentang/visi-misi",               label: "Visi & Misi"},
-  { href: "/tentang/program-unggulan",        label: "Program Unggulan" },
-  { href: "/tentang/kementerian",             label: "Kementerian"},
-  { href: "/aspirasi",                        label: "Aspirasi"   },
-  { href: "/artikel",                         label: "Artikel"    },
-  { href: "/event",                           label: "Event"      },
-  { href: "/kontak",                          label: "Kontak"     },
-];
-
 const socialLinks = [
   {
     label: "Instagram",
@@ -62,6 +51,23 @@ const socialLinks = [
   },
 ];
 
+const footerNavLinks = [
+  { href: "/",                            label: "Home"                },
+  { href: "/tentang/visi-misi",           label: "Visi & Misi"         },
+  { href: "/tentang/tujuan",              label: "Tujuan"              },
+  { href: "/tentang/kata-sambutan",       label: "Kata Sambutan"       },
+  { href: "/tentang/kabinet-rakit-makna", label: "Kabinet Rakit Makna" },
+  { href: "/tentang/program-unggulan",    label: "Program Unggulan"    },
+  { href: "/tentang/kementerian",         label: "Kementerian"         },
+  { href: "/aspirasi",                    label: "Aspirasi"            },
+  { href: "/artikel",                     label: "Artikel"             },
+  { href: "/event",                       label: "Event"               },
+  { href: "/informasi",                  label: "Informasi"           },
+  { href: "/survey",                   label: "Survey"              },
+  { href: "/gallery",                     label: "Galeri"              },
+  { href: "/kontak",                      label: "Kontak"              },
+];
+
 export default function Footer() {
   const year = new Date().getFullYear();
 
@@ -104,21 +110,7 @@ export default function Footer() {
               Navigasi
             </p>
             <div className="grid grid-cols-2 gap-x-4 gap-y-2.5">
-              {[
-                { href: "/",                            label: "Home"                },
-                { href: "/tentang/visi-misi",           label: "Visi & Misi"         },
-                { href: "/tentang/tujuan",              label: "Tujuan"              },
-                { href: "/tentang/kata-sambutan",       label: "Kata Sambutan"       },
-                { href: "/tentang/kabinet-rakit-makna", label: "Kabinet Rakit Makna" },
-                { href: "/tentang/program-unggulan",    label: "Program Unggulan"    },
-                { href: "/tentang/kementerian",         label: "Kementerian"         },
-                { href: "/aspirasi",                    label: "Aspirasi"            },
-                { href: "/artikel",                     label: "Artikel"             },
-                { href: "/event",                       label: "Event"               },
-                { href: "/statistik",                   label: "Statistik"           },
-                { href: "/galery",                      label: "Galery"              },
-                { href: "/kontak",                      label: "Kontak"              },
-              ].map((link) => (
+              {footerNavLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
