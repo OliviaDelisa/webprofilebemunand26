@@ -28,6 +28,20 @@ export const metadata = {
     siteName: "BEM KM Unand",
     locale: "id_ID",
     type: "website",
+    images: [
+      {
+        url: "https://bemkmunand.com/logo-bem.png",
+        width: 1200,
+        height: 630,
+        alt: "Logo BEM KM Universitas Andalas — Kabinet Rakit Makna",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "BEM KM Universitas Andalas — Kabinet Rakit Makna",
+    description: "Website resmi BEM KM Universitas Andalas Kabinet Rakit Makna",
+    images: ["https://bemkmunand.com/logo-bem.png"],
   },
   other: {
     "color-scheme": "light",
