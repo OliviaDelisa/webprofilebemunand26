@@ -14,14 +14,19 @@ const tentangItems = [
   { href: "/tentang/kementerian", label: "Kementerian & Program Kerja" },
 ];
 
+// Digabung: Artikel, Event, Informasi, Survey -> satu dropdown "Informasi"
+const informasiItems = [
+  { href: "/artikel", label: "Artikel" },
+  { href: "/event", label: "Event" },
+  { href: "/informasi", label: "Informasi" },
+  { href: "/survey", label: "Survey" },
+];
+
 const navLinks = [
   { href: "/", label: "Home", dropdown: null },
   { href: "/tentang", label: "Tentang", dropdown: tentangItems },
   { href: "/aspirasi", label: "Aspirasi", dropdown: null },
-  { href: "/artikel", label: "Artikel", dropdown: null },
-  { href: "/event", label: "Event", dropdown: null },
-  { href: "/informasi", label: "Informasi", dropdown: null },
-  { href: "/survey", label: "Survey", dropdown: null },
+  { href: "/informasi-menu", label: "Informasi", dropdown: informasiItems, matchPrefixes: ["/artikel", "/event", "/informasi", "/survey"] },
   { href: "/gallery", label: "Galeri", dropdown: null },
   { href: "/kontak", label: "Kontak", dropdown: null },
 ];
@@ -34,9 +39,14 @@ export default function Header() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [tentangOpen, setTentangOpen] = useState(false);
-  const [mTentang, setMTentang] = useState(false);
-  const dropRef = useRef(null);
+
+  // Dropdown desktop: simpan href dari link yang sedang terbuka (atau null)
+  const [openDropdown, setOpenDropdown] = useState(null);
+  // Dropdown mobile (accordion): simpan href dari link yang sedang terbuka (atau null)
+  const [mobileOpenDropdown, setMobileOpenDropdown] = useState(null);
+
+  // Simpan semua ref dropdown desktop untuk deteksi klik di luar
+  const dropRefs = useRef({});
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -46,20 +56,21 @@ export default function Header() {
 
   useEffect(() => {
     const handler = (e) => {
-      if (dropRef.current && !dropRef.current.contains(e.target)) {
-        setTentangOpen(false);
+      const openRef = openDropdown ? dropRefs.current[openDropdown] : null;
+      if (openRef && !openRef.contains(e.target)) {
+        setOpenDropdown(null);
       }
     };
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
-  }, []);
+  }, [openDropdown]);
 
   useEffect(() => {
     setMenuOpen(false);
-    setMTentang(false);
+    setMobileOpenDropdown(null);
+    setOpenDropdown(null);
   }, [pathname]);
 
-  const isTentangActive = pathname.startsWith("/tentang");
   const isHome = pathname === "/";
   const isTransparent = isHome && !scrolled;
 
@@ -69,6 +80,16 @@ export default function Header() {
 
   const navActiveClass = isTransparent ? "text-white" : "text-[#55193A]";
 
+  const isLinkActive = (link) => {
+    if (link.dropdown) {
+      if (link.matchPrefixes) {
+        return link.matchPrefixes.some((p) => pathname.startsWith(p));
+      }
+      return pathname.startsWith(link.href);
+    }
+    return pathname === link.href;
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -76,17 +97,18 @@ export default function Header() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
-        <Link href="/" className="flex items-center gap-3 flex-shrink-0 group">
-          <div className="w-12 h-12 rounded-full flex items-center justify-center overflow-hidden bg-white/20">
+        <Link href="/" className="flex items-center gap-2 sm:gap-3 flex-shrink-0 group min-w-0">
+          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center overflow-hidden bg-white/20 flex-shrink-0">
             <img
               src="/images/Logo.png"
               alt="Logo BEM KM Universitas Andalas"
               className="w-full h-full object-contain"
             />
           </div>
-          <div className="leading-tight hidden sm:block">
+          {/* Teks tetap tampil di HP, cuma ukurannya diperkecil */}
+          <div className="leading-tight min-w-0">
             <p
-              className={`text-sm font-black tracking-wide uppercase transition-colors duration-500 ${
+              className={`text-[11px] sm:text-sm font-black tracking-wide uppercase transition-colors duration-500 truncate ${
                 isTransparent ? "!text-white" : ""
               }`}
               style={!isTransparent ? { color: PURPLE } : {}}
@@ -94,7 +116,7 @@ export default function Header() {
               KABINET RAKIT MAKNA
             </p>
             <p
-              className={`text-[10px] font-semibold uppercase tracking-widest transition-colors duration-500 ${
+              className={`text-[8px] sm:text-[10px] font-semibold uppercase tracking-widest transition-colors duration-500 truncate ${
                 isTransparent ? "!text-white/80" : ""
               }`}
               style={!isTransparent ? { color: GOLD } : {}}
@@ -107,15 +129,22 @@ export default function Header() {
         <div className="hidden lg:flex items-center gap-2">
           <nav className="flex items-center gap-0.5">
             {navLinks.map((link) => {
-              const active = link.dropdown ? isTentangActive : pathname === link.href;
+              const active = isLinkActive(link);
 
               if (link.dropdown) {
+                const isOpen = openDropdown === link.href;
                 return (
-                  <div key={link.href} className="relative" ref={dropRef}>
+                  <div
+                    key={link.href}
+                    className="relative"
+                    ref={(el) => (dropRefs.current[link.href] = el)}
+                  >
                     <button
-                      onClick={() => setTentangOpen((v) => !v)}
+                      onClick={() =>
+                        setOpenDropdown((cur) => (cur === link.href ? null : link.href))
+                      }
                       className={`flex items-center gap-1 px-3 py-1.5 text-sm font-medium rounded-lg transition-colors ${
-                        active || tentangOpen ? navActiveClass : navTextClass
+                        active || isOpen ? navActiveClass : navTextClass
                       }`}
                     >
                       {link.label}
@@ -128,12 +157,12 @@ export default function Header() {
                         strokeWidth="2.5"
                         strokeLinecap="round"
                         className={`transition-transform duration-200 ${
-                          tentangOpen ? "rotate-180" : ""
+                          isOpen ? "rotate-180" : ""
                         }`}
                       >
                         <polyline points="6 9 12 15 18 9" />
                       </svg>
-                      {active && !tentangOpen && (
+                      {active && !isOpen && (
                         <motion.span
                           layoutId="nav-indicator"
                           className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full"
@@ -144,7 +173,7 @@ export default function Header() {
                     </button>
 
                     <AnimatePresence>
-                      {tentangOpen && (
+                      {isOpen && (
                         <motion.div
                           initial={{ opacity: 0, y: 6, scale: 0.97 }}
                           animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -152,7 +181,7 @@ export default function Header() {
                           transition={{ duration: 0.18, ease: "easeOut" }}
                           className="absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-xl border border-gray-100 py-2 overflow-hidden"
                         >
-                          {tentangItems.map((item, i) => (
+                          {link.dropdown.map((item, i) => (
                             <motion.div
                               key={item.href}
                               initial={{ opacity: 0, x: -6 }}
@@ -161,7 +190,7 @@ export default function Header() {
                             >
                               <Link
                                 href={item.href}
-                                onClick={() => setTentangOpen(false)}
+                                onClick={() => setOpenDropdown(null)}
                                 className={`flex items-center gap-2 px-4 py-2.5 text-sm transition-colors ${
                                   pathname === item.href
                                     ? "text-[#55193A] bg-[#55193A]/5 font-medium"
@@ -217,7 +246,7 @@ export default function Header() {
 
         <button
           onClick={() => setMenuOpen((v) => !v)}
-          className="lg:hidden p-2 rounded-lg hover:bg-white/10 transition-colors"
+          className="lg:hidden p-2 rounded-lg hover:bg-white/10 transition-colors flex-shrink-0"
           aria-label="Toggle menu"
         >
           <span
@@ -249,13 +278,16 @@ export default function Header() {
           >
             <nav className="px-4 py-3 flex flex-col gap-0.5 max-h-[75vh] overflow-y-auto">
               {navLinks.map((link, i) => {
-                const active = link.dropdown ? isTentangActive : pathname === link.href;
+                const active = isLinkActive(link);
 
                 if (link.dropdown) {
+                  const isMOpen = mobileOpenDropdown === link.href;
                   return (
                     <div key={link.href}>
                       <button
-                        onClick={() => setMTentang((v) => !v)}
+                        onClick={() =>
+                          setMobileOpenDropdown((cur) => (cur === link.href ? null : link.href))
+                        }
                         className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                           active ? "bg-[#55193A]/5 text-[#55193A]" : "text-gray-600"
                         }`}
@@ -270,21 +302,21 @@ export default function Header() {
                           strokeWidth="2.5"
                           strokeLinecap="round"
                           className={`transition-transform duration-200 ${
-                            mTentang ? "rotate-180" : ""
+                            isMOpen ? "rotate-180" : ""
                           }`}
                         >
                           <polyline points="6 9 12 15 18 9" />
                         </svg>
                       </button>
                       <AnimatePresence>
-                        {mTentang && (
+                        {isMOpen && (
                           <motion.div
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: "auto" }}
                             exit={{ opacity: 0, height: 0 }}
                             className="overflow-hidden ml-3 border-l-2 border-[#55193A]/20 pl-3"
                           >
-                            {tentangItems.map((item) => (
+                            {link.dropdown.map((item) => (
                               <Link
                                 key={item.href}
                                 href={item.href}
