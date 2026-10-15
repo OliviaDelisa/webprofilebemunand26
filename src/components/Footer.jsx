@@ -63,7 +63,6 @@ const footerNavLinks = [
   { href: "/artikel",                     label: "Artikel"             },
   { href: "/event",                       label: "Event"               },
   { href: "/informasi",                  label: "Informasi"           },
-  { href: "/survey",                   label: "Survey"              },
   { href: "/gallery",                     label: "Galeri"              },
   { href: "/kontak",                      label: "Kontak"              },
 ];

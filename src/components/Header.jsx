@@ -19,14 +19,23 @@ const informasiItems = [
   { href: "/artikel", label: "Artikel" },
   { href: "/event", label: "Event" },
   { href: "/informasi", label: "Informasi" },
-  { href: "/survey", label: "Survey" },
 ];
 
 const navLinks = [
   { href: "/", label: "Home", dropdown: null },
   { href: "/tentang", label: "Tentang", dropdown: tentangItems },
   { href: "/aspirasi", label: "Aspirasi", dropdown: null },
-  { href: "/informasi-menu", label: "Informasi", dropdown: informasiItems, matchPrefixes: ["/artikel", "/event", "/informasi", "/survey"] },
+  {
+    href: "/informasi-menu",
+    label: "Informasi",
+    dropdown: informasiItems,
+    matchPrefixes: [
+      "/informasi-menu",
+      "/artikel",
+      "/event",
+      "/informasi"
+    ],
+  },
   { href: "/gallery", label: "Galeri", dropdown: null },
   { href: "/kontak", label: "Kontak", dropdown: null },
 ];
