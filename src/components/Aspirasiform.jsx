@@ -14,7 +14,7 @@ const FAKULTAS_LIST = [
   "Fakultas Kedokteran",
   "Fakultas Kedokteran Gigi",
   "Fakultas Hukum",
-  "Fakultas Ekonomi dan Bisnis",
+  "Fakultas Ekonomi dan Bisnis", 
   "Fakultas Pertanian",
   "Fakultas Peternakan",
   "Fakultas Ilmu Budaya",
