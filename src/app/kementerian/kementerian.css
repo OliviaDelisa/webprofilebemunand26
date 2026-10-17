@@ -1,0 +1,457 @@
+/* Halaman */
+.km-page {
+  padding: 96px 24px 100px; /* 96px atas supaya tidak tertutup header yang fixed */
+  background: #fff;
+}
+
+/* Pembungkus isi: dibatasi lebarnya dan ditaruh di tengah */
+.km-wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px; /* jarak antar bagian */
+}
+
+/* Tombol kembali */
+.km-back {
+  align-self: flex-start;
+  padding: 8px 18px;
+  border: 1px solid #55193a;
+  border-radius: 999px;
+  color: #55193a;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.km-back:hover {
+  background: #55193a;
+  color: #fff;
+}
+
+/* Kotak utama: logo + nama */
+.km-hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #3b0f26 0%, #55193a 50%, #7a2550 100%);
+}
+
+.km-hero-logo {
+  position: absolute;
+  left: -70px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+  opacity: 0.4;
+}
+
+.km-hero-nama {
+  position: relative;
+  margin: 0;
+  padding: 36px 40px 36px 180px;
+  color: #fff;
+  font-size: clamp(1.7rem, 4.2vw, 2.9rem);
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+/* Layar HP */
+@media (max-width: 640px) {
+  .km-page { padding: 88px 16px 72px; }
+  .km-hero { min-height: 180px; }
+  .km-hero-logo { width: 210px; height: 210px; left: -55px; }
+  .km-hero-nama { padding: 28px 20px 28px 110px; }
+}
+
+
+
+
+
+/* Kotak deskripsi + visi + misi */
+.km-about {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 32px;
+  border: 1px solid rgba(85, 25, 58, 0.12);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 16px 40px rgba(85, 25, 58, 0.3);
+}
+
+.km-about-deskripsi {
+  margin: 0;
+  color: #444;
+  font-size: 1.02rem;
+  line-height: 1.8;
+}
+
+/* Kotak kecil di dalam: Visi dan Misi */
+.km-box {
+  padding: 20px 24px;
+  border-radius: 12px;
+  background: rgba(85, 25, 58, 0.04);
+  border-left: 3px solid #d8833b;
+}
+
+.km-box h2 {
+  margin: 0 0 8px;
+  color: #55193a;
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.km-box p {
+  margin: 0;
+  color: #444;
+  line-height: 1.75;
+}
+
+/* Daftar misi bernomor */
+.km-misi {
+  margin: 0;
+  padding-left: 1.4em;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #444;
+  line-height: 1.65;
+}
+
+.km-misi li::marker {
+  color: #d8833b;
+  font-weight: 800;
+}
+
+
+
+
+
+/* ===== Kartu orang ===== */
+.km-orang {
+  margin: 0;
+  perspective: 700px; /* memberi kesan 3D saat kartu miring */
+}
+
+.km-orang:hover {
+  --naik: -8px; /* kartu terangkat saat disentuh kursor */
+}
+
+.km-orang-foto {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 14px;
+  background: linear-gradient(160deg, #55193a 0%, #7a2a56 55%, #d8833b 100%);
+  box-shadow: 0 10px 26px rgba(85, 25, 58, 0.25);
+  transform: translateY(var(--naik, 0px)) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform 0.2s ease-out, box-shadow 0.3s ease;
+}
+
+.km-orang:hover .km-orang-foto {
+  box-shadow: 0 22px 40px rgba(85, 25, 58, 0.4);
+}
+
+.km-orang-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.km-orang:hover .km-orang-foto img {
+  transform: scale(1.07);
+}
+
+/* Siluet kalau belum ada foto */
+.km-orang-siluet {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.28);
+}
+.km-orang-siluet svg {
+  width: 70%;
+  height: auto;
+}
+
+/* Kilau cahaya yang mengikuti kursor */
+.km-orang-kilau {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--mx, 50%) var(--my, 50%),
+    rgba(255, 255, 255, 0.3),
+    transparent 55%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.km-orang:hover .km-orang-kilau {
+  opacity: 1;
+}
+
+/* Nama + jabatan di bagian bawah foto */
+.km-orang-label {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 40px 12px 12px;
+  text-align: center;
+  background: linear-gradient(0deg, rgba(59, 15, 38, 0.92) 0%, rgba(59, 15, 38, 0) 100%);
+}
+.km-orang-label strong {
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+.km-orang-label span {
+  color: #f0c9a0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* Hanya di perangkat dengan kursor: jabatan tersembunyi, muncul saat hover */
+@media (hover: hover) {
+  .km-orang-label span {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, opacity 0.35s ease;
+  }
+  .km-orang:hover .km-orang-label span {
+    max-height: 3em;
+    opacity: 1;
+  }
+}
+
+/* Menteri: bingkai emas */
+.km-orang--utama .km-orang-foto {
+  box-shadow: 0 0 0 3px #d8833b, 0 16px 36px rgba(85, 25, 58, 0.35);
+}
+.km-orang--utama:hover .km-orang-foto {
+  box-shadow: 0 0 0 3px #d8833b, 0 24px 44px rgba(85, 25, 58, 0.5);
+}
+
+/* ===== Susunan pimpinan: menteri di tengah, lebih tinggi ===== */
+.km-pimpinan {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+.km-pimpinan > div {
+  flex: 0 0 calc((100% - 40px) / 3);
+  max-width: 250px;
+}
+.km-pimpinan-sek { order: 1; margin-top: 56px; }
+.km-pimpinan-menteri { order: 2; }
+.km-pimpinan-bend { order: 3; margin-top: 56px; }
+
+/* ===== Staff: baris terakhir otomatis di tengah ===== */
+.km-staff {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+.km-staff > .km-orang {
+  flex: 0 0 calc((100% - 48px) / 4); /* 4 kartu per baris */
+}
+
+/* Hormati pengguna yang mematikan animasi di perangkatnya */
+@media (prefers-reduced-motion: reduce) {
+  .km-orang-foto,
+  .km-orang-foto img { transition: none; }
+  .km-orang { --rx: 0deg !important; --ry: 0deg !important; --naik: 0px !important; }
+}
+
+/* ===== Layar kecil ===== */
+@media (max-width: 900px) {
+  .km-staff > .km-orang { flex-basis: calc((100% - 32px) / 3); } /* 3 per baris */
+}
+@media (max-width: 640px) {
+  .km-pimpinan { flex-wrap: wrap; gap: 14px; }
+  .km-pimpinan > div { max-width: none; }
+  .km-pimpinan-menteri { order: 0; flex-basis: 56%; }
+  .km-pimpinan-sek, .km-pimpinan-bend { margin-top: 0; flex-basis: calc(50% - 7px); }
+  .km-pimpinan-sek { order: 1; }
+  .km-pimpinan-bend { order: 2; }
+  .km-staff { gap: 12px; }
+  .km-staff > .km-orang { flex-basis: calc((100% - 12px) / 2); } /* 2 per baris */
+}
+
+
+
+
+
+/* ===== Judul "Program Kerja" ===== */
+.km-judul {
+  margin-top: 24px; /* jarak ekstra dari staff di atasnya */
+  padding: 20px 0 18px;
+  text-align: center;
+  border-top: 3px solid #d8833b;
+  border-bottom: 1px solid rgba(85, 25, 58, 0.45);
+}
+
+.km-judul h2 {
+  margin: 0;
+  color: #55193a;
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+}
+
+@media (max-width: 640px) {
+  .km-judul h2 { font-size: 1.4rem; }
+}
+
+
+
+
+
+/* ===== Program kerja ===== */
+.km-proker-daftar {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.km-proker {
+  overflow: hidden;
+  border: 1px solid rgba(85, 25, 58, 0.12);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(85, 25, 58, 0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.km-proker:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 38px rgba(85, 25, 58, 0.28);
+}
+
+.km-proker-isi {
+  padding: 24px 28px 22px;
+}
+.km-proker-isi h3 {
+  margin: 0 0 8px;
+  color: #55193a;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+.km-proker-isi p {
+  margin: 0;
+  color: #444;
+  line-height: 1.75;
+}
+
+/* Proker tanpa foto: garis emas di kiri */
+.km-proker--teks {
+  border-left: 4px solid #d8833b;
+}
+
+/* ----- Slider / foto ----- */
+.km-slider {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #1c0a14;
+}
+
+.km-slider-jalur {
+  display: flex;
+  height: 100%;
+  transition: transform 0.6s ease;
+}
+
+.km-slide {
+  flex: 0 0 100%; /* setiap foto selebar slider */
+  height: 100%;
+}
+.km-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+.km-slider:hover .km-slide img {
+  transform: scale(1.03);
+}
+
+/* Tombol < > */
+.km-tombol {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: #55193a;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.25s ease, background 0.2s ease, color 0.2s ease;
+}
+.km-tombol:hover {
+  background: #55193a;
+  color: #fff;
+}
+.km-tombol--kiri { left: 14px; }
+.km-tombol--kanan { right: 14px; }
+
+/* Titik penanda */
+.km-titik {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.km-titik button {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: width 0.25s ease, background 0.25s ease;
+}
+.km-titik button.aktif {
+  width: 24px;
+  background: #d8833b;
+}
+
+/* Perangkat dengan kursor: tombol < > muncul hanya saat kartu disentuh */
+@media (hover: hover) {
+  .km-tombol { opacity: 0; }
+  .km-proker:hover .km-tombol { opacity: 1; }
+}
+
+@media (max-width: 640px) {
+  .km-proker-isi { padding: 20px 18px 18px; }
+  .km-tombol { width: 32px; height: 32px; font-size: 1.3rem; }
+}
