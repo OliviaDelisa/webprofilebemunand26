@@ -13,7 +13,6 @@ export default function sitemap() {
     { path: "/artikel", priority: 0.8 },
     { path: "/event", priority: 0.8 },
     { path: "/informasi", priority: 0.8 },
-    { path: "/survey", priority: 0.6 },
     { path: "/gallery", priority: 0.6 },
     { path: "/kontak", priority: 0.6 },
   ];
