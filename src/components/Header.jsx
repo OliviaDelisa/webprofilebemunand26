@@ -6,12 +6,11 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
 const tentangItems = [
-  { href: "/tentang/visi-misi", label: "Visi & Misi" },
-  { href: "/tentang/tujuan", label: "Tujuan" },
-  { href: "/tentang/kata-sambutan", label: "Kata Sambutan" },
-  { href: "/tentang/kabinet-rakit-makna", label: "Kabinet Rakit Makna" },
-  { href: "/tentang/program-unggulan", label: "Program Unggulan" },
-  { href: "/tentang/kementerian", label: "Kementerian & Program Kerja" },
+  { href: "/#visi-misi", label: "Visi & Misi" },
+  { href: "/#kata-sambutan", label: "Kata Sambutan" },
+  { href: "/#kabinet-rakit-makna", label: "Kabinet Rakit Makna" },
+  { href: "/#program-unggulan", label: "Program Unggulan" },
+  { href: "/#kementerian", label: "Kementerian & Program Kerja" },
 ];
 
 // Digabung: Artikel, Event, Informasi, Survey -> satu dropdown "Informasi"
@@ -329,6 +328,10 @@ export default function Header() {
                               <Link
                                 key={item.href}
                                 href={item.href}
+                                onClick={() => {
+                                  setMenuOpen(false);
+                                  setMobileOpenDropdown(null);
+                                }}
                                 className={`block px-2 py-2 text-sm rounded-lg transition-colors ${
                                   pathname === item.href
                                     ? "text-[#55193A] font-medium"

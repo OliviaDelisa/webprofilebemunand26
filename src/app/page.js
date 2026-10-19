@@ -837,7 +837,7 @@ export default function Home() {
         </section>
 
         {/* KABINET INTRO */}
-        <section className="kabinet-section" style={{ background: "#ffffff", padding: "100px 24px", textAlign: "center" }}>
+        <section id="kabinet-rakit-makna" className="kabinet-section" style={{ background: "#ffffff", padding: "100px 24px", textAlign: "center", scrollMarginTop: "5rem" }}>
           <h2 className="animate-on-scroll delay-1" style={{ fontSize: "2.5rem", fontWeight: 800, marginBottom: "20px", color: "#55193A" }}>
             Kabinet Rakit Makna
           </h2>
@@ -849,7 +849,7 @@ export default function Home() {
         </section>
 
         {/* VISI MISI */}
-        <section className="visi-misi-section">
+        <section id="visi-misi" className="visi-misi-section" style={{ scrollMarginTop: "5rem" }}>
           <div className="visi-misi-grid">
             <div className="animate-on-scroll delay-1">
               <p className="visi-misi-eyebrow">Visi</p>
@@ -872,7 +872,7 @@ export default function Home() {
         </section>
 
         {/* PROGRAM UNGGULAN */}
-        <section className="program-section">
+        <section id="program-unggulan" className="program-section" style={{ scrollMarginTop: "5rem" }}>
           <div style={{ maxWidth: "1200px", margin: "0 auto 36px", textAlign: "center" }}>
             <h3 className="animate-on-scroll" style={{ color: "#55193A", fontSize: "1.8rem", fontWeight: 800, margin: 0 }}>
               Program Unggulan
@@ -889,7 +889,7 @@ export default function Home() {
         </section>
 
         {/* PRESMA */}
-        <section className="leader-section">
+        <section id="kata-sambutan" className="leader-section" style={{ scrollMarginTop: "5rem" }}>
           <div className="leader-inner">
             <div className="leader-photo slide-left">
               <img src={resolveImageUrl(presma.photo)} alt={presma.name} />
@@ -939,7 +939,7 @@ export default function Home() {
         </section>
 
         {/* KEMENTERIAN GRID */}
-        <section className="kementerian-section" style={{ paddingTop: "48px" }}>
+        <section id="kementerian" className="kementerian-section" style={{ paddingTop: "48px", scrollMarginTop: "5rem" }}>
           <div className="kementerian-featured animate-on-scroll">
             <Link href={`/kementerian/${kepresidenan.slug}`}>
               <img src={resolveImageUrl(kepresidenan.photo)} alt={kepresidenan.name} />

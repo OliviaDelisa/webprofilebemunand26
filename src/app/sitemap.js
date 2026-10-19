@@ -4,11 +4,6 @@ export default function sitemap() {
 
   const routes = [
     { path: "/", priority: 1.0 },
-    { path: "/tentang/visi-misi", priority: 0.7 },
-    { path: "/tentang/tujuan", priority: 0.7 },
-    { path: "/tentang/kabinet-rakit-makna", priority: 0.7 },
-    { path: "/tentang/program-unggulan", priority: 0.7 },
-    { path: "/tentang/kementerian", priority: 0.7 },
     { path: "/aspirasi", priority: 0.9 },
     { path: "/artikel", priority: 0.8 },
     { path: "/event", priority: 0.8 },
