@@ -9,16 +9,16 @@ const logo = "/images/kementerian/logo-luneg.png";
 
 // ===== 2. DESKRIPSI, VISI, MISI =====
 const deskripsi =
-  "Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi.";
+  "Kementerian Luar Negeri BEM KM UNAND berperan dalam membangun dan mengelola hubungan eksternal dengan organisasi mahasiswa, lembaga, instansi, serta mitra di tingkat regional, nasional, dan internasional. Kementerian ini menjadi penghubung diplomasi mahasiswa untuk memperluas jejaring, mengawal isu strategis, menghimpun aspirasi, dan memperjuangkan kepentingan mahasiswa serta masyarakat.";
 
-const visi = "Visi visi visi visi Visi visi visi visi Visi visi visi visi.";
+const visi =
+  "Menjadi Simpul Diplomasi Mahasiswa yang Inklusif, Kolaboratif, dan Solutif dalam Membangun Jejaring Strategis untuk Mewujudkan UNAND dan Indonesia yang Harmonis";
 
 const misi = [
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
+  "Membangun relasi produktif dengan universitas dan lembaga eksternal melalui diplomasi yang hangat dan sinergis.",
+  "Mengawal isu nasional maupun internasional secara solutif dan berbasis data.",
+  "Mengoptimalkan kontribusi mahasiswa UNAND dalam agenda strategis regional maupun nasional.",
+  "Membangun citra positif BEM KM UNAND melalui karya dan kontribusi nyata bagi UNAND dan Indonesia.",
 ];
 
 // ===== 3. PIMPINAN (foto: "" = tampil siluet) =====
@@ -50,52 +50,62 @@ const staff = [
 const proker = [
   {
     nama: "Konsolidasi Aliansi BEM",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Pertemuan dan diskusi bersama BEM/DEMA se-Sumatera Barat dan Indonesia untuk memperkuat koordinasi, menyatukan arah gerakan, serta menyalurkan aspirasi mahasiswa.",
     foto: [],
   },
   {
     nama: "Delegasi",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Mengelola pengiriman perwakilan BEM KM UNAND untuk mengikuti kegiatan eksternal sekaligus memperluas relasi dan membawa nama baik universitas.",
     foto: [],
   },
   {
     nama: "Misi Diplomatik",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Melakukan kunjungan dan memfasilitasi kementerian BEM KM UNAND untuk berdiskusi serta menjalin kerja sama dengan kampus, lembaga, dan instansi eksternal.",
     foto: [],
   },
   {
     nama: "BEM KM Around The World",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Kegiatan studi banding, kunjungan, dan seminar bersama mahasiswa Indonesia di luar negeri untuk memperluas wawasan internasional serta memperoleh informasi beasiswa.",
     foto: [],
   },
   {
     nama: "Temu Inisiatif",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Pertemuan dengan alumni BEM KM UNAND dan IKA UNAND untuk mempererat silaturahmi, mendata alumni, serta membangun jejaring dukungan bagi organisasi.",
     foto: [],
   },
   {
     nama: "Proxenus",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Program pembekalan dan kaderisasi untuk meningkatkan kemampuan organisasi, kepemimpinan, komunikasi, public speaking, serta pemahaman hubungan eksternal.",
     foto: [],
   },
   {
     nama: "Api Pergerakan",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Pelatihan dan diskusi mengenai gerakan mahasiswa serta isu kampus, daerah, nasional, dan perempuan untuk meningkatkan pemahaman dan kepedulian mahasiswa.",
     foto: [],
   },
   {
     nama: "Dialog Internasional",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Kegiatan kajian, seminar, propaganda, atau podcast yang membahas isu global dan kaitannya dengan Indonesia untuk meningkatkan wawasan serta kepedulian mahasiswa.",
     foto: [],
   },
   {
     nama: "Luneg on Media",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Publikasi digital melalui Instagram yang menyajikan edukasi isu internasional, informasi kegiatan, dokumentasi, dan penguatan citra Kementerian Luar Negeri.",
     foto: [],
   },
   {
-    nama: "BUku Tahunan Luneg",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "Buku Tahunan Luneg",
+    deskripsi:
+      "Dokumentasi perjalanan, capaian, dinamika, dan pengalaman Kementerian Luar Negeri selama satu periode sebagai arsip, bahan refleksi, dan pembelajaran bagi kepengurusan berikutnya.",
     foto: [],
   },
 ];
@@ -124,9 +134,12 @@ export default function LunegPage() {
 
           <div className="km-box">
             <h2>Misi</h2>
-            <ol className="km-misi">
+            <ol className="km-misi" style={{ listStyle: "none", paddingLeft: 0 }}>
               {misi.map((m, i) => (
-                <li key={i}>{m}</li>
+                <li key={i} style={{ display: "flex", gap: "0.5rem" }}>
+                  <span>{i + 1}.</span>
+                  <span>{m}</span>
+                </li>
               ))}
             </ol>
           </div>

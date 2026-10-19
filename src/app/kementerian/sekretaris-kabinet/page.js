@@ -9,16 +9,17 @@ const logo = "/images/kementerian/logo-sekkab.png";
 
 // ===== 2. DESKRIPSI, VISI, MISI =====
 const deskripsi =
-  "Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi.";
+  "Kementerian Sekretaris Kabinet BEM KM Universitas Andalas merupakan pusat pengelolaan administrasi, kesekretariatan, pengarsipan dokumen, serta pengelolaan rumah tangga dan inventaris organisasi. Kementerian ini berperan memastikan administrasi berjalan tertib, sekretariat terawat, dan kebutuhan operasional organisasi terpenuhi. Selain itu, Sekretaris Kabinet meningkatkan kemampuan administrasi pengurus, membangun budaya literasi, serta menyiapkan kader penerus melalui pelatihan dan kaderisasi.";
 
-const visi = "Visi visi visi visi Visi visi visi visi Visi visi visi visi.";
+const visi =
+  "Total dalam kesekretariatan, rapi dalam pengarsipan, dan loyal dalam kepengurusan.";
 
 const misi = [
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
+  "1. Menjalankan fungsi kesekretariatan dengan penuh tanggung jawab dan loyalitas.",
+  "2. Mengoptimalkan fungsi sekretariat sebagai pusat kegiatan BEM KM Unand.",
+  "3. Menjadi pusat data administrasi serta menyediakan kebutuhan kesekretariatan.",
+  "4. Meningkatkan kinerja dan semangat kerja pengurus melalui lingkungan sekretariat yang nyaman.",
+  "5. Membangun komitmen seluruh pengurus dalam menjaga kebersihan, kerapian, dan kenyamanan sekretariat.",
 ];
 
 // ===== 3. PIMPINAN (foto: "" = tampil siluet) =====
@@ -45,47 +46,47 @@ const staff = [
 const proker = [
   {
     nama: "Makna Well Duty",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi: "Mengatur jadwal piket sekretariat untuk menjaga kebersihan, kerapian, keamanan, dan kenyamanan sekretariat.",
     foto: [],
   },
   {
     nama: "Makna Well Corner",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi: "Menyediakan pojok self-love yang berisi kebutuhan pribadi, perlengkapan perawatan diri, P3K, serta kata-kata positif untuk mendukung kenyamanan pengurus.",
     foto: [],
   },
   {
     nama: "Makna Well United",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi: "Melaksanakan kegiatan gotong royong untuk membersihkan dan menata ulang sekretariat agar lebih rapi, bersih, dan nyaman.",
     foto: [],
   },
   {
     nama: "Rakit Asset Management",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi: "Melakukan pendataan, pengadaan, pemeliharaan, dan pengelolaan peminjaman inventaris BEM KM Unand.",
     foto: [],
   },
   {
-    nama: "Rakit Talk: Book Edition",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "Rakit Talks: Book Edition",
+    deskripsi: "Mengadakan diskusi dan bedah buku bertema kepemimpinan, sosial-politik, pergerakan mahasiswa, dan pengembangan diri untuk meningkatkan budaya literasi pengurus.",
     foto: [],
   },
   {
     nama: "Rakit Makna Archives",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi: "Mengelola arsip digital dan fisik, seperti surat, proposal, laporan pertanggungjawaban, berita acara, sertifikat, dan dokumen penting organisasi.",
     foto: [],
   },
   {
-    nama: "Word and Excel Tips",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "WORTEX (Word & Excel Tips)",
+    deskripsi: "Membagikan konten edukatif melalui Instagram mengenai tips penggunaan Microsoft Word, Excel, serta keterampilan administrasi dan kesekretariatan.",
     foto: [],
   },
   {
     nama: "Secretariat Skill",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi: "Mengadakan pelatihan administrasi dan kesekretariatan bagi pengurus BEM, sekretaris menteri, serta sekretaris dan kesekretariatan kepanitiaan.",
     foto: [],
   },
   {
     nama: "A Young Sekkab",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi: "Program kaderisasi bagi mahasiswa untuk mempelajari administrasi, SOP kesekretariatan, dan pengelolaan rumah tangga kabinet sebagai calon penerus Kementerian Sekretaris Kabinet.",
     foto: [],
   },
 ];
@@ -114,7 +115,7 @@ export default function SekkabPage() {
 
           <div className="km-box">
             <h2>Misi</h2>
-            <ol className="km-misi">
+            <ol className="km-misi" style={{ listStyleType: "none" }}>
               {misi.map((m, i) => (
                 <li key={i}>{m}</li>
               ))}

@@ -7,19 +7,23 @@ import ProkerSlider from "@/components/kementerian/ProkerSlider";
 const nama = "Audit Internal";
 const logo = "/images/kementerian/logo-ai.png";
 
-// ===== 2. DESKRIPSI, VISI, MISI =====
+// ===== 2. DESKRIPSI, VISI, MISI, MOTTO =====
 const deskripsi =
-  "Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi.";
+  "Inspektorat Audit Internal (IAI) merupakan unit pengawasan internal BEM KM UNAND Kabinet Rakit Makna yang bertugas memastikan akuntabilitas, transparansi, dan integritas organisasi. IAI melakukan pemantauan dan evaluasi kinerja seluruh kementerian secara independen serta memberikan rekomendasi untuk mendukung perbaikan kinerja dan keberlanjutan organisasi.";
 
-const visi = "Visi visi visi visi Visi visi visi visi Visi visi visi visi.";
+const visi =
+  "Terwujudnya sistem pengawasan dan pembinaan internal BEM KM UNAND Kabinet Rakit Makna yang independen, akuntabel, dan berorientasi pada perbaikan yang bermakna bagi seluruh pengurus dan kelembagaan.";
 
 const misi = [
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
+  "Mendukung Presiden dan Wakil Presiden Mahasiswa dalam mengambil keputusan berdasarkan data dan informasi yang akurat.",
+  "Melaksanakan evaluasi kinerja seluruh kementerian secara berkala dan berbasis data.",
+  "Membangun sistem pengawasan internal yang sederhana dan transparan.",
+  "Menjadi mitra kementerian dalam memberikan masukan dan pembinaan.",
+  "Memberikan rekomendasi konkret berdasarkan hasil evaluasi dan temuan lapangan.",
 ];
+
+// Kosongkan ("") jika tidak ingin menampilkan motto
+const motto = "Mengawasi dengan Data, Membangun dengan Nyata";
 
 // ===== 3. PIMPINAN (foto: "" = tampil siluet) =====
 const menteri = { nama: "Akram Makruf Aidil", jabatan: "Inspektur", foto: "" };
@@ -46,38 +50,45 @@ const staff = [
 // foto: ["/a.jpg", "/b.jpg"] -> slider otomatis 5 detik
 const proker = [
   {
-    nama: "Evaluasi Pemantauan",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "Evaluasi dan Pemantauan",
+    deskripsi:
+      "Mengevaluasi kinerja pengurus dan keberjalanan program kerja setiap kementerian untuk mengidentifikasi pencapaian, kendala, serta perbaikan yang diperlukan.",
     foto: [],
   },
   {
     nama: "Upgrading Kabinet",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Pelatihan untuk meningkatkan pengetahuan organisasi, kemampuan pengurus, serta mempererat hubungan dan solidaritas antarpengurus.",
     foto: [],
   },
   {
     nama: "Ruang Makna",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Kegiatan kebersamaan seperti makan bersama, olahraga, dan diskusi untuk meningkatkan keakraban serta kekompakan pengurus.",
     foto: [],
   },
   {
-    nama: "Leadership Development Program",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "Leadership Development Program (LDP)",
+    deskripsi:
+      "Program pengembangan kepemimpinan melalui pelatihan dan pendampingan kelompok untuk meningkatkan kemampuan komunikasi, pengambilan keputusan, dan tanggung jawab pengurus.",
     foto: [],
   },
   {
     nama: "Rakit Makna Spotlight",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Bentuk apresiasi terhadap kinerja pengurus, presidium, dan kementerian untuk meningkatkan motivasi serta semangat berorganisasi.",
     foto: [],
   },
   {
     nama: "Rakit Makna Fair",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Perlombaan antarkementerian untuk memperkuat kerja sama tim, persaudaraan, dan kekompakan pengurus.",
     foto: [],
   },
   {
     nama: "Rakit Makna Final Chapter",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Kegiatan penutup kepengurusan yang menjadi ruang refleksi, apresiasi, dan perayaan kontribusi serta pencapaian Kabinet Rakit Makna selama satu periode.",
     foto: [],
   },
 ];
@@ -106,12 +117,22 @@ export default function KementerianPage() {
 
           <div className="km-box">
             <h2>Misi</h2>
-            <ol className="km-misi">
+            <ol className="km-misi" style={{ listStyle: "none", paddingLeft: 0 }}>
               {misi.map((m, i) => (
-                <li key={i}>{m}</li>
+                <li key={i} style={{ display: "flex", gap: "0.5rem" }}>
+                  <span>{i + 1}.</span>
+                  <span>{m}</span>
+                </li>
               ))}
             </ol>
           </div>
+
+          {motto && (
+            <div className="km-box">
+              <h2>Motto</h2>
+              <p>{motto}</p>
+            </div>
+          )}
         </section>
 
         <section className="km-pimpinan">

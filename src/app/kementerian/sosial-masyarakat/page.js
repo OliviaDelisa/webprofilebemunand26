@@ -9,16 +9,17 @@ const logo = "/images/kementerian/logo-sosmas.png";
 
 // ===== 2. DESKRIPSI, VISI, MISI =====
 const deskripsi =
-  "Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi.";
+  "Kementerian Sosial Masyarakat (Sosmas) BEM KM Universitas Andalas berfokus pada pengabdian sosial, kemanusiaan, kebencanaan, pemberdayaan masyarakat, dan penguatan jejaring sosial. Sosmas menjadi wadah bagi mahasiswa untuk berkontribusi langsung kepada masyarakat melalui kegiatan sosial yang kolaboratif, inovatif, dan inklusif.";
 
-const visi = "Visi visi visi visi Visi visi visi visi Visi visi visi visi.";
+const visi =
+  "Mewujudkan Kementerian Sosial Masyarakat sebagai ruang pengabdian yang kolaboratif, inovatif, dan inklusif dalam menghadirkan makna pengabdian sosial serta kontribusi nyata KM UNAND bagi masyarakat.";
 
 const misi = [
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
+  "1. Membangun gerakan sosial kolaboratif bersama KM UNAND, organisasi mahasiswa, FORNASSOSMAS, dan lembaga sosial.",
+  "2. Menumbuhkan kepedulian mahasiswa terhadap isu sosial melalui pendekatan edukatif dan partisipatif.",
+  "3. Menghadirkan program inovatif dan inklusif yang memberikan manfaat nyata serta memperkuat empati dan solidaritas.",
+  "4. Menjadi mitra strategis Universitas Andalas dalam kegiatan sosial dan pengabdian kepada masyarakat.",
+  "5. Memperluas jejaring dan kontribusi sosial KM UNAND melalui keterlibatan aktif dalam FORNASSOSMAS di tingkat nasional.",
 ];
 
 // ===== 3. PIMPINAN (foto: "" = tampil siluet) =====
@@ -56,62 +57,62 @@ const staff = [
 const proker = [
   {
     nama: "Sosmas Peduli",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi: "Penyaluran bantuan berupa uang, sembako, pakaian, dan kebutuhan lainnya serta kegiatan kerelawanan bagi masyarakat yang membutuhkan.",
     foto: [],
   },
   {
     nama: "Sosmas Tanggap",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi: "Aksi cepat tanggap bencana melalui penggalangan dana, bantuan kemanusiaan, dan dukungan psikososial bagi korban.",
     foto: [],
   },
   {
     nama: "Ramadhan Bersama Sosmas",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi: "Kegiatan sosial selama Ramadan, seperti berbagi takjil, buka bersama anak yatim, belanja bersama yatim dan dhuafa, serta Kampung Ramadan.",
     foto: [],
   },
   {
     nama: "Sekolah Ruang Isyarat",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi: "Edukasi bahasa isyarat dan kegiatan interaksi bersama penyandang disabilitas untuk meningkatkan inklusivitas dan mengurangi stigma.",
     foto: [],
   },
   {
     nama: "Ekspedisi Andalas",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi: "Pengabdian mahasiswa selama 10–12 hari di desa yang membutuhkan melalui kegiatan pendidikan, kesehatan, lingkungan, dan pengembangan potensi lokal.",
     foto: [],
   },
   {
     nama: "PPK Ormawa",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi: "Pengenalan dan pendampingan program pemberdayaan desa untuk meningkatkan kapasitas organisasi mahasiswa dalam pengabdian masyarakat.",
     foto: [],
   },
   {
-    nama: "Social Relation",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "Sosial Relation",
+    deskripsi: "Kunjungan kerja dan studi banding dengan BEM kampus lain, instansi pemerintah, NGO, dan komunitas sosial untuk membangun kemitraan.",
     foto: [],
   },
   {
-    nama: "Adamas",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "Angkatan Muda Sosmas (Adamas)",
+    deskripsi: "Program kaderisasi untuk membentuk calon penerus Sosmas yang peduli terhadap isu sosial dan memiliki jiwa pengabdian.",
     foto: [],
   },
   {
-    nama: "Salingka Unand",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "Salingka UNAND",
+    deskripsi: "Forum koordinasi dan kolaborasi antara organisasi mahasiswa yang bergerak di bidang sosial, masyarakat, dan lingkungan.",
     foto: [],
   },
   {
     nama: "Sosmas Update",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi: "Publikasi digital mengenai isu sosial, advokasi, donasi, dan hari besar melalui media sosial untuk meningkatkan kesadaran dan partisipasi mahasiswa.",
     foto: [],
   },
   {
     nama: "Memori Sang Pengabdi",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi: "Dokumentasi kegiatan Sosmas selama satu periode dalam bentuk e-book, after movie, refleksi, dan arsip digital.",
     foto: [],
   },
   {
     nama: "Sosial Voice",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi: "Wadah penyampaian opini dan diskusi mahasiswa mengenai isu sosial melalui tulisan, video, atau podcast.",
     foto: [],
   },
 ];
@@ -140,7 +141,7 @@ export default function SosmasPage() {
 
           <div className="km-box">
             <h2>Misi</h2>
-            <ol className="km-misi">
+            <ol className="km-misi" style={{ listStyleType: "none" }}>
               {misi.map((m, i) => (
                 <li key={i}>{m}</li>
               ))}

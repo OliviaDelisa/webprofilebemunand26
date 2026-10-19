@@ -9,16 +9,18 @@ const logo = "/images/kementerian/logo-jaknas.png";
 
 // ===== 2. DESKRIPSI, VISI, MISI =====
 const deskripsi =
-  "Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi.";
+  "Kementerian Kebijakan Nasional BEM KM UNAND merupakan kementerian yang berperan dalam mengkaji, mengawal, dan merespons kebijakan serta isu-isu nasional. Kementerian ini memiliki dua bidang utama, yaitu Kajian Strategis (Kastrat) yang berfokus pada analisis kebijakan dan isu nasional, serta Aksi dan Propaganda (Akprop) yang berfokus pada penyampaian sikap dan pelaksanaan gerakan mahasiswa. Melalui kajian, diskusi, edukasi, publikasi, dan aksi kolektif, kementerian ini mendorong mahasiswa agar lebih kritis dan aktif dalam merespons persoalan nasional.";
 
-const visi = "Visi visi visi visi Visi visi visi visi Visi visi visi visi.";
+const visi =
+  "Terwujudnya Kementerian Kebijakan Nasional BEM KM UNAND sebagai kementerian yang edukatif, responsif, dan solutif dalam mengkaji serta mengawal isu-isu nasional melalui gerakan yang inklusif, kolaboratif, dan berdampak bagi mahasiswa dan masyarakat.";
 
 const misi = [
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
+  "Membangun internal kementerian yang solid, adaptif, dan berkelanjutan.",
+  "Meningkatkan kualitas kajian strategis terkait isu nasional melalui kolaborasi dengan BEM Fakultas dan elemen KM UNAND.",
+  "Mengawal isu nasional melalui advokasi, kajian kebijakan, dan gerakan intelektual mahasiswa.",
+  "Meningkatkan kesadaran mahasiswa terhadap permasalahan nasional melalui edukasi, diskusi, dan publikasi.",
+  "Mendorong budaya literasi dan minat menulis mahasiswa dalam merespons isu nasional.",
+  "Memperkuat koordinasi gerakan KM UNAND agar respons terhadap isu nasional lebih terarah dan berkelanjutan.",
 ];
 
 // ===== 3. PIMPINAN (foto: "" = tampil siluet) =====
@@ -43,52 +45,62 @@ const staff = [
 const proker = [
   {
     nama: "Kajian Strategis",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Mengkaji isu dan kebijakan nasional melalui kajian tertulis, infografis, dan judicial review sebagai dasar pergerakan mahasiswa.",
     foto: [],
   },
   {
-    nama: "Opini Mahasiswa Autentik",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "OPMATIK (Opini Mahasiswa Autentik)",
+    deskripsi:
+      "Mewadahi mahasiswa untuk menghasilkan tulisan opini atau karya visual terkait isu nasional, daerah, dan kampus yang dipublikasikan melalui media.",
     foto: [],
   },
   {
     nama: "Menakar Indonesia",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Mengadakan diskusi, seminar, talkshow, bedah buku, bedah film, atau podcast untuk meningkatkan pemahaman dan kepedulian mahasiswa terhadap isu nasional.",
     foto: [],
   },
   {
     nama: "Munir Muda",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Membina generasi muda BEM KM UNAND agar memahami isu nasional, mengenal pergerakan mahasiswa, dan siap menjadi penerus Kementerian Kebijakan Nasional.",
     foto: [],
   },
   {
     nama: "Api Pergerakan",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Memberikan pelatihan dan pembekalan mengenai pergerakan mahasiswa serta isu kampus, daerah, nasional, dan perempuan.",
     foto: [],
   },
   {
-    nama: "Area Sospol",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "ARES (Area Sospol)",
+    deskripsi:
+      "Menjalin komunikasi dan diskusi dengan BEM Fakultas untuk bertukar pandangan, menampung aspirasi, serta menyusun respons terhadap isu strategis.",
     foto: [],
   },
   {
     nama: "Aksi Massa",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Melaksanakan aksi kolektif sebagai bentuk sikap mahasiswa dalam merespons dan mengawal kebijakan serta isu nasional.",
     foto: [],
   },
   {
     nama: "Discussion Collaborative",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Membangun kolaborasi dan diskusi dengan BEM se-Indonesia untuk bertukar gagasan dan merumuskan solusi terhadap isu nasional.",
     foto: [],
   },
   {
-    nama: "Jaknas On Media",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "Jaknas on Media",
+    deskripsi:
+      "Menghasilkan konten edukasi dan propaganda mengenai isu nasional dalam bentuk gambar, video, animasi, dokumenter, podcast, dan media kreatif lainnya.",
     foto: [],
   },
   {
-    nama: "Jaknas Goes To School",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "Jaknas Goes to School",
+    deskripsi:
+      "Mengadakan sosialisasi dan edukasi bagi pelajar SMA di Sumatera Barat untuk meningkatkan pemahaman kritis, kepedulian sosial, dan partisipasi terhadap isu nasional.",
     foto: [],
   },
 ];
@@ -117,9 +129,12 @@ export default function JaknasPage() {
 
           <div className="km-box">
             <h2>Misi</h2>
-            <ol className="km-misi">
+            <ol className="km-misi" style={{ listStyle: "none", paddingLeft: 0 }}>
               {misi.map((m, i) => (
-                <li key={i}>{m}</li>
+                <li key={i} style={{ display: "flex", gap: "0.5rem" }}>
+                  <span>{i + 1}.</span>
+                  <span>{m}</span>
+                </li>
               ))}
             </ol>
           </div>

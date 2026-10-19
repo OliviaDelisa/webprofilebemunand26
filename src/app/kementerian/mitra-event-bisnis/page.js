@@ -9,16 +9,16 @@ const logo = "/images/kementerian/logo-meb.png";
 
 // ===== 2. DESKRIPSI, VISI, MISI =====
 const deskripsi =
-  "Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi.";
+  "Kementerian Mitra Event dan Bisnis (KMEB) BEM KM Universitas Andalas merupakan kementerian yang berfokus pada pengelolaan kemitraan, penyelenggaraan kegiatan, serta pengembangan usaha digital dan non-digital untuk mendukung kemandirian finansial organisasi. KMEB juga berperan dalam meningkatkan kemampuan kewirausahaan mahasiswa, memperluas jaringan kerja sama dengan mitra strategis, serta menciptakan peluang bisnis yang berkelanjutan dan bermanfaat bagi Keluarga Mahasiswa Universitas Andalas.";
 
-const visi = "Visi visi visi visi Visi visi visi visi Visi visi visi visi.";
+const visi =
+  "Menjadikan KMEB sebagai penggerak kemitraan strategis, pengelolaan event, serta pengembangan bisnis digital dan non-digital yang berkelanjutan sebagai upaya memperkuat kemandirian pendanaan melalui tata kelola yang profesional, kreatif, dan berdampak bagi KM Universitas Andalas.";
 
 const misi = [
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
+  "Mengelola kemitraan strategis internal dan eksternal secara profesional untuk mendukung kemandirian pendanaan BEM KM UNAND.",
+  "Mengoptimalkan pengelolaan event dan kegiatan usaha sebagai sumber pendanaan berkelanjutan.",
+  "Mengembangkan bisnis digital dan non-digital yang inovatif sesuai kebutuhan KM Universitas Andalas.",
+  "Menumbuhkan jiwa kewirausahaan yang kreatif dan berdampak melalui fasilitasi kemitraan.",
 ];
 
 // ===== 3. PIMPINAN (foto: "" = tampil siluet) =====
@@ -55,32 +55,38 @@ const staff = [
 const proker = [
   {
     nama: "Entrepreneurship Development KM UNAND",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Mengadakan sosialisasi Program Pembinaan Mahasiswa Wirausaha (P2MW) serta workshop kemitraan, sponsorship, dan pendanaan event untuk meningkatkan keterampilan kewirausahaan mahasiswa.",
     foto: [],
   },
   {
     nama: "MEB Shop",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Menjalankan usaha penjualan produk secara langsung (offline), seperti makanan, minuman, dan produk kreatif, untuk menambah pemasukan BEM KM UNAND.",
     foto: [],
   },
   {
     nama: "Mitra Loyalty Program",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Membangun dan menjaga kerja sama dengan mitra internal maupun eksternal, seperti perusahaan, UMKM, instansi, dan organisasi, melalui pengelolaan kemitraan yang terstruktur.",
     foto: [],
   },
   {
     nama: "MEB Marketplace",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Mengembangkan penjualan dan pemasaran produk secara digital, termasuk produk kreatif, jasa konveksi, dan percetakan, untuk meningkatkan pendapatan organisasi.",
     foto: [],
   },
   {
-    nama: "Pekan Andalas",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "PANDA (Pekan Andalas)",
+    deskripsi:
+      "Menyelenggarakan kegiatan edukatif, rekreatif, dan kolaboratif untuk mempererat kebersamaan mahasiswa serta mengembangkan potensi kreatif dan akademis KM UNAND.",
     foto: [],
   },
   {
     nama: "Andalas Young Preneur",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Menyiapkan kader penerus KMEB melalui pengenalan tugas dan fungsi kementerian, pemahaman program kerja, serta pembekalan untuk regenerasi kepengurusan.",
     foto: [],
   },
 ];
@@ -109,9 +115,12 @@ export default function MEBPage() {
 
           <div className="km-box">
             <h2>Misi</h2>
-            <ol className="km-misi">
+            <ol className="km-misi" style={{ listStyle: "none", paddingLeft: 0 }}>
               {misi.map((m, i) => (
-                <li key={i}>{m}</li>
+                <li key={i} style={{ display: "flex", gap: "0.5rem" }}>
+                  <span>{i + 1}.</span>
+                  <span>{m}</span>
+                </li>
               ))}
             </ol>
           </div>

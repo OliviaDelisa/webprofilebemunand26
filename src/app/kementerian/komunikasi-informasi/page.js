@@ -7,19 +7,23 @@ import ProkerSlider from "@/components/kementerian/ProkerSlider";
 const nama = "Komunikasi dan Informasi";
 const logo = "/images/kementerian/logo-kominfo.png";
 
-// ===== 2. DESKRIPSI, VISI, MISI =====
+// ===== 2. DESKRIPSI, VISI, MISI, MOTTO =====
 const deskripsi =
-  "Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi.";
+  "Kementerian Komunikasi dan Informasi BEM KM UNAND merupakan pusat informasi, publikasi, dan pencitraan organisasi yang terdiri dari tiga bidang, yaitu Graphic Design, Content Creator, dan Public Relation. Kementerian ini berperan dalam menyebarluaskan informasi kegiatan dan isu pergerakan secara kreatif, edukatif, dan inovatif, sekaligus memperkuat koordinasi serta kolaborasi bidang media dengan organisasi mahasiswa di lingkungan Universitas Andalas.";
 
-const visi = "Visi visi visi visi Visi visi visi visi Visi visi visi visi.";
+const visi =
+  "Menjadikan BEM KM Unand sebagai lembaga yang proaktif dan selektif dalam penyebarluasan informasi terkini terkait isu pergerakan dan kegiatan BEM KM Unand yang diangkatkan secara kreatif dan inovatif.";
 
 const misi = [
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
+  "Membangun internal kementerian yang loyal dan profesional.",
+  "Aktif menginformasikan kegiatan dan advokasi BEM KM UNAND.",
+  "Menjadi media edukatif dan inspiratif bagi KM UNAND.",
+  "Membangun citra positif BEM KM UNAND melalui publikasi informasi dan isu pergerakan.",
+  "Menjadi media informasi yang cepat tanggap dalam pelayanan dan penyebaran informasi.",
 ];
+
+// Kosongkan ("") jika tidak ingin menampilkan motto
+const motto = "Bersama Media Kita Bergerak — KOMINFO Always ON";
 
 // ===== 3. PIMPINAN (foto: "" = tampil siluet) =====
 const menteri = { nama: "M Nabil Fadhli", jabatan: "Menteri", foto: "" };
@@ -30,7 +34,7 @@ const bendahara = { nama: "Farhanatul Hilmi", jabatan: "Bendahara Menteri", foto
 const staff = [
   { nama: "Nabilah Beta Putri", jabatan: "Dirjen Graphic Design", foto: "" },
   { nama: "Faisal Fahmi MZ", jabatan: "Dirjen Content Creator", foto: "" },
-  { nama: "KIng Haikal Faiz", jabatan: "Dirjen Public Relation", foto: "" },
+  { nama: "King Haikal Faiz", jabatan: "Dirjen Public Relation", foto: "" },
   { nama: "M Farhan Abdillah", jabatan: "Staff", foto: "" },
   { nama: "Syonia Juliana", jabatan: "Staff", foto: "" },
   { nama: "Alya Salsa Nabila", jabatan: "Staff", foto: "" },
@@ -55,52 +59,62 @@ const staff = [
 const proker = [
   {
     nama: "Launching Kabinet Rakit Makna",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Publikasi struktur kementerian, logo, maskot, dan akun media sosial resmi BEM KM UNAND sebagai pengenalan kabinet kepada mahasiswa dan masyarakat.",
     foto: [],
   },
   {
     nama: "Rakit Media",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Penyebarluasan informasi akademik, nonakademik, kegiatan BEM KM UNAND, dan isu terkini melalui konten grafis maupun video di media sosial.",
     foto: [],
   },
   {
-    nama: "Sinergi Media UNAND",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "Sinergi Media UNAND (SIGMA)",
+    deskripsi:
+      "Forum koordinasi dan kolaborasi bidang media bersama Kominfo BEM fakultas dan UKM tingkat universitas melalui diskusi, pelatihan, dan webinar multimedia.",
     foto: [],
   },
   {
-    nama: "Workshop Multimedia",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "Workshop Multimedia (WM)",
+    deskripsi:
+      "Pelatihan dan seminar untuk meningkatkan keterampilan desain grafis, fotografi, videografi, broadcasting, dan bidang multimedia lainnya.",
     foto: [],
   },
   {
     nama: "Rakit Media Spotlight",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Layanan promosi kegiatan organisasi dan lembaga melalui media sosial BEM KM UNAND sekaligus membangun kerja sama media partner yang saling menguntungkan.",
     foto: [],
   },
   {
     nama: "Temuin",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Publikasi informasi kehilangan dan penemuan barang melalui akun Instagram khusus untuk membantu mahasiswa UNAND menemukan barangnya.",
     foto: [],
   },
   {
     nama: "Visit Media",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Kunjungan ke lembaga atau perusahaan media lokal dan nasional untuk memperluas relasi, menambah wawasan, serta membuka peluang kerja sama publikasi.",
     foto: [],
   },
   {
     nama: "Mobile Agent",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Pelatihan bagi peserta Institut Generasi Muda Kementerian Kominfo untuk membekali mereka dengan keterampilan multimedia dan komunikasi sesuai kebutuhan kementerian.",
     foto: [],
   },
   {
     nama: "MaknaCast",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Podcast berbentuk video yang membahas isu kampus, daerah, dan nasional serta menghadirkan diskusi edukatif dan inspiratif bagi mahasiswa dan masyarakat.",
     foto: [],
   },
   {
     nama: "Rewind",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Publikasi rangkuman kegiatan dan perkembangan BEM KM UNAND dalam bentuk grafis, foto, dan video after movie sebagai dokumentasi, evaluasi, dan referensi kepengurusan berikutnya.",
     foto: [],
   },
 ];
@@ -129,12 +143,22 @@ export default function KominfoPage() {
 
           <div className="km-box">
             <h2>Misi</h2>
-            <ol className="km-misi">
+            <ol className="km-misi" style={{ listStyle: "none", paddingLeft: 0 }}>
               {misi.map((m, i) => (
-                <li key={i}>{m}</li>
+                <li key={i} style={{ display: "flex", gap: "0.5rem" }}>
+                  <span>{i + 1}.</span>
+                  <span>{m}</span>
+                </li>
               ))}
             </ol>
           </div>
+
+          {motto && (
+            <div className="km-box">
+              <h2>Motto</h2>
+              <p>{motto}</p>
+            </div>
+          )}
         </section>
 
         <section className="km-pimpinan">

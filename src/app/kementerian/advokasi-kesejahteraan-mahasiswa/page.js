@@ -4,22 +4,27 @@ import KartuOrang from "@/components/kementerian/KartuOrang";
 import ProkerSlider from "@/components/kementerian/ProkerSlider";
 
 // ===== 1. IDENTITAS =====
-const nama = "Dalam Negeri";
+const nama = "Advokasi dan Kesejahteraan Mahasiswa";
 const logo = "/images/kementerian/logo-adkesma.png";
 
-// ===== 2. DESKRIPSI, VISI, MISI =====
+// ===== 2. DESKRIPSI, VISI, MISI, MOTTO =====
 const deskripsi =
-  "Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi.";
+  "Kementerian ADKESMA BEM KM UNAND berfokus pada pelayanan aspirasi, advokasi permasalahan mahasiswa, pengawalan kebijakan kampus, serta peningkatan kesejahteraan mahasiswa. Kementerian ini memiliki tiga bidang utama, yaitu Advokasi, Kesejahteraan Mahasiswa (Kesma), dan Media. ADKESMA berperan sebagai penghubung antara mahasiswa dan pihak universitas untuk memastikan hak mahasiswa terpenuhi serta informasi akademik, beasiswa, dan bantuan pendidikan dapat diakses dengan baik.";
 
-const visi = "Visi visi visi visi Visi visi visi visi Visi visi visi visi.";
+const visi =
+  "Mewujudkan lingkungan kampus yang adil dan sejahtera melalui advokasi yang responsif, berkelanjutan, serta berlandaskan pelayanan terhadap kebutuhan mahasiswa.";
 
 const misi = [
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
+  "Menjalankan advokasi yang responsif dan solutif.",
+  "Mendorong kebijakan kampus yang pro-mahasiswa.",
+  "Memfasilitasi layanan kesejahteraan mahasiswa.",
+  "Membangun sistem advokasi yang inklusif dan berkelanjutan.",
+  "Memperkuat sinergi dengan pihak internal dan eksternal kampus.",
 ];
+
+// Kosongkan ("") jika tidak ingin menampilkan motto
+const motto =
+  "Melayani sepenuh hati, setia dalam mengabdi, merakit makna untuk UNAND yang harmoni";
 
 // ===== 3. PIMPINAN (foto: "" = tampil siluet) =====
 const menteri = { nama: "Rayhan Masykuri", jabatan: "Menteri", foto: "" };
@@ -54,52 +59,62 @@ const staff = [
 const proker = [
   {
     nama: "Aksi Adkesma",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Audiensi dengan pimpinan Universitas Andalas untuk membahas permasalahan mahasiswa dan menyampaikan hasilnya kepada KM UNAND.",
     foto: [],
   },
   {
     nama: "FORKES dan Roadshow",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Forum koordinasi dan kunjungan bersama ADKESMA BEM Fakultas untuk bertukar informasi, menghimpun permasalahan, dan merumuskan solusi kesejahteraan mahasiswa.",
     foto: [],
   },
   {
-    nama: "MENSIKMA",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "MENSIKMA (Menjemput Aspirasi Keluarga Mahasiswa)",
+    deskripsi:
+      "Forum diskusi bersama komting seluruh jurusan untuk menghimpun dan menindaklanjuti aspirasi serta permasalahan mahasiswa.",
     foto: [],
   },
   {
     nama: "Beasiswa Fair",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Pameran dan sosialisasi beasiswa yang menyediakan informasi, konsultasi, dan pembekalan teknis bagi mahasiswa yang ingin memperoleh beasiswa.",
     foto: [],
   },
   {
     nama: "Beasiswa Kabinet",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Bantuan finansial bagi mahasiswa aktivis kampus yang membutuhkan dukungan ekonomi untuk membantu keberlanjutan pendidikan.",
     foto: [],
   },
   {
-    nama: "COMBA",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "COMBA (Communication for MABA)",
+    deskripsi:
+      "Wadah komunikasi dan pendampingan mahasiswa baru melalui penyebaran informasi mengenai lingkungan kampus, akademik, dan kehidupan kemahasiswaan.",
     foto: [],
   },
   {
-    nama: "A-YG",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "A-YG (ADKESMA Young Generation)",
+    deskripsi:
+      "Pelatihan dan pembimbingan bagi generasi muda untuk memahami program kerja serta mempersiapkan calon penerus Kementerian ADKESMA.",
     foto: [],
   },
   {
     nama: "Sapa KM",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Wadah untuk menghimpun aspirasi, keresahan, dan permasalahan mahasiswa secara langsung agar dapat ditindaklanjuti oleh pihak terkait.",
     foto: [],
   },
   {
     nama: "Adkesmation",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Penyebaran informasi akademik dan kemahasiswaan melalui konten kreatif dan informatif di media sosial.",
     foto: [],
   },
   {
     nama: "Informasi Beasiswa dan Magang",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Penyebaran informasi mengenai peluang beasiswa dan magang melalui media sosial agar mahasiswa memperoleh akses informasi yang akurat dan terbaru.",
     foto: [],
   },
 ];
@@ -128,12 +143,22 @@ export default function AdkesmaPage() {
 
           <div className="km-box">
             <h2>Misi</h2>
-            <ol className="km-misi">
+            <ol className="km-misi" style={{ listStyle: "none", paddingLeft: 0 }}>
               {misi.map((m, i) => (
-                <li key={i}>{m}</li>
+                <li key={i} style={{ display: "flex", gap: "0.5rem" }}>
+                  <span>{i + 1}.</span>
+                  <span>{m}</span>
+                </li>
               ))}
             </ol>
           </div>
+
+          {motto && (
+            <div className="km-box">
+              <h2>Motto</h2>
+              <p>{motto}</p>
+            </div>
+          )}
         </section>
 
         <section className="km-pimpinan">

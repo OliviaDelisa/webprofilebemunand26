@@ -9,16 +9,16 @@ const logo = "/images/kementerian/logo-linghup.png";
 
 // ===== 2. DESKRIPSI, VISI, MISI =====
 const deskripsi =
-  "Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi.";
+  "Kementerian Lingkungan Hidup BEM KM UNAND merupakan wadah edukasi, advokasi, dan aksi nyata yang berfokus pada pelestarian lingkungan hidup. Kementerian ini berperan dalam meningkatkan kesadaran lingkungan melalui kajian, pengabdian masyarakat, kampanye, kolaborasi dengan pihak eksternal, serta publikasi isu lingkungan untuk mendorong perubahan yang berkelanjutan.";
 
-const visi = "Visi visi visi visi Visi visi visi visi Visi visi visi visi.";
+const visi =
+  "Mengintegrasikan gerakan mahasiswa dan pengabdian masyarakat untuk menciptakan solusi lingkungan yang nyata, berdampak, dan berkelanjutan.";
 
 const misi = [
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
+  "Menjalankan program pengabdian lingkungan yang berkelanjutan dan terukur.",
+  "Mengawal isu lingkungan kampus dan daerah secara responsif serta berbasis data.",
+  "Meningkatkan kesadaran lingkungan melalui edukasi dan kampanye perubahan perilaku.",
+  "Membangun kemitraan strategis untuk mendukung pelaksanaan program lingkungan.",
 ];
 
 // ===== 3. PIMPINAN (foto: "" = tampil siluet) =====
@@ -56,47 +56,56 @@ const staff = [
 const proker = [
   {
     nama: "Enviro Movement",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Wadah edukasi, diskusi, kajian, observasi lapangan, dan riset untuk meningkatkan pemahaman serta kepedulian terhadap isu lingkungan.",
     foto: [],
   },
   {
     nama: "Green Rangers Event",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Kegiatan lingkungan berskala nasional yang mencakup perlombaan, aksi lingkungan, expo, dan roadshow sekolah untuk meningkatkan partisipasi serta keterampilan masyarakat dalam menjaga lingkungan.",
     foto: [],
   },
   {
     nama: "Enviro Xplore",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Aksi lingkungan yang diawali dengan edukasi dan dilaksanakan di wilayah yang membutuhkan penanganan khusus untuk meningkatkan kesadaran serta keterlibatan masyarakat.",
     foto: [],
   },
   {
-    nama: "Linkhup",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "LinkHup",
+    deskripsi:
+      "Program pengembangan jejaring dan kolaborasi dengan organisasi mahasiswa, komunitas, NGO, serta instansi yang bergerak di bidang lingkungan hidup.",
     foto: [],
   },
   {
     nama: "Enviro Creative",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Publikasi konten edukasi, kajian, propaganda, dan dokumentasi kegiatan lingkungan melalui media sosial untuk meningkatkan kesadaran masyarakat.",
     foto: [],
   },
   {
     nama: "Evergreen Generation",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Program pembekalan dan praktik bagi staf magang atau generasi muda untuk mengenalkan program kerja, nilai, serta peran Kementerian Lingkungan Hidup sebagai persiapan regenerasi.",
     foto: [],
   },
   {
     nama: "Andalas Climate Watch",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Unit respons cepat yang menyusun policy brief dan siaran pers terkait isu lingkungan prioritas, seperti sampah kampus, fasilitas isi ulang air, dan kawasan bebas rokok.",
     foto: [],
   },
   {
     nama: "Enviro Force",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Program pengabdian lingkungan terpadu di nagari mitra yang berfokus pada penerapan solusi nyata dan edukasi masyarakat secara berkelanjutan.",
     foto: [],
   },
   {
-    nama: "Podcast Suara Rimba",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "Podcast “Suara Rimba”",
+    deskripsi:
+      "Wadah diskusi lingkungan yang dikemas secara santai tetapi berbobot melalui cerita pengalaman alam, kisah masyarakat terdampak bencana, dan pembahasan kebijakan lingkungan.",
     foto: [],
   },
 ];
@@ -125,9 +134,12 @@ export default function LinghupPage() {
 
           <div className="km-box">
             <h2>Misi</h2>
-            <ol className="km-misi">
+            <ol className="km-misi" style={{ listStyle: "none", paddingLeft: 0 }}>
               {misi.map((m, i) => (
-                <li key={i}>{m}</li>
+                <li key={i} style={{ display: "flex", gap: "0.5rem" }}>
+                  <span>{i + 1}.</span>
+                  <span>{m}</span>
+                </li>
               ))}
             </ol>
           </div>

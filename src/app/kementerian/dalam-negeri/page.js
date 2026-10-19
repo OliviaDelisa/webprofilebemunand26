@@ -9,16 +9,16 @@ const logo = "/images/kementerian/logo-dagri.png";
 
 // ===== 2. DESKRIPSI, VISI, MISI =====
 const deskripsi =
-  "Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi.";
+  "Kementerian Dalam Negeri BEM KM UNAND berfokus pada penguatan hubungan dan komunikasi antara BEM KM UNAND dengan BEM Fakultas, UKM, HIMADA, serta seluruh elemen kemahasiswaan Universitas Andalas. Kementerian ini berperan sebagai komunikator dan fasilitator untuk menampung aspirasi, membangun kolaborasi, serta menciptakan hubungan yang harmonis dan berkelanjutan antarlembaga.";
 
-const visi = "Visi visi visi visi Visi visi visi visi Visi visi visi visi.";
+const visi =
+  "Berkontribusi secara aktif dan masif untuk memberikan pelayanan yang menyeluruh kepada KM Universitas Andalas guna menuju KM Universitas Andalas yang harmoni dan saling bersinergi";
 
 const misi = [
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
+  "Menjadi poros pelayanan yang terpercaya bagi seluruh Keluarga Mahasiswa Universitas Andalas.",
+  "Membina hubungan baik dengan UKM, BEM Fakultas, dan HIMADA.",
+  "Menjadi wadah kolaborasi bagi seluruh elemen kemahasiswaan Universitas Andalas.",
+  "Memberikan pelayanan nyata dan menampung aspirasi seluruh KM UNAND.",
 ];
 
 // ===== 3. PIMPINAN (foto: "" = tampil siluet) =====
@@ -56,37 +56,44 @@ const staff = [
 const proker = [
   {
     nama: "Konsolidasi",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Forum diskusi dan koordinasi bersama BEM Fakultas, UKM, dan elemen KM UNAND untuk membahas isu terkini serta menyamakan arah pergerakan mahasiswa.",
     foto: [],
   },
   {
-    nama: "Tracking Aspirasi",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "TRAPI (Tracking Aspirasi)",
+    deskripsi:
+      "Kunjungan ke BEM Fakultas, UKM, dan HIMADA untuk mempererat silaturahmi, menghimpun aspirasi, serta mengidentifikasi permasalahan yang perlu ditindaklanjuti BEM KM UNAND.",
     foto: [],
   },
   {
-    nama: "BAKTI Unand",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "BAKTI",
+    deskripsi:
+      "Kegiatan pengenalan kampus bagi mahasiswa baru untuk memperkenalkan lingkungan, aktivitas akademik, dan kegiatan nonakademik di Universitas Andalas.",
     foto: [],
   },
   {
-    nama: "Saudagri",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "SAUDAGRI (Saudara Dalam Negeri)",
+    deskripsi:
+      "Program pengembangan generasi muda melalui Institut Generasi Muda (IGM) untuk menanamkan nilai-nilai Kemendagri dan mempersiapkan calon penerus kementerian.",
     foto: [],
   },
   {
     nama: "Memory Makers",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Kegiatan kebersamaan, seperti open house dan buka bersama ormawa, untuk mempererat keakraban, solidaritas, dan hubungan antarlembaga mahasiswa.",
     foto: [],
   },
   {
-    nama: "Podkastra",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "PODKASTRA (Podcast Kampus Serta Ormawa)",
+    deskripsi:
+      "Podcast yang menghadirkan perwakilan BEM Fakultas, UKM, dan HIMADA untuk berbagi informasi, memperkenalkan lembaga, serta memperluas relasi mahasiswa.",
     foto: [],
   },
   {
-    nama: "Andalas Global Awards",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "AGA (Andalas Global Awards)",
+    deskripsi:
+      "Ajang penghargaan bagi mahasiswa dan lembaga kemahasiswaan berprestasi sebagai bentuk apresiasi terhadap kontribusi, kreativitas, dan pencapaian di Universitas Andalas.",
     foto: [],
   },
 ];
@@ -115,9 +122,12 @@ export default function DagriPage() {
 
           <div className="km-box">
             <h2>Misi</h2>
-            <ol className="km-misi">
+            <ol className="km-misi" style={{ listStyle: "none", paddingLeft: 0 }}>
               {misi.map((m, i) => (
-                <li key={i}>{m}</li>
+                <li key={i} style={{ display: "flex", gap: "0.5rem" }}>
+                  <span>{i + 1}.</span>
+                  <span>{m}</span>
+                </li>
               ))}
             </ol>
           </div>

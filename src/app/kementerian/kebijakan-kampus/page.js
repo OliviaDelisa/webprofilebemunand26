@@ -7,19 +7,21 @@ import ProkerSlider from "@/components/kementerian/ProkerSlider";
 const nama = "Kebijakan Kampus";
 const logo = "/images/kementerian/logo-jakpus.png";
 
-// ===== 2. DESKRIPSI, VISI, MISI =====
+// ===== 2. DESKRIPSI, VISI, MISI, MOTTO =====
 const deskripsi =
-  "Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi.";
+  "Kementerian Kebijakan Kampus BEM KM UNAND berfokus pada pengkajian, pengawasan, dan advokasi isu serta kebijakan di lingkungan Universitas Andalas. Kementerian ini berperan menampung aspirasi mahasiswa, mengkritisi kebijakan kampus, dan memberikan rekomendasi berbasis data agar kebijakan yang diambil lebih sesuai dengan kebutuhan mahasiswa.";
 
-const visi = "Visi visi visi visi Visi visi visi visi Visi visi visi visi.";
+const visi =
+  "Menjadi kementerian yang inklusif, kolaboratif, dan solutif dalam mengawal serta menyikapi isu dan kebijakan kampus secara strategis, partisipatif, dan berbasis data guna mewujudkan kebijakan yang berpihak kepada KM UNAND melalui sinergi, gerakan advokatif, dan kebermanfaatan yang berkelanjutan";
 
 const misi = [
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
+  "Mengawal dan mengadvokasi isu kampus secara strategis dan berbasis data.",
+  "Mendorong partisipasi serta daya kritis mahasiswa terhadap kebijakan kampus.",
+  "Membangun sinergi dengan elemen kampus untuk menghadirkan kebijakan yang responsif dan berdampak.",
 ];
+
+// Kosongkan ("") jika tidak ingin menampilkan motto
+const motto = "Bersuara dengan Data, Bergerak dengan Makna";
 
 // ===== 3. PIMPINAN (foto: "" = tampil siluet) =====
 const menteri = { nama: "Muhammad Fajar Erlangga", jabatan: "Menteri", foto: "" };
@@ -43,48 +45,57 @@ const staff = [
 // foto: ["/a.jpg", "/b.jpg"] -> slider otomatis 5 detik
 const proker = [
   {
-    nama: "Unand Menyapa",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "UNAND MENYAPA",
+    deskripsi:
+      "Pertemuan langsung dengan pimpinan kampus untuk membahas isu dan memperjuangkan keputusan yang berpihak kepada KM UNAND, bekerja sama dengan Kementerian Adkesma.",
     foto: [],
   },
   {
-    nama: "Ringkusian",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "RINGKUSIAN",
+    deskripsi:
+      "Pembimbingan IGM Jakpus melalui keterlibatan dalam program kerja kementerian serta pembekalan terkait isu kampus dan pergerakan mahasiswa.",
     foto: [],
   },
   {
-    nama: "Kajian Strategis",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "KAJIAN STRATEGIS",
+    deskripsi:
+      "Penyusunan kajian atau policy brief berdasarkan sumber valid dan survei sebagai bahan pertimbangan bagi pimpinan kampus dalam menyelesaikan permasalahan.",
     foto: [],
   },
   {
-    nama: "Jakpus Menjerat",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "JAKPUS MENJERAT",
+    deskripsi:
+      "Pertemuan dengan BEM fakultas untuk menghimpun aspirasi dan permasalahan mahasiswa sebagai bahan kajian, propaganda, dan policy brief.",
     foto: [],
   },
   {
-    nama: "Bincang Kampus",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "BINCANG KAMPUS",
+    deskripsi:
+      "Forum diskusi berupa seminar, talkshow, podcast, atau webinar bersama narasumber yang kompeten untuk membahas isu kampus.",
     foto: [],
   },
   {
-    nama: "Api Pergerakan",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "API PERGERAKAN",
+    deskripsi:
+      "Pelatihan dan pembekalan mahasiswa mengenai pergerakan mahasiswa serta isu kampus, daerah, nasional, dan perempuan.",
     foto: [],
   },
   {
-    nama: "Jakpus News",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "JAKPUS NEWS",
+    deskripsi:
+      "Publikasi konten edukasi, propaganda isu kampus, dan press release audiensi melalui media sosial BEM KM UNAND.",
     foto: [],
   },
   {
-    nama: "Aksi Kampus",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "AKSI KAMPUS",
+    deskripsi:
+      "Aksi untuk menyampaikan aspirasi, kritik, dan tuntutan mahasiswa secara langsung kepada pimpinan Universitas Andalas.",
     foto: [],
   },
   {
-    nama: "Survei Jakpus",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "SURVEY JAKPUS",
+    deskripsi:
+      "Pengumpulan data dan informasi terkait isu kampus melalui survei daring maupun luring, bekerja sama dengan Kementerian Riset dan Keilmuan.",
     foto: [],
   },
 ];
@@ -113,12 +124,22 @@ export default function JakpusPage() {
 
           <div className="km-box">
             <h2>Misi</h2>
-            <ol className="km-misi">
+            <ol className="km-misi" style={{ listStyle: "none", paddingLeft: 0 }}>
               {misi.map((m, i) => (
-                <li key={i}>{m}</li>
+                <li key={i} style={{ display: "flex", gap: "0.5rem" }}>
+                  <span>{i + 1}.</span>
+                  <span>{m}</span>
+                </li>
               ))}
             </ol>
           </div>
+
+          {motto && (
+            <div className="km-box">
+              <h2>Motto</h2>
+              <p>{motto}</p>
+            </div>
+          )}
         </section>
 
         <section className="km-pimpinan">

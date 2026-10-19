@@ -9,16 +9,15 @@ const logo = "/images/kementerian/logo-pp.png";
 
 // ===== 2. DESKRIPSI, VISI, MISI =====
 const deskripsi =
-  "Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi.";
+  "Kementerian Pergerakan Perempuan BEM KM Universitas Andalas berfokus pada pengawalan isu perempuan dan anak, pemberdayaan perempuan, serta peningkatan kesadaran terhadap kesetaraan gender dan pencegahan kekerasan. Kementerian ini menjadi wadah bagi mahasiswi untuk mengembangkan potensi, memperluas jaringan, menyampaikan aspirasi, serta berkontribusi dalam gerakan perempuan melalui kajian, advokasi, edukasi, diskusi, dan kegiatan pengembangan diri.";
 
-const visi = "Visi visi visi visi Visi visi visi visi Visi visi visi visi.";
+const visi =
+  "Sebagai wadah pergerakan mahasiswi yang ekspansif dan kontributif dalam upaya pencerdasan perempuan, pemberdayaan dan relasi jaringan dengan karakteristik intelektual dan moralitas.";
 
 const misi = [
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
+  "1. Mengawal dan berkontribusi aktif terhadap isu perempuan dan anak di tingkat regional maupun nasional.",
+  "2. Memberdayakan mahasiswi UNAND melalui pencerdasan intelektual dan pembentukan karakter moral yang kuat.",
+  "3. Membangun dan memperluas jaringan strategis untuk memperkuat gerakan perempuan.",
 ];
 
 // ===== 3. PIMPINAN (foto: "" = tampil siluet) =====
@@ -45,53 +44,53 @@ const staff = [
 // foto: ["/a.jpg", "/b.jpg"] -> slider otomatis 5 detik
 const proker = [
   {
-    nama: "KAPOSPER",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "KAPOSPER (Kajian dan Propaganda Seputar Perempuan)",
+    deskripsi: "Mengkaji isu perempuan dan anak di lingkungan kampus, daerah, dan nasional sebagai dasar edukasi, audiensi, serta penyusunan pernyataan sikap.",
     foto: [],
   },
   {
     nama: "Women Care",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi: "Menyediakan layanan pengaduan dan advokasi terkait kekerasan seksual, ujaran kebencian, dan perundungan bagi Keluarga Mahasiswa UNAND.",
     foto: [],
   },
   {
     nama: "Bunga Bicara",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi: "Mengadakan diskusi interaktif atau podcast bersama narasumber untuk membahas isu perempuan dan anak di tingkat kampus, daerah, dan nasional.",
     foto: [],
   },
   {
     nama: "Api Pergerakan",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi: "Memberikan pelatihan mengenai pergerakan mahasiswa, kajian isu strategis, penyusunan kajian, dan praktik orasi untuk membentuk kader pergerakan.",
     foto: [],
   },
   {
     nama: "Lingkar Puan",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi: "Menjadi forum konsolidasi dan diskusi rutin bagi organisasi perempuan di lingkungan UNAND untuk memperkuat solidaritas, koordinasi, dan advokasi perempuan.",
     foto: [],
   },
   {
     nama: "Women Class",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi: "Mengadakan kelas pengembangan keterampilan perempuan, seperti kerajinan, tata rias, dekorasi kue, dan kelas pranikah sesuai kebutuhan mahasiswa.",
     foto: [],
   },
   {
     nama: "Srikandi Muda",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi: "Menyiapkan kader penerus Kementerian Pergerakan Perempuan melalui pelatihan kajian, diskusi isu perempuan, dan pengembangan keterampilan.",
     foto: [],
   },
   {
     nama: "Semarak Hari Kartini",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi: "Memperingati perjuangan R.A. Kartini melalui kegiatan daring yang mendorong kreativitas, pemikiran kritis, dan kesadaran terhadap sejarah perjuangan perempuan.",
     foto: [],
   },
   {
     nama: "PP ON MEDIA",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi: "Menyebarkan edukasi dan gagasan tentang isu perempuan dan anak melalui tulisan, media sosial, konten inspiratif, serta podcast Perempuan Bercerita.",
     foto: [],
   },
   {
     nama: "PP GO VISIT",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi: "Melaksanakan kunjungan ke instansi terkait, forum perempuan di kampus lain, serta kegiatan edukasi ke sekolah untuk memperluas jaringan dan meningkatkan pemahaman tentang isu perempuan.",
     foto: [],
   },
 ];
@@ -114,13 +113,18 @@ export default function PPPage() {
           <p className="km-about-deskripsi">{deskripsi}</p>
 
           <div className="km-box">
+            <h2>Motto</h2>
+            <p>Perempuan Berkarya, Punya Peran Penuh Makna</p>
+          </div>
+
+          <div className="km-box">
             <h2>Visi</h2>
             <p>{visi}</p>
           </div>
 
           <div className="km-box">
             <h2>Misi</h2>
-            <ol className="km-misi">
+            <ol className="km-misi" style={{ listStyleType: "none" }}>
               {misi.map((m, i) => (
                 <li key={i}>{m}</li>
               ))}

@@ -9,20 +9,21 @@ const logo = "/images/kementerian/logo-jakda.png";
 
 // ===== 2. DESKRIPSI, VISI, MISI =====
 const deskripsi =
-  "Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi.";
+  "Kementerian Kebijakan Daerah (Kemenjakda) BEM KM UNAND merupakan kementerian yang berperan dalam mengkaji, mengawal, dan merespons isu serta kebijakan pemerintah daerah, khususnya di Sumatera Barat. Kementerian ini memiliki dua bidang utama, yaitu Kajian Strategis (Kastrat) yang berfokus pada kajian isu dan kebijakan daerah, serta Aksi dan Propaganda (Akprop) yang berfokus pada penyampaian sikap dan penggerakan mahasiswa. Melalui diskusi, publikasi, pendidikan politik, dan aksi kolektif, Kemenjakda mendorong mahasiswa agar kritis, aktif, dan terlibat dalam mengawal kebijakan daerah.";
 
-const visi = "Visi visi visi visi Visi visi visi visi Visi visi visi visi.";
+const visi =
+  "BEM KM UNAND sebagai sentral dan ruang pergerakan mahasiswa secara kritis, adaptif, aktif dan solutif dalam menyikapi berbagai isu sosial politik di tingkat daerah Sumatera Barat.";
 
 const misi = [
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
+  "Menjadi garda terdepan pergerakan mahasiswa dalam mengawal kebijakan pemerintah daerah Sumatera Barat.",
+  "Meningkatkan pemahaman mahasiswa terhadap isu sosial dan politik melalui pendidikan politik.",
+  "Mengembangkan kajian strategis berbasis data dan riset lapangan sebagai dasar advokasi kebijakan.",
+  "Menghadirkan ruang dialog yang inklusif antara mahasiswa, masyarakat, dan pemerintah daerah.",
+  "Mengawal kebijakan daerah secara proaktif, berkelanjutan, dan terukur, mulai dari perumusan hingga implementasi.",
 ];
 
 // ===== 3. PIMPINAN (foto: "" = tampil siluet) =====
-const menteri = { nama: "NIbras Ananta Ferdinand", jabatan: "Menteri", foto: "" };
+const menteri = { nama: "Nibras Ananta Ferdinand", jabatan: "Menteri", foto: "" };
 const sekretaris = { nama: "Cahyani Putri Yana", jabatan: "Sekretaris Menteri", foto: "" };
 const bendahara = { nama: "Atikah Handayani", jabatan: "Bendahara Menteri", foto: "" };
 
@@ -42,33 +43,39 @@ const staff = [
 // foto: ["/a.jpg", "/b.jpg"] -> slider otomatis 5 detik
 const proker = [
   {
-    nama: "Obrolan Santai Intelektual",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "ORASI (Obrolan Santai Intelektual)",
+    deskripsi:
+      "Mengadakan diskusi mengenai isu sosial dan politik daerah untuk meningkatkan pemahaman mahasiswa serta menyelaraskan arah gerakan BEM KM UNAND dan BEM Fakultas.",
     foto: [],
   },
   {
     nama: "Jakda News",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Menyebarkan informasi mengenai isu sosial-politik dan perkembangan kebijakan daerah melalui infografis, konten, dan propaganda di media sosial.",
     foto: [],
   },
   {
     nama: "Laskar Merah Garuda",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Membina generasi muda BEM KM UNAND agar memahami isu politik daerah serta memiliki kemampuan dalam kajian dan propaganda.",
     foto: [],
   },
   {
     nama: "Api Pergerakan",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi:
+      "Memberikan pelatihan dan edukasi mengenai pergerakan mahasiswa serta isu kampus, daerah, nasional, dan perempuan.",
     foto: [],
   },
   {
-    nama: "Eskalasi Sinergis",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "EKSIS (Eskalasi Sinergis)",
+    deskripsi:
+      "Menyelenggarakan diskusi dan koordinasi bersama berbagai elemen mahasiswa serta pihak terkait untuk menyusun strategi dan menyelaraskan tuntutan sebelum aksi atau audiensi.",
     foto: [],
   },
   {
-    nama: "Diskusi Isu Intelektual",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "DIKSI (Diskusi Isu Intelektual)",
+    deskripsi:
+      "Mengadakan diskusi dalam format podcast untuk membahas isu sosial, politik, budaya, dan akademik sekaligus menampung aspirasi dari mahasiswa dan masyarakat.",
     foto: [],
   },
 ];
@@ -97,9 +104,12 @@ export default function JakdaPage() {
 
           <div className="km-box">
             <h2>Misi</h2>
-            <ol className="km-misi">
+            <ol className="km-misi" style={{ listStyle: "none", paddingLeft: 0 }}>
               {misi.map((m, i) => (
-                <li key={i}>{m}</li>
+                <li key={i} style={{ display: "flex", gap: "0.5rem" }}>
+                  <span>{i + 1}.</span>
+                  <span>{m}</span>
+                </li>
               ))}
             </ol>
           </div>

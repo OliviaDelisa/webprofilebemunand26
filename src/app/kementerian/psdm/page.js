@@ -9,16 +9,16 @@ const logo = "/images/kementerian/logo-psdm.png";
 
 // ===== 2. DESKRIPSI, VISI, MISI =====
 const deskripsi =
-  "Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi Deskripsi deskripsi deskripsi.";
+  "Kementerian Pengembangan Sumber Daya Mahasiswa (PSDM) BEM KM Universitas Andalas berfokus pada kaderisasi dan pengembangan potensi mahasiswa. PSDM berperan dalam meningkatkan kemampuan, karakter, kepemimpinan, dan soft skill mahasiswa melalui pelatihan, pendampingan, serta program pengembangan diri.";
 
-const visi = "Visi visi visi visi Visi visi visi visi Visi visi visi visi.";
+const visi =
+  "Menjadikan BEM KM UNAND sebagai ujung tombak kaderisasi untuk menghasilkan generasi emas penerus bangsa yang berkarakter, intelektual, kreatif, berdaya saing, berintegritas dalam pola pikir, serta mampu mengembangkan potensi dan minat mahasiswa Universitas Andalas.";
 
 const misi = [
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
-  "Misi misi misi misi",
+  "1. Membangun solidaritas untuk mengoptimalkan PSDM se-UNAND.",
+  "2. Memfasilitasi peningkatan soft skill dan potensi mahasiswa aktif serta pascasarjana UNAND.",
+  "3. Menciptakan mahasiswa yang intelektual, produktif, berkarakter, dan kreatif.",
+  "4. Memberikan wadah dan apresiasi bagi mahasiswa berprestasi di bidang akademik maupun nonakademik.",
 ];
 
 // ===== 3. PIMPINAN (foto: "" = tampil siluet) =====
@@ -51,43 +51,43 @@ const staff = [
 // foto: ["/a.jpg", "/b.jpg"] -> slider otomatis 5 detik
 const proker = [
   {
-    nama: "Saresehan PSDM se-Unand",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "Sarasehan PSDM se-UNAND",
+    deskripsi: "Forum koordinasi PSDM tingkat universitas dan fakultas untuk menyelaraskan serta mengevaluasi kaderisasi.",
     foto: [],
   },
   {
     nama: "LKMM-TM Nasional",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi: "Pelatihan kepemimpinan tingkat lanjut untuk meningkatkan wawasan, kemampuan manajemen organisasi, dan jiwa kepemimpinan mahasiswa.",
     foto: [],
   },
   {
-    nama: "Institut Generasi Muda",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "Institut Generasi Muda (IGM)",
+    deskripsi: "Sekolah kepemimpinan bagi mahasiswa UNAND melalui materi, simulasi, diskusi kelompok, dan pengenalan BEM KM.",
     foto: [],
   },
   {
-    nama: "Samara Muda Berkarya",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "Samara Muda Berkarya (Samudra)",
+    deskripsi: "Program magang di Kementerian PSDM bagi peserta IGM melalui materi inspiratif, diskusi, proyek sosial, dan keterlibatan dalam kegiatan kementerian.",
     foto: [],
   },
   {
-    nama: "Bintang Aktivis Kampus",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "Bintang Aktivis Kampus (BAK)",
+    deskripsi: "Pemberian penghargaan kepada mahasiswa yang aktif berorganisasi dan/atau berprestasi.",
     foto: [],
   },
   {
     nama: "Eduskill",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi: "Pelatihan keterampilan, persiapan kompetisi, pengembangan potensi, serta persiapan pendidikan dan karier pascakampus.",
     foto: [],
   },
   {
     nama: "Andalas X Plorer",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    deskripsi: "Kegiatan pengenalan Universitas Andalas kepada siswa SMA se-Sumatera Barat melalui open house, pameran fakultas, dan talkshow inspiratif.",
     foto: [],
   },
   {
-    nama: "NARASI",
-    deskripsi: "Deskripsi Program Kerja Deskripsi Program Kerja Deskripsi Program Kerja.",
+    nama: "NARASI (Narasi Kaderisasi & Peminatan, Pengembangan Diri)",
+    deskripsi: "Publikasi informasi dan konten edukatif mengenai organisasi, kaderisasi, dan pengembangan diri mahasiswa melalui media sosial.",
     foto: [],
   },
 ];
@@ -116,7 +116,7 @@ export default function PSDMPage() {
 
           <div className="km-box">
             <h2>Misi</h2>
-            <ol className="km-misi">
+            <ol className="km-misi" style={{ listStyleType: "none" }}>
               {misi.map((m, i) => (
                 <li key={i}>{m}</li>
               ))}
