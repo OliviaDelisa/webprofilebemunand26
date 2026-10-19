@@ -7,7 +7,7 @@ import ProkerSlider from "@/components/kementerian/ProkerSlider";
 const nama = "Audit Internal";
 const logo = "/images/kementerian/logo-ai.png";
 
-// ===== 2. DESKRIPSI, VISI, MISI, MOTTO =====
+// ===== 2. DESKRIPSI, VISI, MISI =====
 const deskripsi =
   "Inspektorat Audit Internal (IAI) merupakan unit pengawasan internal BEM KM UNAND Kabinet Rakit Makna yang bertugas memastikan akuntabilitas, transparansi, dan integritas organisasi. IAI melakukan pemantauan dan evaluasi kinerja seluruh kementerian secara independen serta memberikan rekomendasi untuk mendukung perbaikan kinerja dan keberlanjutan organisasi.";
 
@@ -22,8 +22,6 @@ const misi = [
   "Memberikan rekomendasi konkret berdasarkan hasil evaluasi dan temuan lapangan.",
 ];
 
-// Kosongkan ("") jika tidak ingin menampilkan motto
-const motto = "Mengawasi dengan Data, Membangun dengan Nyata";
 
 // ===== 3. PIMPINAN (foto: "" = tampil siluet) =====
 const menteri = { nama: "Akram Makruf Aidil", jabatan: "Inspektur", foto: "" };
@@ -126,13 +124,6 @@ export default function KementerianPage() {
               ))}
             </ol>
           </div>
-
-          {motto && (
-            <div className="km-box">
-              <h2>Motto</h2>
-              <p>{motto}</p>
-            </div>
-          )}
         </section>
 
         <section className="km-pimpinan">

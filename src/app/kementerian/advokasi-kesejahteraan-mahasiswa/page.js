@@ -7,7 +7,7 @@ import ProkerSlider from "@/components/kementerian/ProkerSlider";
 const nama = "Advokasi dan Kesejahteraan Mahasiswa";
 const logo = "/images/kementerian/logo-adkesma.png";
 
-// ===== 2. DESKRIPSI, VISI, MISI, MOTTO =====
+// ===== 2. DESKRIPSI, VISI, MISI =====
 const deskripsi =
   "Kementerian ADKESMA BEM KM UNAND berfokus pada pelayanan aspirasi, advokasi permasalahan mahasiswa, pengawalan kebijakan kampus, serta peningkatan kesejahteraan mahasiswa. Kementerian ini memiliki tiga bidang utama, yaitu Advokasi, Kesejahteraan Mahasiswa (Kesma), dan Media. ADKESMA berperan sebagai penghubung antara mahasiswa dan pihak universitas untuk memastikan hak mahasiswa terpenuhi serta informasi akademik, beasiswa, dan bantuan pendidikan dapat diakses dengan baik.";
 
@@ -22,9 +22,6 @@ const misi = [
   "Memperkuat sinergi dengan pihak internal dan eksternal kampus.",
 ];
 
-// Kosongkan ("") jika tidak ingin menampilkan motto
-const motto =
-  "Melayani sepenuh hati, setia dalam mengabdi, merakit makna untuk UNAND yang harmoni";
 
 // ===== 3. PIMPINAN (foto: "" = tampil siluet) =====
 const menteri = { nama: "Rayhan Masykuri", jabatan: "Menteri", foto: "" };
@@ -152,13 +149,6 @@ export default function AdkesmaPage() {
               ))}
             </ol>
           </div>
-
-          {motto && (
-            <div className="km-box">
-              <h2>Motto</h2>
-              <p>{motto}</p>
-            </div>
-          )}
         </section>
 
         <section className="km-pimpinan">

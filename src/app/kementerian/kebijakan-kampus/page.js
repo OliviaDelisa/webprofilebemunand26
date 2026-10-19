@@ -7,7 +7,7 @@ import ProkerSlider from "@/components/kementerian/ProkerSlider";
 const nama = "Kebijakan Kampus";
 const logo = "/images/kementerian/logo-jakpus.png";
 
-// ===== 2. DESKRIPSI, VISI, MISI, MOTTO =====
+// ===== 2. DESKRIPSI, VISI, MISI =====
 const deskripsi =
   "Kementerian Kebijakan Kampus BEM KM UNAND berfokus pada pengkajian, pengawasan, dan advokasi isu serta kebijakan di lingkungan Universitas Andalas. Kementerian ini berperan menampung aspirasi mahasiswa, mengkritisi kebijakan kampus, dan memberikan rekomendasi berbasis data agar kebijakan yang diambil lebih sesuai dengan kebutuhan mahasiswa.";
 
@@ -20,8 +20,6 @@ const misi = [
   "Membangun sinergi dengan elemen kampus untuk menghadirkan kebijakan yang responsif dan berdampak.",
 ];
 
-// Kosongkan ("") jika tidak ingin menampilkan motto
-const motto = "Bersuara dengan Data, Bergerak dengan Makna";
 
 // ===== 3. PIMPINAN (foto: "" = tampil siluet) =====
 const menteri = { nama: "Muhammad Fajar Erlangga", jabatan: "Menteri", foto: "" };
@@ -133,13 +131,6 @@ export default function JakpusPage() {
               ))}
             </ol>
           </div>
-
-          {motto && (
-            <div className="km-box">
-              <h2>Motto</h2>
-              <p>{motto}</p>
-            </div>
-          )}
         </section>
 
         <section className="km-pimpinan">

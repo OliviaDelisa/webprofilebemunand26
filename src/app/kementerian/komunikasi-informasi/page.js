@@ -7,7 +7,7 @@ import ProkerSlider from "@/components/kementerian/ProkerSlider";
 const nama = "Komunikasi dan Informasi";
 const logo = "/images/kementerian/logo-kominfo.png";
 
-// ===== 2. DESKRIPSI, VISI, MISI, MOTTO =====
+// ===== 2. DESKRIPSI, VISI, MISI =====
 const deskripsi =
   "Kementerian Komunikasi dan Informasi BEM KM UNAND merupakan pusat informasi, publikasi, dan pencitraan organisasi yang terdiri dari tiga bidang, yaitu Graphic Design, Content Creator, dan Public Relation. Kementerian ini berperan dalam menyebarluaskan informasi kegiatan dan isu pergerakan secara kreatif, edukatif, dan inovatif, sekaligus memperkuat koordinasi serta kolaborasi bidang media dengan organisasi mahasiswa di lingkungan Universitas Andalas.";
 
@@ -22,8 +22,6 @@ const misi = [
   "Menjadi media informasi yang cepat tanggap dalam pelayanan dan penyebaran informasi.",
 ];
 
-// Kosongkan ("") jika tidak ingin menampilkan motto
-const motto = "Bersama Media Kita Bergerak — KOMINFO Always ON";
 
 // ===== 3. PIMPINAN (foto: "" = tampil siluet) =====
 const menteri = { nama: "M Nabil Fadhli", jabatan: "Menteri", foto: "" };
@@ -152,13 +150,6 @@ export default function KominfoPage() {
               ))}
             </ol>
           </div>
-
-          {motto && (
-            <div className="km-box">
-              <h2>Motto</h2>
-              <p>{motto}</p>
-            </div>
-          )}
         </section>
 
         <section className="km-pimpinan">
