@@ -9,7 +9,7 @@ const logo = "/images/kementerian/logo-psdm.png";
 
 // ===== 2. DESKRIPSI, VISI, MISI =====
 const deskripsi =
-  "Kementerian Pengembangan Sumber Daya Mahasiswa (PSDM) BEM KM Universitas Andalas berfokus pada kaderisasi dan pengembangan potensi mahasiswa. PSDM berperan dalam meningkatkan kemampuan, karakter, kepemimpinan, dan soft skill mahasiswa melalui pelatihan, pendampingan, serta program pengembangan diri.";
+  "Kementerian Pengembangan Sumber Daya Mahasiswa (PSDM) merupakan kementerian yang memiliki tanggung jawab dalam peningkatan kualitas dan kapasitas mahasiswa Universitas Andalas sebagai insan akademis, organisatoris, dan sosial. Kementerian ini berfokus pada pengembangan karakter, kepemimpinan, serta soft skills mahasiswa melalui berbagai program pelatihan, pendampingan, dan pemberdayaan. Kementerian ini juga mengoordinasikan kegiatan pengembangan kaderisasi lintas lembaga, memperkuat budaya organisasi, serta membangun ekosistem kemahasiswaan yang produktif dan berorientasi pada pengembangan diri berkelanjutan.";
 
 const visi =
   "Menjadikan BEM KM UNAND sebagai ujung tombak kaderisasi untuk menghasilkan generasi emas penerus bangsa yang berkarakter, intelektual, kreatif, berdaya saing, berintegritas dalam pola pikir, serta mampu mengembangkan potensi dan minat mahasiswa Universitas Andalas.";

@@ -9,7 +9,7 @@ const logo = "/images/kementerian/logo-kominfo.png";
 
 // ===== 2. DESKRIPSI, VISI, MISI =====
 const deskripsi =
-  "Kementerian Komunikasi dan Informasi BEM KM UNAND merupakan pusat informasi, publikasi, dan pencitraan organisasi yang terdiri dari tiga bidang, yaitu Graphic Design, Content Creator, dan Public Relation. Kementerian ini berperan dalam menyebarluaskan informasi kegiatan dan isu pergerakan secara kreatif, edukatif, dan inovatif, sekaligus memperkuat koordinasi serta kolaborasi bidang media dengan organisasi mahasiswa di lingkungan Universitas Andalas.";
+  "Kementerian Komunikasi dan Informasi (Kominfo) merupakan kementerian yang bertanggung jawab dalam pengelolaan arus informasi dan publikasi BEM KM UNAND, baik secara internal maupun eksternal, melalui penghimpunan, pengelolaan, dan penyebarluasan informasi dari seluruh bidang dan kementerian melalui kanal komunikasi resmi, termasuk media sosial dan media publik lainnya.";
 
 const visi =
   "Menjadikan BEM KM Unand sebagai lembaga yang proaktif dan selektif dalam penyebarluasan informasi terkini terkait isu pergerakan dan kegiatan BEM KM Unand yang diangkatkan secara kreatif dan inovatif.";

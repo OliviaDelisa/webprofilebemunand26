@@ -9,8 +9,7 @@ const logo = "/images/kementerian/logo-jakda.png";
 
 // ===== 2. DESKRIPSI, VISI, MISI =====
 const deskripsi =
-  "Kementerian Kebijakan Daerah (Kemenjakda) BEM KM UNAND merupakan kementerian yang berperan dalam mengkaji, mengawal, dan merespons isu serta kebijakan pemerintah daerah, khususnya di Sumatera Barat. Kementerian ini memiliki dua bidang utama, yaitu Kajian Strategis (Kastrat) yang berfokus pada kajian isu dan kebijakan daerah, serta Aksi dan Propaganda (Akprop) yang berfokus pada penyampaian sikap dan penggerakan mahasiswa. Melalui diskusi, publikasi, pendidikan politik, dan aksi kolektif, Kemenjakda mendorong mahasiswa agar kritis, aktif, dan terlibat dalam mengawal kebijakan daerah.";
-
+  "Kementerian Kebijakan Daerah (Jakda) merupakan kementerian yang bertugas mengawal isu-isu strategis di tingkat daerah, khususnya di wilayah Sumatera Barat. Kementerian ini berperan dalam mengkaji dan mengadvokasi kebijakan publik daerah yang relevan dengan kepentingan sosial, ekonomi, dan lingkungan masyarakat. Jakda juga menjadi wadah bagi mahasiswa Universitas Andalas untuk berperan aktif dalam mengawal pembangunan daerah melalui advokasi kebijakan, aksi, dan kolaborasi dengan lembaga-lembaga pemerintah maupun masyarakat sipil.";
 const visi =
   "BEM KM UNAND sebagai sentral dan ruang pergerakan mahasiswa secara kritis, adaptif, aktif dan solutif dalam menyikapi berbagai isu sosial politik di tingkat daerah Sumatera Barat.";
 

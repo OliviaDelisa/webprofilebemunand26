@@ -9,8 +9,7 @@ const logo = "/images/kementerian/logo-luneg.png";
 
 // ===== 2. DESKRIPSI, VISI, MISI =====
 const deskripsi =
-  "Kementerian Luar Negeri BEM KM UNAND berperan dalam membangun dan mengelola hubungan eksternal dengan organisasi mahasiswa, lembaga, instansi, serta mitra di tingkat regional, nasional, dan internasional. Kementerian ini menjadi penghubung diplomasi mahasiswa untuk memperluas jejaring, mengawal isu strategis, menghimpun aspirasi, dan memperjuangkan kepentingan mahasiswa serta masyarakat.";
-
+  "Kementerian Luar Negeri merupakan kementerian yang memiliki wewenang dan tanggung jawab dalam mengatur serta mengelola hubungan antara BEM KM UNAND dengan organisasi mahasiswa serta lembaga atau instansi di eksternal kampus Universitas Andalas. Kementerian ini berperan penting sebagai gerbang awal BEM KM UNAND dalam menghimpun perjuangan di kancah daerah, nasional, maupun internasional.";
 const visi =
   "Menjadi Simpul Diplomasi Mahasiswa yang Inklusif, Kolaboratif, dan Solutif dalam Membangun Jejaring Strategis untuk Mewujudkan UNAND dan Indonesia yang Harmonis";
 

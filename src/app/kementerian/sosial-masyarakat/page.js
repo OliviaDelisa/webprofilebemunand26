@@ -9,7 +9,7 @@ const logo = "/images/kementerian/logo-sosmas.png";
 
 // ===== 2. DESKRIPSI, VISI, MISI =====
 const deskripsi =
-  "Kementerian Sosial Masyarakat (Sosmas) BEM KM Universitas Andalas berfokus pada pengabdian sosial, kemanusiaan, kebencanaan, pemberdayaan masyarakat, dan penguatan jejaring sosial. Sosmas menjadi wadah bagi mahasiswa untuk berkontribusi langsung kepada masyarakat melalui kegiatan sosial yang kolaboratif, inovatif, dan inklusif.";
+  "Kementerian Sosial Masyarakat (Sosmas) merupakan kementerian yang memiliki peran strategis dalam mengoordinasikan kegiatan sosial, kemanusiaan, dan pemberdayaan masyarakat sebagai wujud kepedulian mahasiswa Universitas Andalas terhadap kondisi sosial di sekitarnya. Kementerian ini berfungsi menjadi jembatan antara kampus dan masyarakat, menghadirkan aksi nyata mahasiswa dalam menjawab berbagai persoalan sosial dan kemasyarakatan.";
 
 const visi =
   "Mewujudkan Kementerian Sosial Masyarakat sebagai ruang pengabdian yang kolaboratif, inovatif, dan inklusif dalam menghadirkan makna pengabdian sosial serta kontribusi nyata KM UNAND bagi masyarakat.";

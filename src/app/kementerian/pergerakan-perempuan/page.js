@@ -9,8 +9,7 @@ const logo = "/images/kementerian/logo-pp.png";
 
 // ===== 2. DESKRIPSI, VISI, MISI =====
 const deskripsi =
-  "Kementerian Pergerakan Perempuan BEM KM Universitas Andalas berfokus pada pengawalan isu perempuan dan anak, pemberdayaan perempuan, serta peningkatan kesadaran terhadap kesetaraan gender dan pencegahan kekerasan. Kementerian ini menjadi wadah bagi mahasiswi untuk mengembangkan potensi, memperluas jaringan, menyampaikan aspirasi, serta berkontribusi dalam gerakan perempuan melalui kajian, advokasi, edukasi, diskusi, dan kegiatan pengembangan diri.";
-
+  "Kementerian Pergerakan Perempuan (PP) merupakan kementerian yang berfokus pada pengawalan isu-isu kesetaraan, perlindungan perempuan, dan pemberdayaan sosial di lingkungan kampus maupun masyarakat. Kementerian ini berperan dalam membangun kesadaran akan pentingnya ruang yang aman, inklusif, dan bebas diskriminasi bagi seluruh sivitas akademika Universitas Andalas. Selain itu, PP menginisiasi program edukatif seperti kampanye isu perempuan serta kolaborasi dengan lembaga dan komunitas yang bergerak di bidang pemberdayaan perempuan dan perlindungan sosial.";
 const visi =
   "Sebagai wadah pergerakan mahasiswi yang ekspansif dan kontributif dalam upaya pencerdasan perempuan, pemberdayaan dan relasi jaringan dengan karakteristik intelektual dan moralitas.";
 

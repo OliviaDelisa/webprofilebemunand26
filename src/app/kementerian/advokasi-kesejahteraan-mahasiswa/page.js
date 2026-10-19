@@ -9,8 +9,7 @@ const logo = "/images/kementerian/logo-adkesma.png";
 
 // ===== 2. DESKRIPSI, VISI, MISI =====
 const deskripsi =
-  "Kementerian ADKESMA BEM KM UNAND berfokus pada pelayanan aspirasi, advokasi permasalahan mahasiswa, pengawalan kebijakan kampus, serta peningkatan kesejahteraan mahasiswa. Kementerian ini memiliki tiga bidang utama, yaitu Advokasi, Kesejahteraan Mahasiswa (Kesma), dan Media. ADKESMA berperan sebagai penghubung antara mahasiswa dan pihak universitas untuk memastikan hak mahasiswa terpenuhi serta informasi akademik, beasiswa, dan bantuan pendidikan dapat diakses dengan baik.";
-
+  "Kementerian Advokasi dan Kesejahteraan Mahasiswa (Adkesma) merupakan kementerian yang memiliki fungsi utama dalam mengawal, menampung, dan memperjuangkan aspirasi serta permasalahan mahasiswa Universitas Andalas. Kementerian ini berkomitmen untuk memastikan setiap mahasiswa Universitas Andalas memperoleh hak akademik dan kesejahteraan yang layak, sejalan dengan prinsip keadilan dan inklusivitas kampus.";
 const visi =
   "Mewujudkan lingkungan kampus yang adil dan sejahtera melalui advokasi yang responsif, berkelanjutan, serta berlandaskan pelayanan terhadap kebutuhan mahasiswa.";
 

@@ -9,8 +9,7 @@ const logo = "/images/kementerian/logo-jaknas.png";
 
 // ===== 2. DESKRIPSI, VISI, MISI =====
 const deskripsi =
-  "Kementerian Kebijakan Nasional BEM KM UNAND merupakan kementerian yang berperan dalam mengkaji, mengawal, dan merespons kebijakan serta isu-isu nasional. Kementerian ini memiliki dua bidang utama, yaitu Kajian Strategis (Kastrat) yang berfokus pada analisis kebijakan dan isu nasional, serta Aksi dan Propaganda (Akprop) yang berfokus pada penyampaian sikap dan pelaksanaan gerakan mahasiswa. Melalui kajian, diskusi, edukasi, publikasi, dan aksi kolektif, kementerian ini mendorong mahasiswa agar lebih kritis dan aktif dalam merespons persoalan nasional.";
-
+  "Kementerian Kebijakan Nasional (Jaknas) merupakan kementerian yang berperan dalam mengkaji, menganalisis, dan merespons isu-isu kebijakan publik di tingkat nasional. Kementerian ini bertugas memperkuat posisi BEM KM UNAND dalam jaringan pergerakan mahasiswa nasional melalui kegiatan advokasi, kajian strategis, dan publikasi kebijakan publik. Jaknas bertujuan mendorong mahasiswa Universitas Andalas untuk berpikir kritis, berorientasi data, dan berkontribusi terhadap perbaikan kebijakan nasional secara konstruktif.";
 const visi =
   "Terwujudnya Kementerian Kebijakan Nasional BEM KM UNAND sebagai kementerian yang edukatif, responsif, dan solutif dalam mengkaji serta mengawal isu-isu nasional melalui gerakan yang inklusif, kolaboratif, dan berdampak bagi mahasiswa dan masyarakat.";
 

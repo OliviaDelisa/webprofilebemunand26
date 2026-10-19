@@ -9,7 +9,7 @@ const logo = "/images/kementerian/logo-jakpus.png";
 
 // ===== 2. DESKRIPSI, VISI, MISI =====
 const deskripsi =
-  "Kementerian Kebijakan Kampus BEM KM UNAND berfokus pada pengkajian, pengawasan, dan advokasi isu serta kebijakan di lingkungan Universitas Andalas. Kementerian ini berperan menampung aspirasi mahasiswa, mengkritisi kebijakan kampus, dan memberikan rekomendasi berbasis data agar kebijakan yang diambil lebih sesuai dengan kebutuhan mahasiswa.";
+  "Kementerian Kebijakan Kampus (Jakpus) adalah kementerian yang berfokus mengawal isu kampus dengan pendekatan yang strategis, partisipatif, dan efektif. Kementerian ini berperan untuk mengawal, mengkritisi, memberikan rekomendasi, serta mendorong keterlibatan aktif mahasiswa dalam mengawal kebijakan agar sesuai dengan kebutuhan dan harapan dari KM UNAND.";
 
 const visi =
   "Menjadi kementerian yang inklusif, kolaboratif, dan solutif dalam mengawal serta menyikapi isu dan kebijakan kampus secara strategis, partisipatif, dan berbasis data guna mewujudkan kebijakan yang berpihak kepada KM UNAND melalui sinergi, gerakan advokatif, dan kebermanfaatan yang berkelanjutan";

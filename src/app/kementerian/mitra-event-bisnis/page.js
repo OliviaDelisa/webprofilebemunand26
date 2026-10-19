@@ -9,8 +9,7 @@ const logo = "/images/kementerian/logo-meb.png";
 
 // ===== 2. DESKRIPSI, VISI, MISI =====
 const deskripsi =
-  "Kementerian Mitra Event dan Bisnis (KMEB) BEM KM Universitas Andalas merupakan kementerian yang berfokus pada pengelolaan kemitraan, penyelenggaraan kegiatan, serta pengembangan usaha digital dan non-digital untuk mendukung kemandirian finansial organisasi. KMEB juga berperan dalam meningkatkan kemampuan kewirausahaan mahasiswa, memperluas jaringan kerja sama dengan mitra strategis, serta menciptakan peluang bisnis yang berkelanjutan dan bermanfaat bagi Keluarga Mahasiswa Universitas Andalas.";
-
+  "Kementerian Mitra, Event, dan Bisnis (MEB) merupakan kementerian yang memiliki tanggung jawab dalam membangun jejaring strategis, mengelola kegiatan berskala besar, serta mengoptimalkan potensi ekonomi kreatif di lingkungan BEM KM UNAND. Selain itu, kementerian ini berfungsi menginisiasi, mengelola, dan mengawasi pelaksanaan kegiatan berskala universitas seperti seminar maupun expo yang berorientasi pada peningkatan kapasitas dan ekonomi mahasiswa.";
 const visi =
   "Menjadikan KMEB sebagai penggerak kemitraan strategis, pengelolaan event, serta pengembangan bisnis digital dan non-digital yang berkelanjutan sebagai upaya memperkuat kemandirian pendanaan melalui tata kelola yang profesional, kreatif, dan berdampak bagi KM Universitas Andalas.";
 

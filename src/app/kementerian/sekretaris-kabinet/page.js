@@ -9,7 +9,7 @@ const logo = "/images/kementerian/logo-sekkab.png";
 
 // ===== 2. DESKRIPSI, VISI, MISI =====
 const deskripsi =
-  "Kementerian Sekretaris Kabinet BEM KM Universitas Andalas merupakan pusat pengelolaan administrasi, kesekretariatan, pengarsipan dokumen, serta pengelolaan rumah tangga dan inventaris organisasi. Kementerian ini berperan memastikan administrasi berjalan tertib, sekretariat terawat, dan kebutuhan operasional organisasi terpenuhi. Selain itu, Sekretaris Kabinet meningkatkan kemampuan administrasi pengurus, membangun budaya literasi, serta menyiapkan kader penerus melalui pelatihan dan kaderisasi.";
+  "Kementerian Sekretaris Kabinet (Sekkab) merupakan kementerian penyelenggara teknis administrasi yang menjadi penyangga seluruh kegiatan kelembagaan BEM KM UNAND. Sekkab berperan dalam pelayanan administrasi, pengarsipan dokumen, penataan ruang sekretariat, serta pengelolaan inventaris barang milik organisasi. Selain itu, Sekkab memiliki kewenangan dalam menyusun Standar Operasional Prosedur (SOP) kelembagaan, mengawal sistem tata naskah, serta menjadi mitra koordinatif dalam penyampaian regulasi antarlembaga.";
 
 const visi =
   "Total dalam kesekretariatan, rapi dalam pengarsipan, dan loyal dalam kepengurusan.";

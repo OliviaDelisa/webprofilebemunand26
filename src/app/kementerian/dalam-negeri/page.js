@@ -9,7 +9,7 @@ const logo = "/images/kementerian/logo-dagri.png";
 
 // ===== 2. DESKRIPSI, VISI, MISI =====
 const deskripsi =
-  "Kementerian Dalam Negeri BEM KM UNAND berfokus pada penguatan hubungan dan komunikasi antara BEM KM UNAND dengan BEM Fakultas, UKM, HIMADA, serta seluruh elemen kemahasiswaan Universitas Andalas. Kementerian ini berperan sebagai komunikator dan fasilitator untuk menampung aspirasi, membangun kolaborasi, serta menciptakan hubungan yang harmonis dan berkelanjutan antarlembaga.";
+  "Kementerian Dalam Negeri (Dagri) merupakan kementerian yang berperan dalam mengoordinasikan hubungan kelembagaan internal dan menjaga stabilitas hubungan antarorganisasi mahasiswa di lingkungan Universitas Andalas. Kementerian ini berfungsi membangun sinergi dan komunikasi antara BEM KM UNAND dengan lembaga kemahasiswaan di tingkat fakultas, Unit Kegiatan Mahasiswa (UKM), serta Himpunan Mahasiswa Daerah (HIMADA). Melalui pendekatan koordinatif dan partisipatif, Kemendagri memastikan terciptanya iklim kemahasiswaan yang solid, inklusif, dan berorientasi pada kolaborasi.";
 
 const visi =
   "Berkontribusi secara aktif dan masif untuk memberikan pelayanan yang menyeluruh kepada KM Universitas Andalas guna menuju KM Universitas Andalas yang harmoni dan saling bersinergi";

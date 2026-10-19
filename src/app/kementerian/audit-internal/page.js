@@ -9,7 +9,7 @@ const logo = "/images/kementerian/logo-ai.png";
 
 // ===== 2. DESKRIPSI, VISI, MISI =====
 const deskripsi =
-  "Inspektorat Audit Internal (IAI) merupakan unit pengawasan internal BEM KM UNAND Kabinet Rakit Makna yang bertugas memastikan akuntabilitas, transparansi, dan integritas organisasi. IAI melakukan pemantauan dan evaluasi kinerja seluruh kementerian secara independen serta memberikan rekomendasi untuk mendukung perbaikan kinerja dan keberlanjutan organisasi.";
+  "Inspektorat Audit Internal merupakan unit pengawasan strategis yang dibentuk untuk memastikan pelaksanaan prinsip akuntabilitas, transparansi, dan integritas di seluruh unit kerja BEM KM Universitas Andalas. Inspektorat memiliki peran utama dalam mewujudkan iklim internal yang inklusif dan hangat bagi pengurus untuk mencapai progresivitas lembaga.";
 
 const visi =
   "Terwujudnya sistem pengawasan dan pembinaan internal BEM KM UNAND Kabinet Rakit Makna yang independen, akuntabel, dan berorientasi pada perbaikan yang bermakna bagi seluruh pengurus dan kelembagaan.";

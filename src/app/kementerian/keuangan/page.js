@@ -9,7 +9,7 @@ const logo = "/images/kementerian/logo-keuangan.png";
 
 // ===== 2. DESKRIPSI, VISI, MISI =====
 const deskripsi =
-  "Kementerian Keuangan BEM KM UNAND merupakan kementerian yang bertanggung jawab dalam mengelola keuangan organisasi, mulai dari penyusunan anggaran, pengelolaan dana, pengawasan, hingga pelaporan keuangan. Kementerian ini berperan dalam memastikan penggunaan dana berjalan secara efektif, efisien, transparan, dan akuntabel untuk mendukung pelaksanaan program kerja seluruh kementerian dan inspektorat BEM KM UNAND.";
+  "Kementerian Keuangan (Kemenkeu) merupakan kementerian yang bertanggung jawab atas pengelolaan seluruh aktivitas keuangan BEM KM UNAND secara transparan dan akuntabel. Kemenkeu memiliki tugas dalam menyusun rencana anggaran tahunan, melakukan pencatatan keuangan, mengatur realisasi pendapatan dan pengeluaran, serta menyusun laporan pertanggungjawaban keuangan lembaga. Selain itu, kementerian ini berperan dalam mengembangkan sistem manajemen keuangan yang efisien dan terstandar, termasuk digitalisasi administrasi keuangan.";
 
 const visi =
   "Mewujudkan pengelolaan keuangan BEM KM UNAND yang prudent, efisien, dan efektif dengan menjunjung tinggi prinsip transparansi dan akuntabilitas untuk tercapainya finansial organisasi yang produktif dan inklusif";

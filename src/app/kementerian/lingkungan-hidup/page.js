@@ -9,7 +9,7 @@ const logo = "/images/kementerian/logo-linghup.png";
 
 // ===== 2. DESKRIPSI, VISI, MISI =====
 const deskripsi =
-  "Kementerian Lingkungan Hidup BEM KM UNAND merupakan wadah edukasi, advokasi, dan aksi nyata yang berfokus pada pelestarian lingkungan hidup. Kementerian ini berperan dalam meningkatkan kesadaran lingkungan melalui kajian, pengabdian masyarakat, kampanye, kolaborasi dengan pihak eksternal, serta publikasi isu lingkungan untuk mendorong perubahan yang berkelanjutan.";
+  "Kementerian Lingkungan Hidup (Linghup) merupakan kementerian yang bertanggung jawab dalam merancang dan melaksanakan program-program yang berorientasi pada pelestarian lingkungan dan pembangunan berkelanjutan di lingkungan Universitas Andalas maupun masyarakat sekitar. Kementerian Lingkungan Hidup berkomitmen menjadikan BEM KM UNAND sebagai pelopor gerakan hijau yang solutif, ilmiah, dan berkelanjutan, serta berperan aktif dalam mendukung pencapaian SDGs, khususnya pada pilar lingkungan.";
 
 const visi =
   "Mengintegrasikan gerakan mahasiswa dan pengabdian masyarakat untuk menciptakan solusi lingkungan yang nyata, berdampak, dan berkelanjutan.";

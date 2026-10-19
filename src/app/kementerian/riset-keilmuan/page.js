@@ -9,8 +9,7 @@ const logo = "/images/kementerian/logo-risken.png";
 
 // ===== 2. DESKRIPSI, VISI, MISI =====
 const deskripsi =
-  "Badan Eksekutif Mahasiswa Keluarga Mahasiswa Universitas Andalas (BEM KM UNAND) merupakan lembaga representatif mahasiswa yang didukung oleh kementerian-kementerian untuk meningkatkan kinerja program kerja. Kementerian Riset dan Keilmuan berperan dalam pemecahan masalah melalui pencarian, penemuan, pengembangan, dan pengujian pengetahuan. Kementerian ini mengembangkan website BEM KM UNAND untuk meningkatkan transparansi dan menyediakan open data di lingkungan universitas, serta mengolah data menjadi informasi yang relevan dan mudah dipahami mahasiswa, civitas akademika, maupun masyarakat umum. Melalui penyediaan, analisis, pengkajian, dan pengarsipan data, serta edukasi keilmuan, Kementerian Riset dan Keilmuan turut mendukung pencerdasan dan pengembangan minat serta bakat KM UNAND.";
-
+  "Kementerian Riset dan Keilmuan (Risken) merupakan kementerian yang berperan dalam membangun iklim akademik yang dinamis, ilmiah, dan kolaboratif di lingkungan Universitas Andalas. Kementerian ini bertanggung jawab dalam mendorong kegiatan riset dan keilmuan mahasiswa melalui penguatan skill akademik. Selain itu, Risken berfungsi menghubungkan mahasiswa dengan ekosistem keilmuan di tingkat universitas dan nasional, termasuk menjalin kerja sama dengan lembaga riset, komunitas ilmiah, dan organisasi keilmuan mahasiswa.";
 const visi = "Menjadikan Risken sebagai Pusat Inkubasi Keilmuan yang Didukung oleh Infrastruktur Digital Terpadu untuk Mewujudkan Pergerakan Mahasiswa yang Berbasis Data dan Prestatif";
 
 const misi = [
