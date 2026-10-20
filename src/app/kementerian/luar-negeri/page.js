@@ -21,25 +21,25 @@ const misi = [
 ];
 
 // ===== 3. PIMPINAN (foto: "" = tampil siluet) =====
-const menteri = { nama: "M Isra Septiadi", jabatan: "Menteri", foto: "" };
-const sekretaris = { nama: "Magfira Shabrina", jabatan: "Sekretaris Menteri", foto: "" };
-const bendahara = { nama: "Nanda Sakinan Azzahra", jabatan: "Bendahara Menteri", foto: "" };
+const menteri = { nama: "M Isra Septiadi", jabatan: "Menteri", foto: "/images/kementerian/luneg/orang/isra.jpg" };
+const sekretaris = { nama: "Magfira Shabrina", jabatan: "Sekretaris Menteri", foto: "/images/kementerian/luneg/orang/fira.jpg" };
+const bendahara = { nama: "Nanda Sakinan Azzahra", jabatan: "Bendahara Menteri", foto: "/images/kementerian/luneg/orang/nanda.jpg" };
 
 // ===== 4. STAFF (1 baris = 1 orang) =====
 const staff = [
-  { nama: "Fito Torano", jabatan: "Dirjen Internal", foto: "" },
-  { nama: "Muhammad Afif", jabatan: "Dirjen Eksternal", foto: "" },
-  { nama: "Muhammad Afif", jabatan: "Dirjen Media Kreatif", foto: "" },
-  { nama: "Delia Yusnita", jabatan: "Sekjen Internal", foto: "" },
-  { nama: "Zakiya Aura Silmi", jabatan: "Sekjen Eksternal", foto: "" },
-  { nama: "Afri Olivia Putri", jabatan: "Sekjen Media Kreatif", foto: "" },
-  { nama: "Mutia Ersa Christine Dawolo", jabatan: "Staff", foto: "" },
-  { nama: "Fadel Sardi", jabatan: "Staff", foto: "" },
-  { nama: "Shankara Premaswara Micheleanglo", jabatan: "Staff", foto: "" },
-  { nama: "Muhammad Zhafran Fharraz F", jabatan: "Staff", foto: "" },
-  { nama: "Zakaria Nanda Putra", jabatan: "Staff", foto: "" },
-  { nama: "Zaskia Mutmainnah", jabatan: "Staff", foto: "" },
-  { nama: "Putri Assyifa", jabatan: "Staff", foto: "" },
+  { nama: "Fito Torano", jabatan: "Dirjen Internal", foto: "/images/kementerian/luneg/orang/fito.jpg" },
+  { nama: "Muhammad Afif", jabatan: "Dirjen Eksternal", foto: "/images/kementerian/luneg/orang/afif.jpg" },
+  { nama: "Muhammad Hafiz", jabatan: "Dirjen Media Kreatif", foto: "/images/kementerian/luneg/orang/hafiz.jpg" },
+  { nama: "Delia Yusnita", jabatan: "Sekjen Internal", foto: "/images/kementerian/luneg/orang/delia.jpg" },
+  { nama: "Zakiya Aura Silmi", jabatan: "Sekjen Eksternal", foto: "/images/kementerian/luneg/orang/zakiya.jpg" },
+  { nama: "Afri Olivia Putri", jabatan: "Sekjen Media Kreatif", foto: "/images/kementerian/luneg/orang/afri.jpg" },
+  { nama: "Mutia Ersa Christine Dawolo", jabatan: "Staff", foto: "/images/kementerian/luneg/orang/mutia.jpg" },
+  { nama: "Fadel Sardi", jabatan: "Staff", foto: "/images/kementerian/luneg/orang/fadel.jpg" },
+  { nama: "Shankara Premaswara Micheleanglo", jabatan: "Staff", foto: "/images/kementerian/luneg/orang/shankara.jpg" },
+  { nama: "Muhammad Zhafran Fharraz F", jabatan: "Staff", foto: "/images/kementerian/luneg/orang/fharraz.jpg" },
+  { nama: "Zakaria Nanda Putra", jabatan: "Staff", foto: "/images/kementerian/luneg/orang/zakaria.jpg" },
+  { nama: "Zaskia Mutmainnah", jabatan: "Staff", foto: "/images/kementerian/luneg/orang/zaskia.jpg" },
+  { nama: "Putri Assyifa", jabatan: "Staff", foto: "/images/kementerian/luneg/orang/putri.jpg" },
 ];
 
 // ===== 5. PROGRAM KERJA =====

@@ -23,29 +23,29 @@ const misi = [
 
 
 // ===== 3. PIMPINAN (foto: "" = tampil siluet) =====
-const menteri = { nama: "Rayhan Masykuri", jabatan: "Menteri", foto: "" };
-const sekretaris = { nama: "Oktavia Angraini", jabatan: "Sekretaris Menteri", foto: "" };
-const bendahara = { nama: "Salsadina Nazila", jabatan: "Bendahara Menteri", foto: "" };
+const menteri = { nama: "Rayhan Masykuri", jabatan: "Menteri", foto: "/images/kementerian/adkesma/orang/rayhan.jpg" };
+const sekretaris = { nama: "Oktavia Angraini", jabatan: "Sekretaris Menteri", foto: "/images/kementerian/adkesma/orang/oktavia.jpg" };
+const bendahara = { nama: "Salsadina Nazila", jabatan: "Bendahara Menteri", foto: "/images/kementerian/adkesma/orang/salsadina.jpg" };
 
 // ===== 4. STAFF (1 baris = 1 orang) =====
 const staff = [
-  { nama: "Hendra Kurniawan", jabatan: "Kepala Bidang Advokasi", foto: "" },
-  { nama: "Dita Pramudia Erina S", jabatan: "Kepala Bidang Kesma", foto: "" },
-  { nama: "Nadhira Sarvigia", jabatan: "Kepala Bidang Media", foto: "" },
-  { nama: "Amanda Syafitri", jabatan: "Sekretaris Bidang Advokasi", foto: "" },
-  { nama: "Joya Aidha Anna P", jabatan: "Sekretaris Bidang Kesma", foto: "" },
-  { nama: "Nadya Avita Sari", jabatan: "Sekretaris Bidang Media", foto: "" },
-  { nama: "Pratama Putra Z", jabatan: "Staff", foto: "" },
-  { nama: "Daffah Alhabib Pane", jabatan: "Staff", foto: "" },
-  { nama: "Miftahul Jannah", jabatan: "Staff", foto: "" },
-  { nama: "Muhammad Aditya", jabatan: "Staff", foto: "" },
-  { nama: "Ervan Radiansyah", jabatan: "Staff", foto: "" },
-  { nama: "Ibrahim Nikmatul A", jabatan: "Staff", foto: "" },
-  { nama: "Muhammad Rivandra M", jabatan: "Staff", foto: "" },
-  { nama: "Mutia Zahratul H", jabatan: "Staff", foto: "" },
-  { nama: "Zaki Ardiansyah", jabatan: "Staff", foto: "" },
-  { nama: "Salsabila Arsya A", jabatan: "Staff", foto: "" },
-  { nama: "Olivvia", jabatan: "Staff", foto: "" },
+  { nama: "Hendra Kurniawan", jabatan: "Kepala Bidang Advokasi", foto: "/images/kementerian/adkesma/orang/hendra.jpg" },
+  { nama: "Dita Pramudia Erina S", jabatan: "Kepala Bidang Kesma", foto: "/images/kementerian/adkesma/orang/dita.jpg" },
+  { nama: "Nadhira Sarvigia", jabatan: "Kepala Bidang Media", foto: "/images/kementerian/adkesma/orang/nadhira.jpg" },
+  { nama: "Amanda Syafitri", jabatan: "Sekretaris Bidang Advokasi", foto: "/images/kementerian/adkesma/orang/amanda.jpg" },
+  { nama: "Joya Aidha Anna P", jabatan: "Sekretaris Bidang Kesma", foto: "/images/kementerian/adkesma/orang/joya.jpg" },
+  { nama: "Nadya Avita Sari", jabatan: "Sekretaris Bidang Media", foto: "/images/kementerian/adkesma/orang/nadya.jpg" },
+  { nama: "Pratama Putra Z", jabatan: "Staff", foto: "/images/kementerian/adkesma/orang/pratama.jpg" },
+  { nama: "Daffah Alhabib Pane", jabatan: "Staff", foto: "/images/kementerian/adkesma/orang/daffa.jpg" },
+  { nama: "Miftahul Jannah", jabatan: "Staff", foto: "/images/kementerian/adkesma/orang/miftahul.jpg" },
+  { nama: "Muhammad Aditya", jabatan: "Staff", foto: "/images/kementerian/adkesma/orang/aditya.jpg" },
+  { nama: "Ervan Radiansyah", jabatan: "Staff", foto: "/images/kementerian/adkesma/orang/ervan.jpg" },
+  { nama: "Ibrahim Nikmatul A", jabatan: "Staff", foto: "/images/kementerian/adkesma/orang/ibrahim.jpg" },
+  { nama: "Muhammad Rivandra M", jabatan: "Staff", foto: "/images/kementerian/adkesma/orang/rivan.jpg" },
+  { nama: "Mutia Zahratul H", jabatan: "Staff", foto: "/images/kementerian/adkesma/orang/mutia.jpg" },
+  { nama: "Zaki Ardiansyah", jabatan: "Staff", foto: "/images/kementerian/adkesma/orang/zaki.jpg" },
+  { nama: "Salsabila Arsya A", jabatan: "Staff", foto: "/images/kementerian/adkesma/orang/salsabila.jpg" },
+  { nama: "Olivvia", jabatan: "Staff", foto: "/images/kementerian/adkesma/orang/oliv.jpg" },
 ];
 
 // ===== 5. PROGRAM KERJA =====

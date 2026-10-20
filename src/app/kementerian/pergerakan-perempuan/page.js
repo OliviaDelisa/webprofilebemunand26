@@ -20,21 +20,21 @@ const misi = [
 ];
 
 // ===== 3. PIMPINAN (foto: "" = tampil siluet) =====
-const menteri = { nama: "Tiara Chairunnisa", jabatan: "Menteri", foto: "" };
-const sekretaris = { nama: "Sausan Rasyifah", jabatan: "Sekretaris Menteri", foto: "" };
-const bendahara = { nama: "Vanessa Regina Ali", jabatan: "Bendahara Menteri", foto: "" };
+const menteri = { nama: "Tiara Chairunnisa", jabatan: "Menteri", foto: "/images/kementerian/pp/orang/tiara.jpg" };
+const sekretaris = { nama: "Sausan Rasyifah", jabatan: "Sekretaris Menteri", foto: "/images/kementerian/pp/orang/sausan.jpg" };
+const bendahara = { nama: "Vanessa Regina Ali", jabatan: "Bendahara Menteri", foto: "/images/kementerian/pp/orang/vanessa.jpg" };
 
 // ===== 4. STAFF (1 baris = 1 orang) =====
 const staff = [
-  { nama: "Nuzliyati Khairiyah", jabatan: "Dirjen Pergerakan", foto: "" },
-  { nama: "Hafiza Afdila", jabatan: "Dirjen Pemberdayaan", foto: "" },
-  { nama: "Ghaniyyah Zahirah Jilan", jabatan: "Dirjen Media dan Humas", foto: "" },
-  { nama: "Silvia Ramadani", jabatan: "Staff", foto: "" },
-  { nama: "Faelasufah Maulida", jabatan: "Staff", foto: "" },
-  { nama: "Putri Asa Abinda", jabatan: "Staff", foto: "" },
-  { nama: "Qatrun Nada Wimala", jabatan: "Staff", foto: "" },
-  { nama: "Syafia Althafunnisa", jabatan: "Staff", foto: "" },
-  { nama: "Chrestella Cathlin", jabatan: "Staff", foto: "" },
+  { nama: "Nuzliyati Khairiyah", jabatan: "Dirjen Pergerakan", foto: "/images/kementerian/pp/orang/nuzliyati.jpg" },
+  { nama: "Hafiza Afdila", jabatan: "Dirjen Pemberdayaan", foto: "/images/kementerian/pp/orang/hafiza.jpg" },
+  { nama: "Ghaniyyah Zahirah Jilan", jabatan: "Dirjen Media dan Humas", foto: "/images/kementerian/pp/orang/ghaniyyah.jpg" },
+  { nama: "Silvia Ramadani", jabatan: "Staff", foto: "/images/kementerian/pp/orang/silvia.jpg" },
+  { nama: "Faelasufah Maulida", jabatan: "Staff", foto: "/images/kementerian/pp/orang/faela.jpg" },
+  { nama: "Putri Asa Abinda", jabatan: "Staff", foto: "/images/kementerian/pp/orang/putri.jpg" },
+  { nama: "Qatrun Nada Wimala", jabatan: "Staff", foto: "/images/kementerian/pp/orang/nada.jpg" },
+  { nama: "Syafia Althafunnisa", jabatan: "Staff", foto: "/images/kementerian/pp/orang/pia.jpg" },
+  { nama: "Chrestella Cathlin", jabatan: "Staff", foto: "/images/kementerian/pp/orang/chrestella.jpg" },
 ];
 
 // ===== 5. PROGRAM KERJA =====

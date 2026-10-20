@@ -22,31 +22,31 @@ const misi = [
 ];
 
 // ===== 3. PIMPINAN (foto: "" = tampil siluet) =====
-const menteri = { nama: "Firmansyah", jabatan: "Menteri", foto: "" };
-const sekretaris = { nama: "Ratu Tegar Aqidah", jabatan: "Sekretaris Menteri", foto: "" };
-const bendahara = { nama: "Afifah Az Zahro", jabatan: "Bendahara Menteri", foto: "" };
+const menteri = { nama: "Firmansyah", jabatan: "Menteri", foto: "/images/kementerian/linghup/orang/firman.jpg" };
+const sekretaris = { nama: "Ratu Tegar Aqidah", jabatan: "Sekretaris Menteri", foto: "/images/kementerian/linghup/orang/ratu.jpg" };
+const bendahara = { nama: "Afifah Az Zahro", jabatan: "Bendahara Menteri", foto: "/images/kementerian/linghup/orang/afifah.jpg" };
 
 // ===== 4. STAFF (1 baris = 1 orang) =====
 const staff = [
-  { nama: "Muhammad Adittya", jabatan: "Dirjen Networking", foto: "" },
-  { nama: "Nayla Adinda", jabatan: "Dirjen Aksi dan Pengabdian", foto: "" },
-  { nama: "Muhammad Fadlika Akbar", jabatan: "Dirjen Kajian dan Advokasi", foto: "" },
-  { nama: "Leo Saputra", jabatan: "Dirjen Media Kreatif", foto: "" },
-  { nama: "Bunga Athirah Salsabila", jabatan: "Sekjen Networking", foto: "" },
-  { nama: "Wardah Raudhatul Jannah", jabatan: "Sekjen Aksi dan Pengabdian", foto: "" },
-  { nama: "Ika Fasya Sisilia", jabatan: "Sekjen Kajian dan Advokasi", foto: "" },
-  { nama: "Aliyati Zahira", jabatan: "Sekjen Media Kreatif", foto: "" },
-  { nama: "Khairunnisa Ramadhani", jabatan: "Staff", foto: "" },
-  { nama: "Nazlla Kayla Navita", jabatan: "Staff", foto: "" },
-  { nama: "Raghib Attarigh Almagribi", jabatan: "Staff", foto: "" },
-  { nama: "Irvan Fernando", jabatan: "Staff", foto: "" },
-  { nama: "Hana Karimah", jabatan: "Staff", foto: "" },
-  { nama: "Fauziah Zahra", jabatan: "Staff", foto: "" },
-  { nama: "Manik Anindhya Maulaya", jabatan: "Staff", foto: "" },
-  { nama: "Winda Pratiwi", jabatan: "Staff", foto: "" },
-  { nama: "Cindy Clarissa Putri", jabatan: "Staff", foto: "" },
-  { nama: "M Akbar Putra Asaki", jabatan: "Staff", foto: "" },
-  { nama: "Mutiara Chundra Tita", jabatan: "Staff", foto: "" },
+  { nama: "Muhammad Adittya", jabatan: "Dirjen Networking", foto: "/images/kementerian/linghup/orang/adit.jpg" },
+  { nama: "Nayla Adinda", jabatan: "Dirjen Aksi dan Pengabdian", foto: "/images/kementerian/linghup/orang/nayla.jpg" },
+  { nama: "Muhammad Fadlika Akbar", jabatan: "Dirjen Kajian dan Advokasi", foto: "/images/kementerian/linghup/orang/dika.jpg" },
+  { nama: "Leo Saputra", jabatan: "Dirjen Media Kreatif", foto: "/images/kementerian/linghup/orang/leo.jpg" },
+  { nama: "Bunga Athirah Salsabila", jabatan: "Sekjen Networking", foto: "/images/kementerian/linghup/orang/bunga.jpg" },
+  { nama: "Wardah Raudhatul Jannah", jabatan: "Sekjen Aksi dan Pengabdian", foto: "/images/kementerian/linghup/orang/wardah.jpg" },
+  { nama: "Ika Fasya Sisilia", jabatan: "Sekjen Kajian dan Advokasi", foto: "/images/kementerian/linghup/orang/ika.jpg" },
+  { nama: "Aliyati Zahira", jabatan: "Sekjen Media Kreatif", foto: "/images/kementerian/linghup/orang/aliya.jpg" },
+  { nama: "Khairunnisa Ramadhani", jabatan: "Staff", foto: "/images/kementerian/linghup/orang/khai.jpg" },
+  { nama: "Nazlla Kayla Navita", jabatan: "Staff", foto: "/images/kementerian/linghup/orang/nazlla.jpg" },
+  { nama: "Raghib Attarigh Almagribi", jabatan: "Staff", foto: "/images/kementerian/linghup/orang/raghib.jpg" },
+  { nama: "Irvan Fernando", jabatan: "Staff", foto: "/images/kementerian/linghup/orang/irvan.jpg" },
+  { nama: "Hana Karimah", jabatan: "Staff", foto: "/images/kementerian/linghup/orang/hana.jpg" },
+  { nama: "Fauziah Zahra", jabatan: "Staff", foto: "/images/kementerian/linghup/orang/fau.jpg" },
+  { nama: "Manik Anindhya Maulaya", jabatan: "Staff", foto: "/images/kementerian/linghup/orang/manik.jpg" },
+  { nama: "Winda Pratiwi", jabatan: "Staff", foto: "/images/kementerian/linghup/orang/winda.jpg" },
+  { nama: "Cindy Clarissa Putri", jabatan: "Staff", foto: "/images/kementerian/linghup/orang/cindy.jpg" },
+  { nama: "M Akbar Putra Asaki", jabatan: "Staff", foto: "/images/kementerian/linghup/orang/asaki.jpg" },
+  { nama: "Mutiara Chundra Tita", jabatan: "Staff", foto: "/images/kementerian/linghup/orang/mutiara.jpg" },
 ];
 
 // ===== 5. PROGRAM KERJA =====

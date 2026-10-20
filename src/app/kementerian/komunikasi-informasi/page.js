@@ -24,30 +24,30 @@ const misi = [
 
 
 // ===== 3. PIMPINAN (foto: "" = tampil siluet) =====
-const menteri = { nama: "M Nabil Fadhli", jabatan: "Menteri", foto: "" };
-const sekretaris = { nama: "Rindatul Aisyah", jabatan: "Sekretaris Menteri", foto: "" };
-const bendahara = { nama: "Farhanatul Hilmi", jabatan: "Bendahara Menteri", foto: "" };
+const menteri = { nama: "M Nabil Fadhli", jabatan: "Menteri", foto: "/images/kementerian/kominfo/orang/nabil.jpg" };
+const sekretaris = { nama: "Rindatul Aisyah", jabatan: "Sekretaris Menteri", foto: "/images/kementerian/kominfo/orang/rindatul.jpg" };
+const bendahara = { nama: "Farhanatul Hilmi", jabatan: "Bendahara Menteri", foto: "/images/kementerian/kominfo/orang/farhanatul.jpg" };
 
 // ===== 4. STAFF (1 baris = 1 orang) =====
 const staff = [
-  { nama: "Nabilah Beta Putri", jabatan: "Dirjen Graphic Design", foto: "" },
-  { nama: "Faisal Fahmi MZ", jabatan: "Dirjen Content Creator", foto: "" },
-  { nama: "King Haikal Faiz", jabatan: "Dirjen Public Relation", foto: "" },
-  { nama: "M Farhan Abdillah", jabatan: "Staff", foto: "" },
-  { nama: "Syonia Juliana", jabatan: "Staff", foto: "" },
-  { nama: "Alya Salsa Nabila", jabatan: "Staff", foto: "" },
+  { nama: "Nabilah Beta Putri", jabatan: "Dirjen Graphic Design", foto: "/images/kementerian/kominfo/orang/nabilah.jpg" },
+  { nama: "Faisal Fahmi MZ", jabatan: "Dirjen Content Creator", foto: "/images/kementerian/kominfo/orang/faisal.jpg" },
+  { nama: "King Haikal Faiz", jabatan: "Dirjen Public Relation", foto: "/images/kementerian/kominfo/orang/king.jpg" },
+  { nama: "M Farhan Abdillah", jabatan: "Staff", foto: "/images/kementerian/kominfo/orang/farhan.jpg" },
+  { nama: "Syonia Juliana", jabatan: "Staff", foto: "/images/kementerian/kominfo/orang/syonia.jpg" },
+  { nama: "Alya Salsa Nabila", jabatan: "Staff", foto: "/images/kementerian/kominfo/orang/alya.jpg" },
   { nama: "M Ansyari Lutfi", jabatan: "Staff", foto: "" },
-  { nama: "Cantika Adella Naura", jabatan: "Staff", foto: "" },
+  { nama: "Cantika Adella Naura", jabatan: "Staff", foto: "/images/kementerian/kominfo/orang/cantika.jpg" },
   { nama: "M Tsaqif Taqi Badri", jabatan: "Staff", foto: "" },
-  { nama: "Nabylla Putri Delvyant", jabatan: "Staff", foto: "" },
-  { nama: "Nadiah Susanti", jabatan: "Staff", foto: "" },
+  { nama: "Nabylla Putri Delvyant", jabatan: "Staff", foto: "/images/kementerian/kominfo/orang/nabylla.jpg" },
+  { nama: "Nadiah Susanti", jabatan: "Staff", foto: "/images/kementerian/kominfo/orang/nadiah.jpg" },
   { nama: "M Ananda Akbar", jabatan: "Staff", foto: "" },
-  { nama: "Annisa Dita Ramadhani", jabatan: "Staff", foto: "" },
-  { nama: "Umul Hafizah Asyira", jabatan: "Staff", foto: "" },
-  { nama: "Milani Farah Septina", jabatan: "Staff", foto: "" },
-  { nama: "Nabil Pratama", jabatan: "Staff", foto: "" },
-  { nama: "Suci Amellya Alandari", jabatan: "Staff", foto: "" },
-  { nama: "Najwaa Arwaa Fauziyah", jabatan: "Staff", foto: "" },
+  { nama: "Annisa Dita Ramadhani", jabatan: "Staff", foto: "/images/kementerian/kominfo/orang/annisa.jpg" },
+  { nama: "Umul Hafizah Asyira", jabatan: "Staff", foto: "/images/kementerian/kominfo/orang/umul.jpg" },
+  { nama: "Milani Farah Septina", jabatan: "Staff", foto: "/images/kementerian/kominfo/orang/milani.jpg" },
+  { nama: "Nabil Pratama", jabatan: "Staff", foto: "/images/kementerian/kominfo/orang/pratama.jpg" },
+  { nama: "Suci Amellya Alandari", jabatan: "Staff", foto: "/images/kementerian/kominfo/orang/suci.jpg" },
+  { nama: "Najwaa Arwaa Fauziyah", jabatan: "Staff", foto: "/images/kementerian/kominfo/orang/najwaa.jpg" },
 ];
 
 // ===== 5. PROGRAM KERJA =====

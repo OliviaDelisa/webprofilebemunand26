@@ -23,20 +23,20 @@ const misi = [
 ];
 
 // ===== 3. PIMPINAN (foto: "" = tampil siluet) =====
-const menteri = { nama: "Adilatunnisa", jabatan: "Menteri", foto: "" };
-const sekretaris = { nama: "Tasya Frisyilian", jabatan: "Sekretaris Menteri", foto: "" };
-const bendahara = { nama: "Annisa zikra MZ", jabatan: "Bendahara Menteri", foto: "" };
+const menteri = { nama: "Adilatunnisa", jabatan: "Menteri", foto: "/images/kementerian/keu/orang/adila.jpg" };
+const sekretaris = { nama: "Tasya Frisyilian", jabatan: "Sekretaris Menteri", foto: "/images/kementerian/keu/orang/tasya.jpg" };
+const bendahara = { nama: "Annisa zikra MZ", jabatan: "Bendahara Menteri", foto: "/images/kementerian/keu/orang/annisa.jpg" };
 
 // ===== 4. STAFF (1 baris = 1 orang) =====
 const staff = [
-  { nama: "Nadia Putri Ardyni", jabatan: "Kepala Bidang Administrasi", foto: "" },
-  { nama: "Hanifa Salsabila Rista", jabatan: "Kepala Bidang Prokum", foto: "" },
-  { nama: "Zenviro Dwi Jonsan", jabatan: "Staff", foto: "" },
-  { nama: "Afiyah Rafif Rabbani", jabatan: "Staff", foto: "" },
-  { nama: "Fariz Hasan Ghani", jabatan: "Staff", foto: "" },
-  { nama: "Kesya Kirfa Saputri", jabatan: "Staff", foto: "" },
-  { nama: "Zaki Yaa Rahman", jabatan: "Staff", foto: "" },
-  { nama: "Usy Fadillah", jabatan: "Staff", foto: "" },
+  { nama: "Nadia Putri Ardyni", jabatan: "Kepala Bidang Administrasi", foto: "/images/kementerian/keu/orang/nadia.jpg" },
+  { nama: "Hanifa Salsabila Rista", jabatan: "Kepala Bidang Prokum", foto: "/images/kementerian/keu/orang/hanifa.jpg" },
+  { nama: "Zenviro Dwi Jonsan", jabatan: "Staff", foto: "/images/kementerian/keu/orang/zenviro.jpg" },
+  { nama: "Afiyah Rafif Rabbani", jabatan: "Staff", foto: "/images/kementerian/keu/orang/afi.jpg" },
+  { nama: "Fariz Hasan Ghani", jabatan: "Staff", foto: "/images/kementerian/keu/orang/fariz.jpg" },
+  { nama: "Kesya Kirfa Saputri", jabatan: "Staff", foto: "/images/kementerian/keu/orang/kesya.jpg" },
+  { nama: "Zaki Yaa Rahman", jabatan: "Staff", foto: "/images/kementerian/keu/orang/zaki.jpg" },
+  { nama: "Usy Fadillah", jabatan: "Staff", foto: "/images/kementerian/keu/orang/usy.jpg" },
 ];
 
 // ===== 5. PROGRAM KERJA =====

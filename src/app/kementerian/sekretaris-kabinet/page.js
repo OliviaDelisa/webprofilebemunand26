@@ -23,20 +23,20 @@ const misi = [
 ];
 
 // ===== 3. PIMPINAN (foto: "" = tampil siluet) =====
-const menteri = { nama: "Arifa Arsuna Hadi", jabatan: "Menteri", foto: "" };
-const sekretaris = { nama: "Atika Nabila Zahra", jabatan: "Sekretaris Menteri", foto: "" };
-const bendahara = { nama: "Sonia Maharani", jabatan: "Bendahara Menteri", foto: "" };
+const menteri = { nama: "Arifa Arsuna Hadi", jabatan: "Menteri", foto: "/images/kementerian/sekkab/orang/arifa.jpg" };
+const sekretaris = { nama: "Atika Nabila Zahra", jabatan: "Sekretaris Menteri", foto: "/images/kementerian/sekkab/orang/atika.jpg" };
+const bendahara = { nama: "Sonia Maharani", jabatan: "Bendahara Menteri", foto: "/images/kementerian/sekkab/orang/sonia.jpg" };
 
 // ===== 4. STAFF (1 baris = 1 orang) =====
 const staff = [
-  { nama: "Ummu Syuhada El Azizah", jabatan: "Kepala Bidang Administrasi dan Penyuratan", foto: "" },
-  { nama: "Dewi Wulan Sari", jabatan: "Kepala Bidang Rumah Tangga dan Inventaris", foto: "" },
-  { nama: "Revalina Zianti", jabatan: "Staff", foto: "" },
-  { nama: "Repalina Zulita", jabatan: "Staff", foto: "" },
-  { nama: "Amanda Afilla", jabatan: "Staff", foto: "" },
-  { nama: "Nazwa Syahbani Hafifa", jabatan: "Staff", foto: "" },
-  { nama: "Hanifa Rizki Ramadhan", jabatan: "Staff", foto: "" },
-  { nama: "Aura Islami Arkan", jabatan: "Staff", foto: "" },
+  { nama: "Ummu Syuhada El Azizah", jabatan: "Kepala Bidang Administrasi dan Penyuratan", foto: "/images/kementerian/sekkab/orang/ummu.jpg" },
+  { nama: "Dewi Wulan Sari", jabatan: "Kepala Bidang Rumah Tangga dan Inventaris", foto: "/images/kementerian/sekkab/orang/dewi.jpg" },
+  { nama: "Revalina Zianti", jabatan: "Staff", foto: "/images/kementerian/sekkab/orang/reva.jpg" },
+  { nama: "Repalina Zulita", jabatan: "Staff", foto: "/images/kementerian/sekkab/orang/repa.jpg" },
+  { nama: "Amanda Afilla", jabatan: "Staff", foto: "/images/kementerian/sekkab/orang/amanda.jpg" },
+  { nama: "Nazwa Syahbani Hafifa", jabatan: "Staff", foto: "/images/kementerian/sekkab/orang/nazwa.jpg" },
+  { nama: "Hanifa Rizki Ramadhan", jabatan: "Staff", foto: "/images/kementerian/sekkab/orang/hanifa.jpg" },
+  { nama: "Aura Islami Arkan", jabatan: "Staff", foto: "/images/kementerian/sekkab/orang/aura.jpg" },
 ];
 
 // ===== 5. PROGRAM KERJA =====

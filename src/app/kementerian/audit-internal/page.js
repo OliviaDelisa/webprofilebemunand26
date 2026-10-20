@@ -24,22 +24,22 @@ const misi = [
 
 
 // ===== 3. PIMPINAN (foto: "" = tampil siluet) =====
-const menteri = { nama: "Akram Makruf Aidil", jabatan: "Inspektur", foto: "" };
-const sekretaris = { nama: "Jamiatul Fitri", jabatan: "Sekretaris Inspektur", foto: "" };
-const bendahara = { nama: "Deana Putri Ganaya", jabatan: "Bendahara Inspektur", foto: "" };
+const menteri = { nama: "Akram Makruf Aidil", jabatan: "Inspektur", foto: "/images/kementerian/ai/orang/akram.jpg" };
+const sekretaris = { nama: "Jamiatul Fitri", jabatan: "Sekretaris Inspektur", foto: "/images/kementerian/ai/orang/ami.jpg" };
+const bendahara = { nama: "Deana Putri Ganaya", jabatan: "Bendahara Inspektur", foto: "/images/kementerian/ai/orang/deana.jpg" };
 
 // ===== 4. STAFF (1 baris = 1 orang) =====
 const staff = [
-  { nama: "Fahri Burrahman", jabatan: "Dirjen Harmonisasi Proker", foto: "" },
-  { nama: "Aulia Rahman", jabatan: "Dirjen Evaluasi dan Pemantauan", foto: "" },
-  { nama: "M Abdul Malik Al Khairi", jabatan: "Dirjen Media", foto: "" },
-  { nama: "Stevhani Febria N", jabatan: "Sekjen Harmonisasi Proker", foto: "" },
-  { nama: "Linda Oktavia", jabatan: "Sekjen Evaluasi dan Pemantauan", foto: "" },
-  { nama: "Dayyana Silvia R", jabatan: "Staff", foto: "" },
+  { nama: "Fahri Burrahman", jabatan: "Dirjen Harmonisasi Proker", foto: "/images/kementerian/ai/orang/fahri.jpg" },
+  { nama: "Aulia Rahman", jabatan: "Dirjen Evaluasi dan Pemantauan", foto: "/images/kementerian/ai/orang/aulia.jpg" },
+  { nama: "M Abdul Malik Al Khairi", jabatan: "Dirjen Media", foto: "/images/kementerian/ai/orang/malik.jpg" },
+  { nama: "Stevhani Febria N", jabatan: "Sekjen Harmonisasi Proker", foto: "/images/kementerian/ai/orang/stevhani.jpg" },
+  { nama: "Linda Oktavia", jabatan: "Sekjen Evaluasi dan Pemantauan", foto: "/images/kementerian/ai/orang/linda.jpg" },
+  { nama: "Dayyana Silvia R", jabatan: "Staff", foto: "/images/kementerian/ai/orang/yana.jpg" },
   { nama: "Assyfa Nur Azizah", jabatan: "Staff", foto: "" },
-  { nama: "Dimas Fajar Pratama", jabatan: "Staff", foto: "" },
-  { nama: "Salsabilla Fitri", jabatan: "Staff", foto: "" },
-  { nama: "Marsya Dinda Laura", jabatan: "Staff", foto: "" },
+  { nama: "Dimas Fajar Pratama", jabatan: "Staff", foto: "/images/kementerian/ai/orang/dimas.jpg" },
+  { nama: "Salsabilla Fitri", jabatan: "Staff", foto: "/images/kementerian/ai/orang/salsabilla.jpg" },
+  { nama: "Marsya Dinda Laura", jabatan: "Staff", foto: "/images/kementerian/ai/orang/marsya.jpg" },
 ];
 
 // ===== 5. PROGRAM KERJA =====

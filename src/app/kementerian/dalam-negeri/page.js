@@ -22,31 +22,31 @@ const misi = [
 ];
 
 // ===== 3. PIMPINAN (foto: "" = tampil siluet) =====
-const menteri = { nama: "Muhammad Adriyan", jabatan: "Menteri", foto: "" };
-const sekretaris = { nama: "Yolanda Putri Tanjung", jabatan: "Sekretaris Menteri", foto: "" };
-const bendahara = { nama: "Magfira Izzani", jabatan: "Bendahara Menteri", foto: "" };
+const menteri = { nama: "Muhammad Adriyan", jabatan: "Menteri", foto: "/images/kementerian/dagri/orang/adriyan.jpg" };
+const sekretaris = { nama: "Yolanda Putri Tanjung", jabatan: "Sekretaris Menteri", foto: "/images/kementerian/dagri/orang/yolanda.jpg" };
+const bendahara = { nama: "Magfira Izzani", jabatan: "Bendahara Menteri", foto: "/images/kementerian/dagri/orang/magfira.jpg" };
 
 // ===== 4. STAFF (1 baris = 1 orang) =====
 const staff = [
-  { nama: "Fathan Athallah", jabatan: "Kepala Sektor BEM F", foto: "" },
+  { nama: "Fathan Athallah", jabatan: "Kepala Sektor BEM F", foto: "/images/kementerian/dagri/orang/fathan.jpg" },
   { nama: "Fauzan Nur Hakim", jabatan: "Kepala Sektor HIMADA", foto: "" },
-  { nama: "Sulthan Naufal Perdana", jabatan: "Kepala Sektor UKM", foto: "" },
-  { nama: "Muhammad Aldo Mulyawan", jabatan: "Kepala Sektor PROGMED", foto: "" },
-  { nama: "Maisarah Luthfiya", jabatan: "Sekretaris Sektor BEM F", foto: "" },
-  { nama: "Bunga Jacinda", jabatan: "Sekretaris Sektor HIMADA", foto: "" },
-  { nama: "Parisa Silvani", jabatan: "Sekretaris Sektor UKM", foto: "" },
-  { nama: "Sri Anzhila Maharani", jabatan: "Sekretaris Sektor PROGMED", foto: "" },
-  { nama: "Annisa Verlyana", jabatan: "Staff", foto: "" },
-  { nama: "Muhammad Fadhli Abdurrahman", jabatan: "Staff", foto: "" },
-  { nama: "Muhammad Zaky Alqifari", jabatan: "Staff", foto: "" },
-  { nama: "Rendi Renaldi", jabatan: "Staff", foto: "" },
-  { nama: "Ferdi Oktavianus", jabatan: "Staff", foto: "" },
-  { nama: "Fitri Latifah Adani", jabatan: "Staff", foto: "" },
-  { nama: "Rezi Maharani", jabatan: "Staff", foto: "" },
-  { nama: "Imam Nurzaki Islami", jabatan: "Staff", foto: "" },
-  { nama: "Aulia Putri Ramadhani", jabatan: "Staff", foto: "" },
-  { nama: "Agil Putra", jabatan: "Staff", foto: "" },
-  { nama: "Iqbal Ilham", jabatan: "Staff", foto: "" },
+  { nama: "Sulthan Naufal Perdana", jabatan: "Kepala Sektor UKM", foto: "/images/kementerian/dagri/orang/sulthan.jpg" },
+  { nama: "Muhammad Aldo Mulyawan", jabatan: "Kepala Sektor PROGMED", foto: "/images/kementerian/dagri/orang/aldo.jpg" },
+  { nama: "Maisarah Luthfiya", jabatan: "Sekretaris Sektor BEM F", foto: "/images/kementerian/dagri/orang/maisarah.jpg" },
+  { nama: "Bunga Jacinda", jabatan: "Sekretaris Sektor HIMADA", foto: "/images/kementerian/dagri/orang/bunga.jpg" },
+  { nama: "Parisa Silvani", jabatan: "Sekretaris Sektor UKM", foto: "/images/kementerian/dagri/orang/parisa.jpg" },
+  { nama: "Sri Anzhila Maharani", jabatan: "Sekretaris Sektor PROGMED", foto: "/images/kementerian/dagri/orang/sri.jpg" },
+  { nama: "Annisa Verlyana", jabatan: "Staff", foto: "/images/kementerian/dagri/orang/annisa.jpg" },
+  { nama: "Muhammad Fadhli Abdurrahman", jabatan: "Staff", foto: "/images/kementerian/dagri/orang/fadhli.jpg" },
+  { nama: "Muhammad Zaky Alqifari", jabatan: "Staff", foto: "/images/kementerian/dagri/orang/zaky.jpg" },
+  { nama: "Rendi Renaldi", jabatan: "Staff", foto: "/images/kementerian/dagri/orang/rendi.jpg" },
+  { nama: "Ferdi Oktavianus", jabatan: "Staff", foto: "/images/kementerian/dagri/orang/ferdi.jpg" },
+  { nama: "Fitri Latifah Adani", jabatan: "Staff", foto: "/images/kementerian/dagri/orang/fitri.jpg" },
+  { nama: "Rezi Maharani", jabatan: "Staff", foto: "/images/kementerian/dagri/orang/rezi.jpg" },
+  { nama: "Imam Nurzaki Islami", jabatan: "Staff", foto: "/images/kementerian/dagri/orang/imam.jpg" },
+  { nama: "Aulia Putri Ramadhani", jabatan: "Staff", foto: "/images/kementerian/dagri/orang/aulia.jpg" },
+  { nama: "Agil Putra", jabatan: "Staff", foto: "/images/kementerian/dagri/orang/agil.jpg" },
+  { nama: "Iqbal Ilham", jabatan: "Staff", foto: "/images/kementerian/dagri/orang/iqbal.jpg" },
 ];
 
 // ===== 5. PROGRAM KERJA =====

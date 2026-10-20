@@ -23,31 +23,31 @@ const misi = [
 ];
 
 // ===== 3. PIMPINAN (foto: "" = tampil siluet) =====
-const menteri = { nama: "Muhammad Rizki", jabatan: "Menteri", foto: "" };
-const sekretaris = { nama: "Tsabita Hanifah", jabatan: "Sekretaris Menteri", foto: "" };
-const bendahara = { nama: "Utari Rudianto Putri", jabatan: "Bendahara Menteri", foto: "" };
+const menteri = { nama: "Muhammad Rizki", jabatan: "Menteri", foto: "/images/kementerian/sosmas/orang/rizki.jpg" };
+const sekretaris = { nama: "Tsabita Hanifah", jabatan: "Sekretaris Menteri", foto: "/images/kementerian/sosmas/orang/tsabita.jpg" };
+const bendahara = { nama: "Utari Rudianto Putri", jabatan: "Bendahara Menteri", foto: "/images/kementerian/sosmas/orang/utari.jpg" };
 
 // ===== 4. STAFF (1 baris = 1 orang) =====
 const staff = [
-  { nama: "Alfa Rino Svedrilio", jabatan: "Dirjen Pengabdian Masyarakat", foto: "" },
-  { nama: "Akhbar Wahyu Andika", jabatan: "Dirjen Sosial Project", foto: "" },
-  { nama: "Hazizah Az Zahra", jabatan: "Dirjen Networking", foto: "" },
+  { nama: "Alfa Rino Svedrilio", jabatan: "Dirjen Pengabdian Masyarakat", foto: "/images/kementerian/sosmas/orang/alfa.jpg" },
+  { nama: "Akhbar Wahyu Andika", jabatan: "Dirjen Sosial Project", foto: "/images/kementerian/sosmas/orang/akhbar.jpg" },
+  { nama: "Hazizah Az Zahra", jabatan: "Dirjen Networking", foto: "/images/kementerian/sosmas/orang/hazizah.jpg" },
   { nama: "Riddick Perwira", jabatan: "Dirjen Media Kreatif", foto: "" },
-  { nama: "Anisa Verdalina", jabatan: "Sekjen Pengabdian Masyarakat", foto: "" },
-  { nama: "Assyifa", jabatan: "Sekjen Sosial Project", foto: "" },
-  { nama: "Siti Salma", jabatan: "Sekjen Networking", foto: "" },
-  { nama: "Olga Dwi Febrina", jabatan: "Sekjen Media Kreatif", foto: "" },
-  { nama: "Zhafran Naufal", jabatan: "Staff", foto: "" },
-  { nama: "Maharani Rosadi", jabatan: "Staff", foto: "" },
-  { nama: "Haqna Sielmun", jabatan: "Staff", foto: "" },
-  { nama: "Ravingga Chandra P", jabatan: "Staff", foto: "" },
-  { nama: "Muhammad Farid", jabatan: "Staff", foto: "" },
-  { nama: "Dea Putri R", jabatan: "Staff", foto: "" },
-  { nama: "Aysah Safitri", jabatan: "Staff", foto: "" },
-  { nama: "Dzaki Hadi Putra", jabatan: "Staff", foto: "" },
-  { nama: "M Imam Mustafa", jabatan: "Staff", foto: "" },
-  { nama: "Alvia Zahra", jabatan: "Staff", foto: "" },
-  { nama: "Rayhan Nofriansah", jabatan: "Staff", foto: "" },
+  { nama: "Anisa Verdalina", jabatan: "Sekjen Pengabdian Masyarakat", foto: "/images/kementerian/sosmas/orang/anisa.jpg" },
+  { nama: "Assyifa", jabatan: "Sekjen Sosial Project", foto: "/images/kementerian/sosmas/orang/assyifa.jpg" },
+  { nama: "Siti Salma", jabatan: "Sekjen Networking", foto: "/images/kementerian/sosmas/orang/siti.jpg" },
+  { nama: "Olga Dwi Febrina", jabatan: "Sekjen Media Kreatif", foto: "/images/kementerian/sosmas/orang/olga.jpg" },
+  { nama: "Zhafran Naufal", jabatan: "Staff", foto: "/images/kementerian/sosmas/orang/zhafran.jpg" },
+  { nama: "Maharani Rosadi", jabatan: "Staff", foto: "/images/kementerian/sosmas/orang/maharani.jpg" },
+  { nama: "Haqna Sielmun", jabatan: "Staff", foto: "/images/kementerian/sosmas/orang/haqna.jpg" },
+  { nama: "Ravingga Chandra P", jabatan: "Staff", foto: "/images/kementerian/sosmas/orang/ravingga.jpg" },
+  { nama: "Muhammad Farid", jabatan: "Staff", foto: "/images/kementerian/sosmas/orang/farid.jpg" },
+  { nama: "Dea Putri R", jabatan: "Staff", foto: "/images/kementerian/sosmas/orang/dea.jpg" },
+  { nama: "Aysah Safitri", jabatan: "Staff", foto: "/images/kementerian/sosmas/orang/aysah.jpg" },
+  { nama: "Dzaki Hadi Putra", jabatan: "Staff", foto: "/images/kementerian/sosmas/orang/dzaki.jpg" },
+  { nama: "M Imam Mustafa", jabatan: "Staff", foto: "/images/kementerian/sosmas/orang/imam.jpg" },
+  { nama: "Alvia Zahra", jabatan: "Staff", foto: "/images/kementerian/sosmas/orang/alvia.jpg" },
+  { nama: "Rayhan Nofriansah", jabatan: "Staff", foto: "/images/kementerian/sosmas/orang/rayhan.jpg" },
 ];
 
 // ===== 5. PROGRAM KERJA =====

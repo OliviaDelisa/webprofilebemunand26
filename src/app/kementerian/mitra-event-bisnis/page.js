@@ -21,30 +21,30 @@ const misi = [
 ];
 
 // ===== 3. PIMPINAN (foto: "" = tampil siluet) =====
-const menteri = { nama: "M Faiz Saqif", jabatan: "Menteri", foto: "" };
-const sekretaris = { nama: "Zainini Arraysa", jabatan: "Sekretaris Menteri", foto: "" };
-const bendahara = { nama: "Najwa Safira M", jabatan: "Bendahara Menteri", foto: "" };
+const menteri = { nama: "M Faiz Saqif", jabatan: "Menteri", foto: "/images/kementerian/meb/orang/faiz.jpg" };
+const sekretaris = { nama: "Zainini Arraysa", jabatan: "Sekretaris Menteri", foto: "/images/kementerian/meb/orang/zainini.jpg" };
+const bendahara = { nama: "Najwa Safira M", jabatan: "Bendahara Menteri", foto: "/images/kementerian/meb/orang/najwa.jpg" };
 
 // ===== 4. STAFF (1 baris = 1 orang) =====
 const staff = [
-  { nama: "Habib Abdul Hakim", jabatan: "PIC Bisnis", foto: "" },
-  { nama: "M Sultan Virzi Nasution", jabatan: "PIC Marketing", foto: "" },
-  { nama: "Salsabila Afradiana", jabatan: "PIC Event", foto: "" },
+  { nama: "Habib Abdul Hakim", jabatan: "PIC Bisnis", foto: "/images/kementerian/meb/orang/habib.jpg" },
+  { nama: "M Sultan Virzi Nasution", jabatan: "PIC Marketing", foto: "/images/kementerian/meb/orang/sultan.jpg" },
+  { nama: "Salsabila Afradiana", jabatan: "PIC Event", foto: "/images/kementerian/meb/orang/salsabila.jpg" },
   { nama: "Zaqira Azzahra M", jabatan: "PIC Partnership", foto: "" },
-  { nama: "Satria Rahma Sinta", jabatan: "Sekretaris Bisnis", foto: "" },
-  { nama: "Alya Zahwa", jabatan: "Sekretaris Marketing", foto: "" },
-  { nama: "Nadya Salsabila A", jabatan: "Sekretaris Event", foto: "" },
-  { nama: "Fahhmi Kurniawan", jabatan: "Sekretaris Partnership", foto: "" },
-  { nama: "Nurhayati Adilla", jabatan: "Staff", foto: "" },
-  { nama: "Marsha Nabila", jabatan: "Staff", foto: "" },
-  { nama: "Ziqri Faiz Y", jabatan: "Staff", foto: "" },
-  { nama: "Narnezza Salsavia", jabatan: "Staff", foto: "" },
-  { nama: "Raisya Raiendra Poetri P", jabatan: "Staff", foto: "" },
-  { nama: "Irfan Deri S", jabatan: "Staff", foto: "" },
-  { nama: "Muqadis Khairy Y", jabatan: "Staff", foto: "" },
-  { nama: "Putri Meyriza H", jabatan: "Staff", foto: "" },
-  { nama: "Nofira Ronal A", jabatan: "Staff", foto: "" },
-  { nama: "Nafahatir Ridwan", jabatan: "Staff", foto: "" },
+  { nama: "Satria Rahma Sinta", jabatan: "Sekretaris Bisnis", foto: "/images/kementerian/meb/orang/satria.jpg" },
+  { nama: "Alya Zahwa", jabatan: "Sekretaris Marketing", foto: "/images/kementerian/meb/orang/alya.jpg" },
+  { nama: "Nadya Salsabila A", jabatan: "Sekretaris Event", foto: "/images/kementerian/meb/orang/nadya.jpg" },
+  { nama: "Fahmi Kurniawan", jabatan: "Sekretaris Partnership", foto: "/images/kementerian/meb/orang/fahmi.jpg" },
+  { nama: "Nurhayati Adilla", jabatan: "Staff", foto: "/images/kementerian/meb/orang/nurhayati.jpg" },
+  { nama: "Marsha Nabila", jabatan: "Staff", foto: "/images/kementerian/meb/orang/marsha.jpg" },
+  { nama: "Ziqri Faiz Y", jabatan: "Staff", foto: "/images/kementerian/meb/orang/ziqri.jpg" },
+  { nama: "Narnezza Salsavia", jabatan: "Staff", foto: "/images/kementerian/meb/orang/narnezza.jpg" },
+  { nama: "Raisya Raiendra Poetri P", jabatan: "Staff", foto: "/images/kementerian/meb/orang/raisya.jpg" },
+  { nama: "Irfan Deri S", jabatan: "Staff", foto: "/images/kementerian/meb/orang/irfan.jpg" },
+  { nama: "Muqadis Khairy Y", jabatan: "Staff", foto: "/images/kementerian/meb/orang/muqadis.jpg" },
+  { nama: "Putri Meyriza H", jabatan: "Staff", foto: "/images/kementerian/meb/orang/putri.jpg" },
+  { nama: "Nofira Ronal A", jabatan: "Staff", foto: "/images/kementerian/meb/orang/nofira.jpg" },
+  { nama: "Nafahatir Ridwan", jabatan: "Staff", foto: "/images/kementerian/meb/orang/nafahatir.jpg" },
 ];
 
 // ===== 5. PROGRAM KERJA =====

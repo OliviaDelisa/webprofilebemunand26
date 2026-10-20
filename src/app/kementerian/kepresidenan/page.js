@@ -12,13 +12,13 @@ const deskripsi =
 
 // ===== 3. ANGGOTA (7 orang). utama: true = bingkai emas =====
 const anggota = [
-  { nama: "Shabbarin Syakur", jabatan: "Presiden Mahasiswa", foto: "/images/presma.png", utama: true },
-  { nama: "Muhammad Firdan", jabatan: "Wakil Presiden Mahasiswa", foto: "/images/wapresma.png", utama: true },
-  { nama: "M Ghufran Abrar", jabatan: "Sekretaris Negara", foto: "" },
-  { nama: "Rangga Andany", jabatan: "Menteri Koordinator Administrasi Pemerintahan", foto: "" },
-  { nama: "Ardian Okta Sya'bani", jabatan: "Menteri Koordinator Pergerakan", foto: "" },
-  { nama: "Abdurahman", jabatan: "Menteri Koordinator Pelayanan", foto: "" },
-  { nama: "Arga Zaifullah", jabatan: "Menteri Koordinator Pengabdian", foto: "" },
+  { nama: "Shabbarin Syakur", jabatan: "Presiden Mahasiswa", foto: "/images/kementerian/kepresidenan/orang/presma.jpg", utama: true },
+  { nama: "Muhammad Firdan", jabatan: "Wakil Presiden Mahasiswa", foto: "/images/kementerian/kepresidenan/orang/wapres.jpg", utama: true },
+  { nama: "M Ghufran Abrar", jabatan: "Sekretaris Negara", foto: "/images/kementerian/kepresidenan/orang/sesneg.jpg" },
+  { nama: "Rangga Andany", jabatan: "Menteri Koordinator Administrasi Pemerintahan", foto: "/images/kementerian/kepresidenan/orang/ap.jpg" },
+  { nama: "Ardian Okta Sya'bani", jabatan: "Menteri Koordinator Pergerakan", foto: "/images/kementerian/kepresidenan/orang/gerak.jpg" },
+  { nama: "Abdurahman", jabatan: "Menteri Koordinator Pelayanan", foto: "/images/kementerian/kepresidenan/orang/layan.jpg" },
+  { nama: "Arga Zaifullah", jabatan: "Menteri Koordinator Pengabdian", foto: "/images/kementerian/kepresidenan/orang/abdi.jpg" },
 ];
 
 // ================= TAMPILAN (tidak perlu diubah) =================

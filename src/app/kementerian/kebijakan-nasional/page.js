@@ -23,18 +23,18 @@ const misi = [
 ];
 
 // ===== 3. PIMPINAN (foto: "" = tampil siluet) =====
-const menteri = { nama: "Donal Syafriadi", jabatan: "Menteri", foto: "" };
-const sekretaris = { nama: "Mutyia Rahmadina", jabatan: "Sekretaris Menteri", foto: "" };
-const bendahara = { nama: "Wiria Yulfika", jabatan: "Bendahara Menteri", foto: "" };
+const menteri = { nama: "Donal Syafriadi", jabatan: "Menteri", foto: "/images/kementerian/jaknas/orang/donal.jpg" };
+const sekretaris = { nama: "Mutyia Rahmadina", jabatan: "Sekretaris Menteri", foto: "/images/kementerian/jaknas/orang/mutyia.jpg" };
+const bendahara = { nama: "Wiria Yulfika", jabatan: "Bendahara Menteri", foto: "/images/kementerian/jaknas/orang/wiria.jpg" };
 
 // ===== 4. STAFF (1 baris = 1 orang) =====
 const staff = [
-  { nama: "M Aidil Ar Rasyid", jabatan: "Kepala Bidang Aksi dan Propaganda", foto: "" },
-  { nama: "Sahara Nasyarah B", jabatan: "Kepala Bidang Kajian Strategis", foto: "" },
-  { nama: "Mahardika Dwi C", jabatan: "Staff", foto: "" },
-  { nama: "Nabilatul Afiah Agus", jabatan: "Staff", foto: "" },
-  { nama: "Destiani", jabatan: "Staff", foto: "" },
-  { nama: "Asarani", jabatan: "Staff", foto: "" },
+  { nama: "M Aidil Ar Rasyid", jabatan: "Kepala Bidang Aksi dan Propaganda", foto: "/images/kementerian/jaknas/orang/aidil.jpg" },
+  { nama: "Sahara Nasyarah B", jabatan: "Kepala Bidang Kajian Strategis", foto: "/images/kementerian/jaknas/orang/sahara.jpg" },
+  { nama: "Mahardika Dwi C", jabatan: "Staff", foto: "/images/kementerian/jaknas/orang/mahardika.jpg" },
+  { nama: "Nabilatul Afiah Agus", jabatan: "Staff", foto: "/images/kementerian/jaknas/orang/nabilatul.jpg" },
+  { nama: "Destiani", jabatan: "Staff", foto: "/images/kementerian/jaknas/orang/destiani.jpg" },
+  { nama: "Asarani", jabatan: "Staff", foto: "/images/kementerian/jaknas/orang/asarani.jpg" },
 ];
 
 // ===== 5. PROGRAM KERJA =====

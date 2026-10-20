@@ -22,27 +22,27 @@ const misi = [
 ];
 
 // ===== 3. PIMPINAN (foto: "" = tampil siluet) =====
-const menteri = { nama: "Wahyu Septio Afrima", jabatan: "Menteri", foto: "" };
-const sekretaris = { nama: "Apwanil Husni", jabatan: "Sekretaris Menteri", foto: "" };
-const bendahara = { nama: "Audira Anandan Palwati", jabatan: "Bendahara Menteri", foto: "" };
+const menteri = { nama: "Wahyu Septio Afrima", jabatan: "Menteri", foto: "/images/kementerian/psdm/orang/wahyu.jpg" };
+const sekretaris = { nama: "Apwanil Husni", jabatan: "Sekretaris Menteri", foto: "/images/kementerian/psdm/orang/husni.jpg" };
+const bendahara = { nama: "Audira Anandan Palwati", jabatan: "Bendahara Menteri", foto: "/images/kementerian/psdm/orang/audira.jpg" };
 
 // ===== 4. STAFF (1 baris = 1 orang) =====
 const staff = [
-  { nama: "Khairul Ikhsan", jabatan: "Kepala Bidang Peminatan dan Pengembangan", foto: "" },
-  { nama: "Nursyabani", jabatan: "Kepala Bidang Kaderisasi", foto: "" },
-  { nama: "Handika Imam Prasetya", jabatan: "Kepala Bidang Media", foto: "" },
-  { nama: "Angel Mawardi Putri", jabatan: "Sekretaris Bidang Peminatan dan Pengembangan", foto: "" },
-  { nama: "Chelsea Zalianda", jabatan: "Sekretaris Bidang Kaderisasi", foto: "" },
-  { nama: "Khairani Al Fawwaz", jabatan: "Staff", foto: "" },
-  { nama: "Shangrila Wijaya Gunawan", jabatan: "Staff", foto: "" },
-  { nama: "Salsabila Zahra", jabatan: "Staff", foto: "" },
-  { nama: "Muhammad Reyhan", jabatan: "Staff", foto: "" },
-  { nama: "Habli Ef Irsanda", jabatan: "Staff", foto: "" },
-  { nama: "Marsya Fitri Anindya", jabatan: "Staff", foto: "" },
-  { nama: "Aulia Rahma Azzuhra", jabatan: "Staff", foto: "" },
-  { nama: "Laudya Maharani Gusman", jabatan: "Staff", foto: "" },
-  { nama: "Fathur Rozy", jabatan: "Staff", foto: "" },
-  { nama: "Aliva Aliyatul Zahra", jabatan: "Staff", foto: "" },
+  { nama: "Khairul Ikhsan", jabatan: "Kepala Bidang Peminatan dan Pengembangan", foto: "/images/kementerian/psdm/orang/ikhsan.jpg" },
+  { nama: "Nursyabani", jabatan: "Kepala Bidang Kaderisasi", foto: "/images/kementerian/psdm/orang/bani.jpg" },
+  { nama: "Handika Imam Prasetya", jabatan: "Kepala Bidang Media", foto: "/images/kementerian/psdm/orang/imam.jpg" },
+  { nama: "Angel Mawardi Putri", jabatan: "Sekretaris Bidang Peminatan dan Pengembangan", foto: "/images/kementerian/psdm/orang/angel.jpg" },
+  { nama: "Chelsea Zalianda", jabatan: "Sekretaris Bidang Kaderisasi", foto: "/images/kementerian/psdm/orang/chelsea.jpg" },
+  { nama: "Khairani Al Fawwaz", jabatan: "Staff", foto: "/images/kementerian/psdm/orang/khairani.jpg" },
+  { nama: "Shangrila Wijaya Gunawan", jabatan: "Staff", foto: "/images/kementerian/psdm/orang/shangrila.jpg" },
+  { nama: "Salsabila Zahra", jabatan: "Staff", foto: "/images/kementerian/psdm/orang/salsabila.jpg" },
+  { nama: "Muhammad Reyhan", jabatan: "Staff", foto: "/images/kementerian/psdm/orang/reyhan.jpg" },
+  { nama: "Habli Ef Irsanda", jabatan: "Staff", foto: "/images/kementerian/psdm/orang/habli.jpg" },
+  { nama: "Marsya Fitri Anindya", jabatan: "Staff", foto: "/images/kementerian/psdm/orang/marsya.jpg" },
+  { nama: "Aulia Rahma Azzuhra", jabatan: "Staff", foto: "/images/kementerian/psdm/orang/aulia.jpg" },
+  { nama: "Laudya Maharani Gusman", jabatan: "Staff", foto: "/images/kementerian/psdm/orang/laudya.jpg" },
+  { nama: "Fathur Rozy", jabatan: "Staff", foto: "/images/kementerian/psdm/orang/fathur.jpg" },
+  { nama: "Aliva Aliyatul Zahra", jabatan: "Staff", foto: "/images/kementerian/psdm/orang/aliva.jpg" },
 ];
 
 // ===== 5. PROGRAM KERJA =====

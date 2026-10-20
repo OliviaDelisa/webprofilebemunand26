@@ -22,18 +22,18 @@ const misi = [
 ];
 
 // ===== 3. PIMPINAN (foto: "" = tampil siluet) =====
-const menteri = { nama: "Nibras Ananta Ferdinand", jabatan: "Menteri", foto: "" };
-const sekretaris = { nama: "Cahyani Putri Yana", jabatan: "Sekretaris Menteri", foto: "" };
-const bendahara = { nama: "Atikah Handayani", jabatan: "Bendahara Menteri", foto: "" };
+const menteri = { nama: "Nibras Ananta Ferdinand", jabatan: "Menteri", foto: "/images/kementerian/jakda/orang/nibras.jpg" };
+const sekretaris = { nama: "Cahyani Putri Yana", jabatan: "Sekretaris Menteri", foto: "/images/kementerian/jakda/orang/cahyani.jpg" };
+const bendahara = { nama: "Atikah Handayani", jabatan: "Bendahara Menteri", foto: "/images/kementerian/jakda/orang/atikah.jpg" };
 
 // ===== 4. STAFF (1 baris = 1 orang) =====
 const staff = [
-  { nama: "Amar Rotua Hasibuan", jabatan: "Kepala Bidang Aksi dan Propaganda", foto: "" },
-  { nama: "Fitri Nurul Hikmah", jabatan: "Kepala Bidang Kajian Strategis", foto: "" },
+  { nama: "Amar Rotua Hasibuan", jabatan: "Kepala Bidang Aksi dan Propaganda", foto: "/images/kementerian/jakda/orang/amar.jpg" },
+  { nama: "Fitri Nurul Hikmah", jabatan: "Kepala Bidang Kajian Strategis", foto: "/images/kementerian/jakda/orang/fitri.jpg" },
   { nama: "Maria Karunia M", jabatan: "Staff", foto: "" },
-  { nama: "Suci Ramadhani N", jabatan: "Staff", foto: "" },
-  { nama: "Keisya Amara Putri", jabatan: "Staff", foto: "" },
-  { nama: "Nur Afifah", jabatan: "Staff", foto: "" },
+  { nama: "Suci Ramadhani N", jabatan: "Staff", foto: "/images/kementerian/jakda/orang/suci.jpg" },
+  { nama: "Keisya Amara Putri", jabatan: "Staff", foto: "/images/kementerian/jakda/orang/keisya.jpg" },
+  { nama: "Nur Afifah", jabatan: "Staff", foto: "/images/kementerian/jakda/orang/nur.jpg" },
 ];
 
 // ===== 5. PROGRAM KERJA =====

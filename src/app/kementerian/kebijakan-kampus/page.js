@@ -22,19 +22,19 @@ const misi = [
 
 
 // ===== 3. PIMPINAN (foto: "" = tampil siluet) =====
-const menteri = { nama: "Muhammad Fajar Erlangga", jabatan: "Menteri", foto: "" };
-const sekretaris = { nama: "Zaidatun Nisa", jabatan: "Sekretaris Menteri", foto: "" };
-const bendahara = { nama: "Vania Amanda", jabatan: "Bendahara Menteri", foto: "" };
+const menteri = { nama: "Muhammad Fajar Erlangga", jabatan: "Menteri", foto: "/images/kementerian/jakpus/orang/fajar.jpg" };
+const sekretaris = { nama: "Zaidatun Nisa", jabatan: "Sekretaris Menteri", foto: "/images/kementerian/jakpus/orang/zaidatun.jpg" };
+const bendahara = { nama: "Vania Amanda", jabatan: "Bendahara Menteri", foto: "/images/kementerian/jakpus/orang/vania.jpg" };
 
 // ===== 4. STAFF (1 baris = 1 orang) =====
 const staff = [
-  { nama: "Aslam Ali Mubarok Hasibuan", jabatan: "Dirjen Advokasi dan Relasi", foto: "" },
-  { nama: "Muhammad Derry", jabatan: "Dirjen Riset dan Analisis", foto: "" },
-  { nama: "Wulan Aulia Putri", jabatan: "Staff", foto: "" },
-  { nama: "Rika Desma Sari", jabatan: "Staff", foto: "" },
-  { nama: "Nafisah Naila Husna", jabatan: "Staff", foto: "" },
-  { nama: "Bintang Chaesaria", jabatan: "Staff", foto: "" },
-  { nama: "Naufal Nanda Desriyan", jabatan: "Staff", foto: "" },
+  { nama: "Aslam Ali Mubarok Hasibuan", jabatan: "Dirjen Advokasi dan Relasi", foto: "/images/kementerian/jakpus/orang/aslam.jpg" },
+  { nama: "Muhammad Derry", jabatan: "Dirjen Riset dan Analisis", foto: "/images/kementerian/jakpus/orang/derry.jpg" },
+  { nama: "Wulan Aulia Putri", jabatan: "Staff", foto: "/images/kementerian/jakpus/orang/wulan.jpg" },
+  { nama: "Rika Desma Sari", jabatan: "Staff", foto: "/images/kementerian/jakpus/orang/rika.jpg" },
+  { nama: "Nafisah Naila Husna", jabatan: "Staff", foto: "/images/kementerian/jakpus/orang/nafisah.jpg" },
+  { nama: "Bintang Chaesaria", jabatan: "Staff", foto: "/images/kementerian/jakpus/orang/bintang.jpg" },
+  { nama: "Naufal Nanda Desriyan", jabatan: "Staff", foto: "/images/kementerian/jakpus/orang/naufal.jpg" },
 ];
 
 // ===== 5. PROGRAM KERJA =====
