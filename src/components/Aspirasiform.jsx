@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "https://bemkmunand.site/api";
@@ -9,6 +10,9 @@ const PURPLE = "#55193A";
 const PURPLE_SOFT = "#7A2A56";
 const GOLD = "#D8833B";
 const MAX_FOTO = 5;
+
+// Ubah jika path halaman cek status di web profile berbeda
+const CEK_STATUS_PATH = "/aspirasi/cek";
 
 const FAKULTAS_LIST = [
   "Fakultas Kedokteran",
@@ -29,10 +33,76 @@ const FAKULTAS_LIST = [
   "Pascasarjana",
 ];
 
-const initialForm = { nama: "", anonim: false, fakultas: "", nama_kategori: "", isi: "" };
+const initialForm = { nama: "", anonim: false, no_hp: "", fakultas: "", nama_kategori: "", isi: "" };
 
 const fieldClass =
   "w-full text-sm text-gray-700 bg-white/80 border border-gray-200 rounded-2xl px-4 py-3.5 outline-none transition-all duration-200 focus:border-[#55193A] focus:ring-4 focus:ring-[#55193A]/[0.08] placeholder:text-gray-300 shadow-sm";
+
+// Hanya angka, dan "+" hanya boleh di awal
+const sanitizeHp = (v) => v.replace(/[^\d+]/g, "").replace(/(?!^)\+/g, "").slice(0, 16);
+
+// Validasi sama dengan backend: 08xx / 62xx / +62xx
+const isValidHp = (raw) => {
+  const v = raw.trim();
+  if (!v) return true; // opsional
+  return /^(\+?62|0)[0-9]{8,13}$/.test(v.replace(/[\s\-()]/g, ""));
+};
+
+// Simpan kode laporan sebagai gambar PNG (tanpa library tambahan)
+function downloadKodeImage(kode) {
+  const w = 900, h = 520;
+  const c = document.createElement("canvas");
+  c.width = w;
+  c.height = h;
+  const ctx = c.getContext("2d");
+
+  ctx.fillStyle = "#ffffff";
+  ctx.fillRect(0, 0, w, h);
+
+  const grad = ctx.createLinearGradient(0, 0, w, 0);
+  grad.addColorStop(0, PURPLE);
+  grad.addColorStop(1, PURPLE_SOFT);
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, w, 130);
+
+  ctx.fillStyle = "#ffffff";
+  ctx.textAlign = "center";
+  ctx.font = "bold 40px sans-serif";
+  ctx.fillText("Kode Laporan Aspirasi", w / 2, 72);
+  ctx.font = "22px sans-serif";
+  ctx.fillStyle = "rgba(255,255,255,0.8)";
+  ctx.fillText("BEM KM UNAND", w / 2, 108);
+
+  ctx.fillStyle = "#faf5f8";
+  ctx.strokeStyle = "#e9d5e1";
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.roundRect(70, 190, w - 140, 120, 24);
+  ctx.fill();
+  ctx.stroke();
+
+  ctx.fillStyle = PURPLE;
+  ctx.font = "bold 56px monospace";
+  ctx.fillText(kode, w / 2, 265);
+
+  ctx.fillStyle = "#6b7280";
+  ctx.font = "22px sans-serif";
+  ctx.fillText("Simpan kode ini untuk mengecek status tindak lanjut aspirasimu.", w / 2, 380);
+  ctx.fillText("Cek di halaman \"Cek Status Aspirasi\" pada web BEM KM UNAND.", w / 2, 415);
+
+  ctx.fillStyle = GOLD;
+  ctx.fillRect(70, 460, w - 140, 4);
+
+  c.toBlob((blob) => {
+    if (!blob) return;
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `Kode-Laporan-${kode}.png`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }, "image/png");
+}
 
 export default function AspirasiForm({ embedded = false }) {
   const [form, setForm] = useState(initialForm);
@@ -43,6 +113,8 @@ export default function AspirasiForm({ embedded = false }) {
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState(null);
   const [errMsg, setErrMsg] = useState("");
+  const [kodeLaporan, setKodeLaporan] = useState(null);
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     if (!status) return;
@@ -86,10 +158,13 @@ export default function AspirasiForm({ embedded = false }) {
     setFotoErr("");
   };
 
+  const hpValid = isValidHp(form.no_hp);
+
   const isValid =
     form.fakultas &&
     form.nama_kategori &&
     form.isi.trim().length >= 10 &&
+    hpValid &&
     (!form.anonim ? form.nama.trim().length > 0 : true);
 
   const handleSubmit = async (e) => {
@@ -103,6 +178,7 @@ export default function AspirasiForm({ embedded = false }) {
     try {
       const fd = new FormData();
       fd.append("nama", form.anonim ? "" : form.nama);
+      fd.append("no_hp", form.no_hp.trim());
       fd.append("fakultas", form.fakultas);
       fd.append("nama_kategori", form.nama_kategori);
       fd.append("isi", form.isi);
@@ -113,12 +189,14 @@ export default function AspirasiForm({ embedded = false }) {
         body: fd,
       });
 
+      const data = await res.json().catch(() => ({}));
+
       if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
         throw new Error(data.message || "Gagal mengirim aspirasi. Coba lagi ya.");
       }
 
-      setStatus("success");
+      setKodeLaporan(data.kode_laporan || null);
+      setCopied(false);
       setForm(initialForm);
       previews.forEach((p) => URL.revokeObjectURL(p));
       setFotos([]);
@@ -130,6 +208,13 @@ export default function AspirasiForm({ embedded = false }) {
     } finally {
       setLoading(false);
     }
+  };
+
+  const copyKode = () => {
+    if (!kodeLaporan) return;
+    navigator.clipboard?.writeText(kodeLaporan);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1800);
   };
 
   return (
@@ -189,6 +274,34 @@ export default function AspirasiForm({ embedded = false }) {
                 placeholder={form.anonim ? "Tidak ditampilkan" : "Nama lengkap"}
                 className={`${fieldClass} disabled:bg-gray-50 disabled:text-gray-300`}
               />
+            </div>
+
+            <div>
+              <label className="mb-2 flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-gray-400">
+                Nomor HP
+                <span className="rounded-full bg-gray-100 px-2 py-0.5 text-[10px] font-medium normal-case tracking-normal text-gray-400">
+                  Opsional
+                </span>
+              </label>
+              <input
+                type="tel"
+                inputMode="tel"
+                value={form.no_hp}
+                onChange={(e) => update("no_hp", sanitizeHp(e.target.value))}
+                maxLength={16}
+                placeholder="08xxxxxxxxxx"
+                className={`${fieldClass} ${!hpValid ? "!border-red-300 focus:!ring-red-100" : ""}`}
+              />
+              {!hpValid ? (
+                <p className="mt-2 text-[11px] text-red-500">
+                  Format nomor HP tidak valid. Contoh: 081234567890
+                </p>
+              ) : (
+                <p className="mt-2 flex items-start gap-1.5 text-[11px] leading-relaxed text-gray-400">
+                  <span className="mt-0.5 flex-shrink-0" style={{ color: PURPLE }}><LockIcon /></span>
+                  Diisi jika kamu ingin kami menghubungi untuk tindak lanjut. Datamu akan dirahasiakan dan tidak ditampilkan ke publik.
+                </p>
+              )}
             </div>
 
             <div className="grid gap-5 sm:grid-cols-2">
@@ -283,42 +396,110 @@ export default function AspirasiForm({ embedded = false }) {
               {fotoErr && <p className="mt-2 text-[11px] text-red-500">{fotoErr}</p>}
             </div>
 
-            <button
-              type="submit"
-              disabled={!isValid || loading}
-              className="mt-2 w-full rounded-2xl px-5 py-3.5 text-sm font-semibold text-white transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-40 hover:brightness-110 active:translate-y-[1px]"
-              style={{ background: `linear-gradient(135deg, ${PURPLE}, ${PURPLE_SOFT})` }}
-            >
-              {loading ? "Mengirim..." : "Kirim Aspirasi"}
-            </button>
+            <div className="space-y-3 pt-1">
+              <button
+                type="submit"
+                disabled={!isValid || loading}
+                className="w-full rounded-2xl px-5 py-3.5 text-sm font-semibold text-white transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-40 hover:brightness-110 active:translate-y-[1px]"
+                style={{ background: `linear-gradient(135deg, ${PURPLE}, ${PURPLE_SOFT})` }}
+              >
+                {loading ? "Mengirim..." : "Kirim Aspirasi"}
+              </button>
+
+              <Link
+                href={CEK_STATUS_PATH}
+                className="flex w-full items-center justify-center gap-2 rounded-2xl border border-[#55193A]/20 bg-white px-5 py-3.5 text-sm font-semibold transition-all duration-200 hover:border-[#55193A]/40 hover:bg-[#55193A]/5 active:translate-y-[1px]"
+                style={{ color: PURPLE }}
+              >
+                <SearchIcon /> Cek Status Aspirasi
+              </Link>
+            </div>
           </form>
         </motion.div>
       </div>
 
       <AnimatePresence>
-        {status === "success" && (
+        {/* Modal kode laporan setelah aspirasi terkirim */}
+        {kodeLaporan && (
           <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 15, scale: 0.96 }}
-            className="fixed inset-x-4 top-6 z-50 mx-auto w-full max-w-md"
+            key="kode-modal"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[60] flex items-center justify-center bg-black/40 p-4 backdrop-blur-sm"
           >
-            <div className="rounded-2xl border border-[#55193A]/10 bg-[#55193A] px-4 py-3 text-white shadow-[0_20px_40px_-20px_rgba(85,25,58,0.8)]">
-              <div className="flex items-center gap-3">
-                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10">
+            <motion.div
+              initial={{ opacity: 0, y: 24, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 16, scale: 0.97 }}
+              className="w-full max-w-md overflow-hidden rounded-[28px] bg-white shadow-[0_30px_80px_-25px_rgba(85,25,58,0.5)]"
+            >
+              <div
+                className="px-6 py-6 text-center text-white"
+                style={{ background: `linear-gradient(135deg, ${PURPLE}, ${PURPLE_SOFT})` }}
+              >
+                <div className="mx-auto mb-3 flex h-11 w-11 items-center justify-center rounded-full bg-white/10">
                   <CheckCircleIcon />
                 </div>
-                <div>
-                  <p className="text-sm font-semibold">Aspirasi terkirim</p>
-                  <p className="text-xs text-white/75">Terima kasih, saranmu sudah kami terima.</p>
-                </div>
+                <p className="text-base font-semibold">Aspirasi terkirim</p>
+                <p className="mt-1 text-xs text-white/75">Terima kasih, saranmu sudah kami terima.</p>
               </div>
-            </div>
+
+              <div className="space-y-4 p-6">
+                <div>
+                  <p className="mb-2 text-center text-[11px] font-semibold uppercase tracking-[0.18em] text-gray-400">
+                    Kode laporanmu
+                  </p>
+                  <button
+                    type="button"
+                    onClick={copyKode}
+                    title="Klik untuk menyalin"
+                    className="w-full rounded-2xl border border-[#55193A]/15 bg-[#55193A]/[0.04] px-4 py-4 text-center font-mono text-xl font-bold tracking-wider transition hover:bg-[#55193A]/[0.08] sm:text-2xl"
+                    style={{ color: PURPLE }}
+                  >
+                    {kodeLaporan}
+                  </button>
+                  <p className="mt-1.5 text-center text-[11px] text-gray-400">
+                    {copied ? "✓ Kode tersalin" : "Klik kode untuk menyalin"}
+                  </p>
+                </div>
+
+                <div className="rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-xs leading-relaxed text-amber-800">
+                  <strong>Simpan kode ini baik-baik.</strong> Kamu membutuhkannya untuk mengetahui status tindak lanjut aspirasimu. Kode tidak bisa dilihat lagi setelah jendela ini ditutup.
+                </div>
+
+                <div className="grid grid-cols-2 gap-2.5">
+                  <button
+                    type="button"
+                    onClick={() => downloadKodeImage(kodeLaporan)}
+                    className="rounded-2xl border border-gray-200 px-4 py-3 text-xs font-semibold text-gray-600 transition hover:border-gray-300 hover:bg-gray-50"
+                  >
+                    Simpan sebagai gambar
+                  </button>
+                  <Link
+                    href={CEK_STATUS_PATH}
+                    className="flex items-center justify-center rounded-2xl px-4 py-3 text-xs font-semibold text-white transition hover:brightness-110"
+                    style={{ background: `linear-gradient(135deg, ${PURPLE}, ${PURPLE_SOFT})` }}
+                  >
+                    Cek status
+                  </Link>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => setKodeLaporan(null)}
+                  className="w-full py-1 text-xs font-medium text-gray-400 transition hover:text-gray-600"
+                >
+                  Tutup
+                </button>
+              </div>
+            </motion.div>
           </motion.div>
         )}
 
         {status === "error" && (
           <motion.div
+            key="error-toast"
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 15, scale: 0.96 }}
@@ -351,10 +532,20 @@ function PlusIcon() {
   );
 }
 
-function CheckIcon() {
+function LockIcon() {
   return (
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M5 12.5l4.2 4.2L19 2.8" />
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="4" y="11" width="16" height="10" rx="2" />
+      <path d="M8 11V7a4 4 0 0 1 8 0v4" />
+    </svg>
+  );
+}
+
+function SearchIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="11" cy="11" r="8" />
+      <line x1="21" y1="21" x2="16.65" y2="16.65" />
     </svg>
   );
 }

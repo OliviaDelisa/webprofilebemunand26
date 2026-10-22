@@ -52,19 +52,18 @@ const socialLinks = [
 ];
 
 const footerNavLinks = [
-  { href: "/",                            label: "Home"                },
-  { href: "/tentang/visi-misi",           label: "Visi & Misi"         },
-  { href: "/tentang/tujuan",              label: "Tujuan"              },
-  { href: "/tentang/kata-sambutan",       label: "Kata Sambutan"       },
-  { href: "/tentang/kabinet-rakit-makna", label: "Kabinet Rakit Makna" },
-  { href: "/tentang/program-unggulan",    label: "Program Unggulan"    },
-  { href: "/tentang/kementerian",         label: "Kementerian"         },
-  { href: "/aspirasi",                    label: "Aspirasi"            },
-  { href: "/artikel",                     label: "Artikel"             },
-  { href: "/event",                       label: "Event"               },
-  { href: "/informasi",                  label: "Informasi"           },
-  { href: "/gallery",                     label: "Galeri"              },
-  { href: "/kontak",                      label: "Kontak"              },
+  { href: "/",                       label: "Home"                },
+  { href: "/#visi-misi",             label: "Visi & Misi"         },
+  { href: "/#kata-sambutan",         label: "Kata Sambutan"       },
+  { href: "/#kabinet-rakit-makna",   label: "Kabinet Rakit Makna" },
+  { href: "/#program-unggulan",      label: "Program Unggulan"    },
+  { href: "/#kementerian",           label: "Kementerian"         },
+  { href: "/aspirasi",               label: "Aspirasi"            },
+  { href: "/artikel",                label: "Artikel"             },
+  { href: "/event",                  label: "Event"               },
+  { href: "/informasi",              label: "Informasi"           },
+  { href: "/gallery",                label: "Galeri"              },
+  { href: "/kontak",                 label: "Kontak"              },
 ];
 
 export default function Footer() {
